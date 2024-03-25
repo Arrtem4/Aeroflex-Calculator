@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="Keywords" />
+  <meta name="description"
+    content="Калькулятор технической изоляции - подробнее на сайте или по ☎  +7 342 209-95-06 | Интернет-магазин «AEROFLEX»" />
+  <link href="../../../bitrix/js/main/core/css/core.css" type="text/css" rel="stylesheet" />
+
+  <script type="text/javascript"
+    data-skip-moving="true">(function (w, d) { var v = w.frameCacheVars = { 'CACHE_MODE': 'HTMLCACHE', 'storageBlocks': [], 'dynamicBlocks': { 'SGQHGF': '80c50647f0fc', 'g8taYv': '95121e0b15ad', 'rIpOz9': '98ccec9261d3', 'NMQc3w': 'f9f9a23f0c7a' }, 'AUTO_UPDATE': true, 'AUTO_UPDATE_TTL': '120' }; var inv = false; if (v.AUTO_UPDATE === false) { if (v.AUTO_UPDATE_TTL && v.AUTO_UPDATE_TTL > 0) { var lm = Date.parse(d.lastModified); if (!isNaN(lm)) { var td = new Date().getTime(); if ((lm + v.AUTO_UPDATE_TTL * 1000) >= td) { w.frameRequestStart = false; w.preventAutoUpdate = true; return; } inv = true; } } else { w.frameRequestStart = false; w.preventAutoUpdate = true; return; } } var r = w.XMLHttpRequest ? new XMLHttpRequest() : (w.ActiveXObject ? new w.ActiveXObject("Microsoft.XMLHTTP") : null); if (!r) { return; } w.frameRequestStart = true; var m = v.CACHE_MODE; var l = w.location; var x = new Date().getTime(); var q = "?bxrand=" + x + (l.search.length > 0 ? "&" + l.search.substring(1) : ""); var u = l.protocol + "//" + l.host + l.pathname + q; r.open("GET", u, true); r.setRequestHeader("BX-ACTION-TYPE", "get_dynamic"); r.setRequestHeader("X-Bitrix-Composite", "get_dynamic"); r.setRequestHeader("BX-CACHE-MODE", m); r.setRequestHeader("BX-CACHE-BLOCKS", v.dynamicBlocks ? JSON.stringify(v.dynamicBlocks) : ""); if (inv) { r.setRequestHeader("BX-INVALIDATE-CACHE", "Y"); } try { r.setRequestHeader("BX-REF", d.referrer || ""); } catch (e) { } if (m === "APPCACHE") { r.setRequestHeader("BX-APPCACHE-PARAMS", JSON.stringify(v.PARAMS)); r.setRequestHeader("BX-APPCACHE-URL", v.PAGE_URL ? v.PAGE_URL : ""); } r.onreadystatechange = function () { if (r.readyState != 4) { return; } var a = r.getResponseHeader("BX-RAND"); var b = w.BX && w.BX.frameCache ? w.BX.frameCache : false; if (a != x || !((r.status >= 200 && r.status < 300) || r.status === 304 || r.status === 1223 || r.status === 0)) { var f = { error: true, reason: a != x ? "bad_rand" : "bad_status", url: u, xhr: r, status: r.status }; if (w.BX && w.BX.ready) { BX.ready(function () { setTimeout(function () { BX.onCustomEvent("onFrameDataRequestFail", [f]); }, 0); }); } else { w.frameRequestFail = f; } return; } if (b) { b.onFrameDataReceived(r.responseText); if (!w.frameUpdateInvoked) { b.update(false); } w.frameUpdateInvoked = true; } else { w.frameDataString = r.responseText; } }; r.send(); })(window, document);</script>
+
+
+  <link href="../../../local/templates/aeroflex/assets/lib/select2/css/select2.min.css" type="text/css"
+    rel="stylesheet" />
+  <link href="../../../local/templates/aeroflex/assets/css/calc.css" type="text/css" rel="stylesheet" />
+  <link href="../../../local/templates/aeroflex/assets/lib/slick/slick.css?16163897331854" type="text/css"
+    data-template-style="true" rel="stylesheet" />
+  <link href="../../../local/templates/aeroflex/assets/css/main.css" type="text/css" data-template-style="true"
+    rel="stylesheet" />
+  <link href="../../../local/templates/aeroflex/template_styles.css
+" type="text/css" data-template-style="true" rel="stylesheet" />
+  <script
+    type="text/javascript">if (!window.BX) window.BX = {}; if (!window.BX.message) window.BX.message = function (mess) { if (typeof mess === 'object') { for (let i in mess) { BX.message[i] = mess[i]; } return true; } };</script>
+  <script
+    type="text/javascript">(window.BX || top.BX).message({ 'JS_CORE_LOADING': 'Загрузка...', 'JS_CORE_NO_DATA': '- Нет данных -', 'JS_CORE_WINDOW_CLOSE': 'Закрыть', 'JS_CORE_WINDOW_EXPAND': 'Развернуть', 'JS_CORE_WINDOW_NARROW': 'Свернуть в окно', 'JS_CORE_WINDOW_SAVE': 'Сохранить', 'JS_CORE_WINDOW_CANCEL': 'Отменить', 'JS_CORE_WINDOW_CONTINUE': 'Продолжить', 'JS_CORE_H': 'ч', 'JS_CORE_M': 'м', 'JS_CORE_S': 'с', 'JSADM_AI_HIDE_EXTRA': 'Скрыть лишние', 'JSADM_AI_ALL_NOTIF': 'Показать все', 'JSADM_AUTH_REQ': 'Требуется авторизация!', 'JS_CORE_WINDOW_AUTH': 'Войти', 'JS_CORE_IMAGE_FULL': 'Полный размер' });</script>
+
+  <script type="text/javascript" src="../../../bitrix/js/main/core/core.js?1616389763563115"></script>
+
+  <script>BX.setJSList(['/bitrix/js/main/core/core_ajax.js', '/bitrix/js/main/core/core_promise.js', '/bitrix/js/main/polyfill/promise/js/promise.js', '/bitrix/js/main/loadext/loadext.js', '/bitrix/js/main/loadext/extension.js', '/bitrix/js/main/polyfill/promise/js/promise.js', '/bitrix/js/main/polyfill/find/js/find.js', '/bitrix/js/main/polyfill/includes/js/includes.js', '/bitrix/js/main/polyfill/matches/js/matches.js', '/bitrix/js/ui/polyfill/closest/js/closest.js', '/bitrix/js/main/polyfill/fill/main.polyfill.fill.js', '/bitrix/js/main/polyfill/find/js/find.js', '/bitrix/js/main/polyfill/matches/js/matches.js', '/bitrix/js/main/polyfill/core/dist/polyfill.bundle.js', '/bitrix/js/main/core/core.js', '/bitrix/js/main/polyfill/intersectionobserver/js/intersectionobserver.js', '/bitrix/js/main/lazyload/dist/lazyload.bundle.js', '/bitrix/js/main/polyfill/core/dist/polyfill.bundle.js', '/bitrix/js/main/parambag/dist/parambag.bundle.js']);
+    BX.setCSSList(['/bitrix/js/main/core/css/core.css', '/bitrix/js/main/lazyload/dist/lazyload.bundle.css', '/bitrix/js/main/parambag/dist/parambag.bundle.css']);</script>
+  <script
+    type="text/javascript">(window.BX || top.BX).message({ 'LANGUAGE_ID': 'ru', 'FORMAT_DATE': 'DD.MM.YYYY', 'FORMAT_DATETIME': 'DD.MM.YYYY HH:MI:SS', 'COOKIE_PREFIX': 'BITRIX_SM', 'SERVER_TZ_OFFSET': '18000', 'SITE_ID': 's1', 'SITE_DIR': '/' });</script>
+
+
+  <script type="text/javascript"
+    src="../../../bitrix/js/main/polyfill/customevent/main.polyfill.customevent.js?1616389766913"></script>
+  <script type="text/javascript"
+    src="../../../bitrix/js/ui/dexie/dist/dexie.bitrix.bundle.js?1616389757196311"></script>
+  <script type="text/javascript" src="../../../bitrix/js/main/core/core_ls.js?161638976310430"></script>
+  <script type="text/javascript" src="../../../bitrix/js/main/core/core_fx.js?161638976316888"></script>
+  <script type="text/javascript" src="../../../bitrix/js/main/core/core_frame_cache.js?161638976316064"></script>
+
+
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/js/calc.js"></script>
+  <script
+    type="text/javascript">var _ba = _ba || []; _ba.push(["aid", "bc842d82a95271a702192159981fe09d"]); _ba.push(["host", "aeroflex-russia.ru"]); (function () { var ba = document.createElement("script"); ba.type = "text/javascript"; ba.async = true; ba.src = (document.location.protocol == "https:" ? "https://" : "http://") + "bitrix.info/ba.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ba, s); })();</script>
+
+
+  <title>Калькулятор технической изоляции - интернет-магазин «AEROFLEX»</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+
+  <meta property="og:title" content="Калькулятор технической изоляции - интернет-магазин «AEROFLEX»">
+  <meta property="og:type" content="website">
+  <meta property="og:url"
+    content="https://aeroflex-russia.ru/podderzhka/kalkulyatory/kalkulyator-tekhnicheskoy-izolyatsii/">
+  <meta property="og:image" content="https://aeroflex-russia.ru/local/templates/aeroflex/assets/img/Logo.png">
+
+  <!-- css -->
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(69163153, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/69163153" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <meta name="cmsmagazine" content="a8f0398fc1705a17a38b43e0686d360b" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-182347685-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-182347685-1');
+  </script>
+  <script
+    type="text/javascript">!function () { var t = document.createElement("script"); t.type = "text/javascript", t.async = !0, t.src = "https://vk.com/js/api/openapi.js?169", t.onload = function () { VK.Retargeting.Init("VK-RTRG-993250-6y6i7"), VK.Retargeting.Hit() }, document.head.appendChild(t) }();</script>
+  <noscript>
+    <img src="https://vk.com/rtrg?p=VK-RTRG-993250-6y6i7" style="position:fixed; left:-999px;" alt="" />
+  </noscript>
+</head>
+<!--<div class="preloader"></div>-->
+<div class="preloader_1">
+  <img src="../../../local/templates/aeroflex/assets/img/Logo.png" alt="">
+</div>
+<!--<div class="preloader_2"></div>-->
+<!--<div class="preloader_3">-->
+<!--    <div class="loader">Loading...</div>-->
+<!--</div>-->
+
+<body>
+
+  <div id="root">
+    <header class="header header_black">
+      <div class="header__mobile _viewMenu">
+        <span></span>
+      </div>
+
+      <!--<pre style="position: absolute; right: 0; top: 0; color: cadetblue; background-color: antiquewhite;">-->
+      <!--</pre>-->
+      <div class="header__mobileMenu">
+        <div class="header__mobileBg"></div>
+        <div class="header__mobileClose _closeMobile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+            <path class="cls-1" d="M3.222,3.222L18.778,18.778M19,3L3,19" />
+          </svg>
+        </div>
+        <div class="menu__list">
+          <div class="menu__item_dropdown _viewSecMenu">
+            <a href="../../../produktsiya/index.html" class="menu__item ">
+              <span> Продукция <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="menu__dropdownBack _dropdownBack">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                  id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                  <path
+                    d="M508.875,248.458l-160-160c-4.167-4.167-10.917-4.167-15.083,0c-4.167,4.167-4.167,10.917,0,15.083l141.792,141.792    H10.667C4.771,245.333,0,250.104,0,256s4.771,10.667,10.667,10.667h464.917L333.792,408.458c-4.167,4.167-4.167,10.917,0,15.083    c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125l160-160C513.042,259.375,513.042,252.625,508.875,248.458z    " />
+                </svg>
+                <span>Назад</span>
+              </div>
+              <div class="dropdown">
+
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Техническая изоляция</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm-ht/index.html"><span>Aeroflex
+                        EPDM HT</span></a>
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-firo/index.html"><span>Aeroflex
+                        FIRO</span></a>
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm/index.html"><span>Aeroflex
+                        EPDM</span></a>
+                  </div>
+                </div>
+
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Покрытия и системы</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-metal-pro/index.html"><span>Aeroflex
+                        Metal Pro</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg-alu/index.html"><span>Aeroflex FG
+                        Alu</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg/index.html"><span>Aeroflex
+                        FG</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-alu/index.html"><span>Aeroflex
+                        Alu</span></a>
+                  </div>
+                </div>
+
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Аксессуары</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/aksessuary/podvesy-aerofix/index.html"><span>Подвесы
+                        Aerofix</span></a>
+                    <a href="../../../produktsiya/aksessuary/kley-aeroseal/index.html"><span>Клей Aeroseal</span></a>
+                    <a href="../../../produktsiya/aksessuary/kley-aeroseal-tf-ht/index.html"><span>Клей Aeroseal
+                        TF/HT</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-aerotape/index.html"><span>Лента Aerotape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-aerotape-ht/index.html"><span>Лента Aerotape
+                        HT</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape/index.html"><span>Лента Alutape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape-arm/index.html"><span>Лента Alutape
+                        ARM</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape-mka/index.html"><span>Лента Alutape
+                        MKA</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-fg-tape/index.html"><span>Лента FG-tape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-protape/index.html"><span>Лента Protape</span></a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <a href="../../../o-kompanii/advantages/index.html" class="menu__item"><span>Преимущества</span> </a>
+
+          <a href="../../../primenenie/index.html" class="menu__item"><span>Применение</span> </a>
+
+          <div class="menu__item_dropdown _viewSecMenu">
+            <a href="../../index.html" class="menu__item ">
+              <span> Поддержка <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="menu__dropdownBack _dropdownBack">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                  id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                  <path
+                    d="M508.875,248.458l-160-160c-4.167-4.167-10.917-4.167-15.083,0c-4.167,4.167-4.167,10.917,0,15.083l141.792,141.792    H10.667C4.771,245.333,0,250.104,0,256s4.771,10.667,10.667,10.667h464.917L333.792,408.458c-4.167,4.167-4.167,10.917,0,15.083    c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125l160-160C513.042,259.375,513.042,252.625,508.875,248.458z    " />
+                </svg>
+                <span>Назад</span>
+              </div>
+              <div class="dropdown">
+
+                <a href="../../download/index.html" class="dropdown__title">Скачиваемые материалы</a>
+
+                <a href="../../faq/index.html" class="dropdown__title">Часто задаваемые вопросы</a>
+
+                <a href="index.html" class="dropdown__title">Калькуляторы</a>
+
+              </div>
+            </div>
+          </div>
+          <div class="menu__item_dropdown _viewSecMenu">
+            <a href="../../../o-kompanii/index.html" class="menu__item ">
+              <span> Компания <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="menu__dropdownBack _dropdownBack">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                  id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                  <path
+                    d="M508.875,248.458l-160-160c-4.167-4.167-10.917-4.167-15.083,0c-4.167,4.167-4.167,10.917,0,15.083l141.792,141.792    H10.667C4.771,245.333,0,250.104,0,256s4.771,10.667,10.667,10.667h464.917L333.792,408.458c-4.167,4.167-4.167,10.917,0,15.083    c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125l160-160C513.042,259.375,513.042,252.625,508.875,248.458z    " />
+                </svg>
+                <span>Назад</span>
+              </div>
+              <div class="dropdown">
+
+                <a href="../../../o-kompanii/company/index.html" class="dropdown__title">О компании</a>
+
+                <a href="../../../o-kompanii/kontakty/index.html" class="dropdown__title">Контакты</a>
+
+              </div>
+            </div>
+          </div>
+          <a href="../../../proekty/index.html" class="menu__item"><span>Примеры</span> </a>
+
+        </div>
+      </div>
+
+      <a href="../../../index.html" class="header__logo">
+        <img src="../../../local/templates/aeroflex/assets/img/Logo.png" alt="">
+        <span>Профессиональная теплоизоляция из каучука</span>
+      </a>
+
+
+      <div class="header__menu">
+        <div class="menu__list">
+          <div class="menu__item_dropdown ">
+            <a href="../../../produktsiya/index.html" class="menu__item">
+              <span>
+                Продукция <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="dropdown">
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Техническая изоляция</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm-ht/index.html"><span>Aeroflex
+                        EPDM HT</span></a>
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-firo/index.html"><span>Aeroflex
+                        FIRO</span></a>
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm/index.html"><span>Aeroflex
+                        EPDM</span></a>
+                  </div>
+                </div>
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Покрытия и системы</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-metal-pro/index.html"><span>Aeroflex
+                        Metal Pro</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg-alu/index.html"><span>Aeroflex FG
+                        Alu</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg/index.html"><span>Aeroflex
+                        FG</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-alu/index.html"><span>Aeroflex
+                        Alu</span></a>
+                  </div>
+                </div>
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Аксессуары</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/aksessuary/podvesy-aerofix/index.html"><span>Подвесы
+                        Aerofix</span></a>
+                    <a href="../../../produktsiya/aksessuary/kley-aeroseal/index.html"><span>Клей Aeroseal</span></a>
+                    <a href="../../../produktsiya/aksessuary/kley-aeroseal-tf-ht/index.html"><span>Клей Aeroseal
+                        TF/HT</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-aerotape/index.html"><span>Лента Aerotape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-aerotape-ht/index.html"><span>Лента Aerotape
+                        HT</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape/index.html"><span>Лента Alutape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape-arm/index.html"><span>Лента Alutape
+                        ARM</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape-mka/index.html"><span>Лента Alutape
+                        MKA</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-fg-tape/index.html"><span>Лента FG-tape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-protape/index.html"><span>Лента Protape</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="../../../o-kompanii/advantages/index.html" class="menu__item"><span>Преимущества</span> </a>
+          <a href="../../../primenenie/index.html" class="menu__item"><span>Применение</span> </a>
+          <div class="menu__item_dropdown single">
+            <a href="../../index.html" class="menu__item">
+              <span>
+                Поддержка <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="dropdown">
+                <a href="../../download/index.html" class="dropdown__title"><span>Скачиваемые материалы</span></a>
+                <a href="../../faq/index.html" class="dropdown__title"><span>Часто задаваемые вопросы</span></a>
+                <a href="index.html" class="dropdown__title"><span>Калькуляторы</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="menu__item_dropdown single">
+            <a href="../../../o-kompanii/index.html" class="menu__item">
+              <span>
+                Компания <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="dropdown">
+                <a href="../../../o-kompanii/company/index.html" class="dropdown__title"><span>О компании</span></a>
+                <a href="../../../o-kompanii/kontakty/index.html" class="dropdown__title"><span>Контакты</span></a>
+              </div>
+            </div>
+          </div>
+          <a href="../../../proekty/index.html" class="menu__item"><span>Примеры</span> </a>
+        </div>
+
+
+        <div class="header__search">
+          <div class="search__icon _search">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+              id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+              xml:space="preserve">
+              <path
+                d="M508.875,493.792L353.089,338.005c32.358-35.927,52.245-83.296,52.245-135.339C405.333,90.917,314.417,0,202.667,0    S0,90.917,0,202.667s90.917,202.667,202.667,202.667c52.043,0,99.411-19.887,135.339-52.245l155.786,155.786    c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125C513.042,504.708,513.042,497.958,508.875,493.792z     M202.667,384c-99.979,0-181.333-81.344-181.333-181.333S102.688,21.333,202.667,21.333S384,102.677,384,202.667    S302.646,384,202.667,384z" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="search__input">
+          <form action="https://aeroflex-russia.ru/search/index.php">
+            <input type="text" name="q" placeholder="Что будем искать?">
+            <svg class="_searchClose" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.001 512.001"
+              style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+              <path
+                d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717    L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859    c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287    l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285    L284.286,256.002z" />
+            </svg>
+          </form>
+        </div>
+      </div>
+
+    </header>
+
+
+
+
+
+
+
+
+
+    <main>
+      <div class="blur">
+        <section class="section firstScreen firstScreen_v2 firstScreen_v3">
+          <div class="firstScreen__bg">
+          </div>
+          <div class="container">
+            <div class="firstScreen__content">
+              <div class="firstScreen__slideContent">
+                <div class="firstScreen__item">
+                  <div class="breadcrumbs__items" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <div class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                      itemtype="https://schema.org/ListItem"><a href="../../../index.html" title="Главная"
+                        itemprop="item"><span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="0">
+                      </a></div>
+                    <div class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                      itemtype="https://schema.org/ListItem"><a href="../../index.html" title="Поддержка"
+                        itemprop="item"><span itemprop="name">Поддержка</span>
+                        <meta itemprop="position" content="1">
+                      </a></div>
+                    <div class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                      itemtype="https://schema.org/ListItem"><a href="../index.html" title="Калькуляторы"
+                        itemprop="item"><span itemprop="name">Калькуляторы</span>
+                        <meta itemprop="position" content="2">
+                      </a></div>
+                    <div class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                      itemtype="https://schema.org/ListItem"><a href="index.html#" title=" Калькулятор технической
+                        изоляции" itemprop="item" class="breadcrumbs__item"><span itemprop="name">Калькулятор
+                          технической изоляции</span>
+                        <meta itemprop="position" content="3">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="firstScreen__title">
+                    <h1>
+                      Расчет толщины тепловой изоляции по заданной температуре на её поверхности
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section calc calc_test">
+          <div class="container">
+
+            <div class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a href="../index.html" title="Калькуляторы" itemprop="item" class="breadcrumbs__item">
+                <span itemprop="name">Вернуться к методам расчёта</span>
+                <!-- <meta itemprop="position" content="3"> -->
+              </a>
+            </div>
+            
+            <div id="bxdynamic_SGQHGF_start" style="display:none"></div>
+            <div class="calc__content">
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Регион расположения</span></div>
+                <div class="calc__col">
+                  <div class="calc__select">
+                    <select name="region" id="region" class="js-select-single">
+                      <option class="calc__option" data-heat-temperature="27" data-cold-temperature="-37">Абакан
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,7" data-cold-temperature="-41">Алдан
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-54">Амга
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,9" data-cold-temperature="-53">Агата
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-28">Агзу
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,6" data-cold-temperature="-34">Агинское
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,9" data-cold-temperature="-16">Ай-Петри
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-34">Акша
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,7" data-cold-temperature="-35">Алейск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,5" data-cold-temperature="-26">
+                        Александровск- Сахалинский</option>
+                      <option class="calc__option" data-heat-temperature="31,8" data-cold-temperature="-26">Александров
+                        Гай</option>
+                      <option class="calc__option" data-heat-temperature="24" data-cold-temperature="-37">
+                        Александровский Завод</option>
+                      <option class="calc__option" data-heat-temperature="24,1" data-cold-temperature="-42">
+                        Александровское
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,9" data-cold-temperature="-34">Алыгджер
+                      </option>
+                      <option class="calc__option" data-heat-temperature="15,4" data-cold-temperature="-39">Анадырь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,9" data-cold-temperature="-29">Анучино
+                      </option>
+                      <option class="calc__option" data-heat-temperature="13,9" data-cold-temperature="-28">Апука
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,7" data-cold-temperature="-29">Арзамас
+                      </option>
+                      <option class="calc__option" data-heat-temperature="32,9" data-cold-temperature="-20">Арзгир
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,1" data-cold-temperature="-34">Архангельск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,7" data-cold-temperature="-36">Архара
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,4" data-cold-temperature="-25">Астраханка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="32,4" data-cold-temperature="-20">Астрахань
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,7" data-cold-temperature="-36">Ачинск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="16,5" data-cold-temperature="-28">Аян
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,7" data-cold-temperature="-30">Бабаево
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,8" data-cold-temperature="-30">Байдуков
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,6" data-cold-temperature="-53">Батамай
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,9" data-cold-temperature="-29">Бабушкин
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,6" data-cold-temperature="-42">Багдарин
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,4" data-cold-temperature="-27">Байкальск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,5" data-cold-temperature="-50">Байкит
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,9" data-cold-temperature="-25">Балашов
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,9" data-cold-temperature="-38">Барабинск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-41">Баргузин
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,6" data-cold-temperature="-36">Барнаул
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,3" data-cold-temperature="-30">Бежецк
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27" data-cold-temperature="-24">Белгород
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,2" data-cold-temperature="-54">Бердигястях
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,9" data-cold-temperature="-36">Белогорск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,9" data-cold-temperature="-31">Белорецк
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,3" data-cold-temperature="-50">Берёзово
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,4" data-cold-temperature="-42">Берёзово
+                        (ХМАО)
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,9" data-cold-temperature="-37">Бийск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,6" data-cold-temperature="-30">Бикин
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,1" data-cold-temperature="-31">Биробиджан
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,7" data-cold-temperature="-35">Бисер
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,5" data-cold-temperature="-33">Благовещенск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,7" data-cold-temperature="-20">Богополь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-37">Боготол
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,1" data-cold-temperature="-45">Богучаны
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,1" data-cold-temperature="-47">Бодайбо
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,4" data-cold-temperature="-38">Болотное
+                      </option>
+                      <option class="calc__option" data-heat-temperature="15,9" data-cold-temperature="-27">Большерецк
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,9" data-cold-temperature="-42">Бомнак
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,8" data-cold-temperature="-38">Борзя
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,7" data-cold-temperature="-29">Боровичи
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,2" data-cold-temperature="-37">Братолюбовка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,7" data-cold-temperature="-39">Братск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="16" data-cold-temperature="-35">Брохово
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-23">Брянск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,4" data-cold-temperature="-29">Бугульма
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,3" data-cold-temperature="-40">Бысса
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,1" data-cold-temperature="-52">Буяга
+                      </option>
+                      <option class="calc__option" data-heat-temperature="14,5" data-cold-temperature="-16">Вайда-Губа
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,3" data-cold-temperature="-51">Ванавара
+                      </option>
+                      <option class="calc__option" data-heat-temperature="13,9" data-cold-temperature="-36">Варандей
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,8" data-cold-temperature="-25">Великие Луки
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,5" data-cold-temperature="-27">Великий
+                        Новгород</option>
+                      <option class="calc__option" data-heat-temperature="24,9" data-cold-temperature="-48">Вельмо
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22" data-cold-temperature="-39">Вендинга
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,8" data-cold-temperature="-48">
+                        Верхне-Марково
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,5" data-cold-temperature="-47">
+                        Верхнеимбатск</option>
+                      <option class="calc__option" data-heat-temperature="24,7" data-cold-temperature="-35">
+                        Верхнеуральск</option>
+                      <option class="calc__option" data-heat-temperature="32,6" data-cold-temperature="-23">Верхний
+                        Баскунчак</option>
+                      <option class="calc__option" data-heat-temperature="22,3" data-cold-temperature="-35">Верхняя
+                        Гутара</option>
+                      <option class="calc__option" data-heat-temperature="24,2" data-cold-temperature="-36">Верхотурье
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,4" data-cold-temperature="-58">Верхоянск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,4" data-cold-temperature="-50">Витим
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,9" data-cold-temperature="-52">Вилюйск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,4" data-cold-temperature="-22">Владивосток
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,3" data-cold-temperature="-14">Владикавказ
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,8" data-cold-temperature="-27">Владимир
+                      </option>
+                      <option class="calc__option" data-heat-temperature="30,5" data-cold-temperature="-22">Волгоград
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,7" data-cold-temperature="-32">Вологда
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,1" data-cold-temperature="-50">Волочанка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,9" data-cold-temperature="-41">Воркута
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27" data-cold-temperature="-24">Воронеж
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,4" data-cold-temperature="-26">Выборг
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,7" data-cold-temperature="-28">Выкса
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,2" data-cold-temperature="-32">Вытегра
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,3" data-cold-temperature="-25">Вязьма
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,4" data-cold-temperature="-29">Вяземский
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,3" data-cold-temperature="-33">Гвасюги
+                      </option>
+                      <option class="calc__option" data-heat-temperature="31,3" data-cold-temperature="-19">Гигант
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,7" data-cold-temperature="-34">Глазов
+                      </option>
+                      <option class="calc__option" data-heat-temperature="31,5" data-cold-temperature="-17">Грозный
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27" data-cold-temperature="-28">
+                        Дальнереченск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,1" data-cold-temperature="-34">Дарасун
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,8" data-cold-temperature="-40">Демьянское
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29,5" data-cold-temperature="-7">Дербент
+                      </option>
+                      <option class="calc__option" data-heat-temperature="8,3" data-cold-temperature="-40">Диксон
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24" data-cold-temperature="-26">Дмитров
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,4" data-cold-temperature="-23">Долинск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,5" data-cold-temperature="-33">Дуван
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,5" data-cold-temperature="-47">Дудинка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,7" data-cold-temperature="-56">Джалинда
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,8" data-cold-temperature="-30">Джаорэ
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,5" data-cold-temperature="-54">Джарджан
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,1" data-cold-temperature="-51">Джикимда
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,7" data-cold-temperature="-32">Екатеринбург
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,5" data-cold-temperature="-29">
+                        Екатерино-Никольское</option>
+                      <option class="calc__option" data-heat-temperature="26" data-cold-temperature="-31">Елабуга
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,8" data-cold-temperature="-32">Емецк
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,3" data-cold-temperature="-44">Енисейск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,8" data-cold-temperature="-52">Ербогачен
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,1" data-cold-temperature="-37">Ерофей
+                        Павлович</option>
+                      <option class="calc__option" data-heat-temperature="24,4" data-cold-temperature="-41">Ершово
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,8" data-cold-temperature="-44">Жигалово
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,7" data-cold-temperature="-52">Жиганск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-34">Завитинск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,7" data-cold-temperature="-28">Земетчино
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-42">Зея</option>
+                      <option class="calc__option" data-heat-temperature="25,2" data-cold-temperature="-38">Зима
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,4" data-cold-temperature="-37">Змеиногорск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,1" data-cold-temperature="-50">Зырянка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,2" data-cold-temperature="-29">Иваново
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,8" data-cold-temperature="-39">Ивдель
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,2" data-cold-temperature="-49">Игарка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,4" data-cold-temperature="-31">Ижевск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,4" data-cold-temperature="-50">Ика</option>
+                      <option class="calc__option" data-heat-temperature="25,9" data-cold-temperature="-40">Им. Полины
+                        Осипенко</option>
+                      <option class="calc__option" data-heat-temperature="15,5" data-cold-temperature="-35">Индига
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25" data-cold-temperature="-33">Иркутск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,9" data-cold-temperature="-36">Исиль-Куль
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,6" data-cold-temperature="-50">Исить
+                      </option>
+                      <option class="calc__option" data-heat-temperature="14,2" data-cold-temperature="-26">Ича
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,4" data-cold-temperature="-57">Иэма
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-31">Йошкар-Ола
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26" data-cold-temperature="-29">Казань
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,2" data-cold-temperature="-37">Калакан
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21" data-cold-temperature="-33">Калевала
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,5" data-cold-temperature="-18">Калининград
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,2" data-cold-temperature="-25">Калуга
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,9" data-cold-temperature="-33">
+                        Каменск-Уральский</option>
+                      <option class="calc__option" data-heat-temperature="29,8" data-cold-temperature="-24">Камышин
+                      </option>
+                      <option class="calc__option" data-heat-temperature="17,8" data-cold-temperature="-30">Кандалакша
+                      </option>
+                      <option class="calc__option" data-heat-temperature="12,5" data-cold-temperature="-24">Канин Нос
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,6" data-cold-temperature="-40">Канск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,4" data-cold-temperature="-37">Карасук
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23" data-cold-temperature="-29">Каргополь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-29">Кастрома
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,8" data-cold-temperature="-38">Катанда
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,8" data-cold-temperature="-26">Кашира
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,9" data-cold-temperature="-39">Кемерово
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,8" data-cold-temperature="-28">Кемь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="28,9" data-cold-temperature="-12">Керчь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-31">Кильмезь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,9" data-cold-temperature="-29">Кинешма
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,3" data-cold-temperature="-49">Киренск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,4" data-cold-temperature="-32">Киров
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,3" data-cold-temperature="-30">Кировский
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26" data-cold-temperature="-35">Киселевск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,2" data-cold-temperature="-14">Кисловодск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="28,8" data-cold-temperature="-14">Клепинино
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19" data-cold-temperature="-33">Ключи</option>
+                      <option class="calc__option" data-heat-temperature="19" data-cold-temperature="-32">Ковдор
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,6" data-cold-temperature="-35">Козыревск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,9" data-cold-temperature="-41">Койнас
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,9" data-cold-temperature="-42">Колпашево
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,7" data-cold-temperature="-36">
+                        Комсомольск-на-Амуре
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-39">Кондинское
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-36">Кондома
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,7" data-cold-temperature="-19">Корсаков
+                      </option>
+                      <option class="calc__option" data-heat-temperature="15,8" data-cold-temperature="-29">Корф
+                      </option>
+                      <option class="calc__option" data-heat-temperature="30,7" data-cold-temperature="-23">Котельниково
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,9" data-cold-temperature="-41">Коткино
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,8" data-cold-temperature="-35">Котлас
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,4" data-cold-temperature="-38">Кочки
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-29">Кострома
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,6" data-cold-temperature="-42">Кош-Агач
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,4" data-cold-temperature="-7">Красная
+                        Поляна</option>
+                      <option class="calc__option" data-heat-temperature="31,3" data-cold-temperature="-15">Краснодар
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,9" data-cold-temperature="-34">Краснощелье
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,1" data-cold-temperature="-37">Красноярск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,2" data-cold-temperature="-37">Красный
+                        Чикой</option>
+                      <option class="calc__option" data-heat-temperature="27,7" data-cold-temperature="-32">Красный Яр
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-54">
+                        Крест-Хальджай
+                      </option>
+                      <option class="calc__option" data-heat-temperature="15,4" data-cold-temperature="-20">Кроноки
+                      </option>
+                      <option class="calc__option" data-heat-temperature="28,8" data-cold-temperature="-31">Кувандык
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27" data-cold-temperature="-38">Купино
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,3" data-cold-temperature="-36">Курган
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,8" data-cold-temperature="-15">Курильск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,4" data-cold-temperature="-23">Курск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,7" data-cold-temperature="-47">Кызыл
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,3" data-cold-temperature="-39">Кыштовка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18" data-cold-temperature="-52">Кюсюр
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,7" data-cold-temperature="-31">Кяхта
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-50">Ленск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,8" data-cold-temperature="-37">Леуши
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,3" data-cold-temperature="-25">Липецк
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,3" data-cold-temperature="-34">Ловозеро
+                      </option>
+                      <option class="calc__option" data-heat-temperature="11,1" data-cold-temperature="-13">Лопатка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="15,4" data-cold-temperature="-28">Магадан
+                      </option>
+                      <option class="calc__option" data-heat-temperature="28,2" data-cold-temperature="-14">Магас
+                      </option>
+                      <option class="calc__option" data-heat-temperature="30,1" data-cold-temperature="-16">Майкоп
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,2" data-cold-temperature="-23">Макаров
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26" data-cold-temperature="-44">Мама
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,2" data-cold-temperature="-21">Маргаритово
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-39">Мариинск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,7" data-cold-temperature="-47">Марково
+                      </option>
+                      <option class="calc__option" data-heat-temperature="11,3" data-cold-temperature="-40">Марресаля
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29,4" data-cold-temperature="-13">Махачкала
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,7" data-cold-temperature="-36">Мезень
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,6" data-cold-temperature="-33">Мелеуз
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,3" data-cold-temperature="-31">Мельничное
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29,6" data-cold-temperature="-22">Миллерово
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,3" data-cold-temperature="-36">Мильково
+                      </option>
+                      <option class="calc__option" data-heat-temperature="30,5" data-cold-temperature="-18">Минеральные
+                        Воды</option>
+                      <option class="calc__option" data-heat-temperature="27,3" data-cold-temperature="-40">Минусинск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,5" data-cold-temperature="-48">Мирный
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-40">Могоча
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24" data-cold-temperature="-26">Можайск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,2" data-cold-temperature="-32">Монды
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,7" data-cold-temperature="-32">Мончегорск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,5" data-cold-temperature="-26" selected>Москва
+                      </option>
+                      <option class="calc__option" data-heat-temperature="17,8" data-cold-temperature="-28">Мурманск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,9" data-cold-temperature="-28">Муром
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22" data-cold-temperature="-40">Нагорный
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,8" data-cold-temperature="-33">Нагорское
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,4" data-cold-temperature="-45">Надым
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-54">Наканно
+                      </option>
+                      <option class="calc__option" data-heat-temperature="28,7" data-cold-temperature="-17">Нальчик
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,1" data-cold-temperature="-26">Наро-Фоминск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19" data-cold-temperature="-39">Нарьян-Мар
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19" data-cold-temperature="-32">Начики
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,5" data-cold-temperature="-16">Невельск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="30,3" data-cold-temperature="-17">Невинномысск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,7" data-cold-temperature="-49">Непа
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24" data-cold-temperature="-58">Нера
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,1" data-cold-temperature="-42">Нерчинск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,2" data-cold-temperature="-38">Нерчинский
+                        Завод</option>
+                      <option class="calc__option" data-heat-temperature="18,4" data-cold-temperature="-34">Ниванкюль
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22" data-cold-temperature="-33">Нижнеангарск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,9" data-cold-temperature="-36">
+                        Нижнетамбовское
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,9" data-cold-temperature="-27">Нижний
+                        Новгород</option>
+                      <option class="calc__option" data-heat-temperature="24,2" data-cold-temperature="-34">Никольск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,1" data-cold-temperature="-33">
+                        Николаевск-на-Амуре
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,6" data-cold-temperature="-27">Новая Ладога
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29,3" data-cold-temperature="-25">
+                        Новоаннинский</option>
+                      <option class="calc__option" data-heat-temperature="24,6" data-cold-temperature="-26">
+                        Новомосковский АО</option>
+                      <option class="calc__option" data-heat-temperature="25,8" data-cold-temperature="-37">Новосибирск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,3" data-cold-temperature="-30">Ноглики
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25" data-cold-temperature="-34">Ножовка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,2" data-cold-temperature="-41">Норск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-53">Нюрба
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,4" data-cold-temperature="-34">Нязепетровск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="12,7" data-cold-temperature="-11">о. Беринга
+                      </option>
+                      <option class="calc__option" data-heat-temperature="12,3" data-cold-temperature="-24">о. Сосновец
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,2" data-cold-temperature="-36">Облучье
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,9" data-cold-temperature="-34">Объячево
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,6" data-cold-temperature="-59">Оймякон
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,6" data-cold-temperature="-41">Октябрьское
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,8" data-cold-temperature="-29">Олонец
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,9" data-cold-temperature="-49">Олекминск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,6" data-cold-temperature="-55">Оленек
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,9" data-cold-temperature="-47">Омолон
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,8" data-cold-temperature="-36">Омск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,5" data-cold-temperature="-48">Омсукчан
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,6" data-cold-temperature="-36">Онгудай
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,3" data-cold-temperature="-31">Онега
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,2" data-cold-temperature="-25">Орёл
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29,8" data-cold-temperature="-29">Оренбург
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,8" data-cold-temperature="-45">Орлинга
+                      </option>
+                      <option class="calc__option" data-heat-temperature="16,5" data-cold-temperature="-31">Оссора
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,5" data-cold-temperature="-50">Островное
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,7" data-cold-temperature="-29">Оха</option>
+                      <option class="calc__option" data-heat-temperature="16,9" data-cold-temperature="-32">Охотск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,1" data-cold-temperature="-54">Охотский
+                        Перевоз
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,7" data-cold-temperature="-30">Паданы
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,6" data-cold-temperature="-35">Палатка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26" data-cold-temperature="-21">Партизанск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,8" data-cold-temperature="-27">Пенза
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25" data-cold-temperature="-45">Перевоз
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,4" data-cold-temperature="-35">Пермь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="17,4" data-cold-temperature="-18">
+                        Петропавловск-Камчатский</option>
+                      <option class="calc__option" data-heat-temperature="21,6" data-cold-temperature="-28">Петрозаводск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,7" data-cold-temperature="-44">Петрунь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22" data-cold-temperature="-43">Печора
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,6" data-cold-temperature="-30">Погиби
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,9" data-cold-temperature="-29">Порецкое
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,4" data-cold-temperature="-26">Поронайск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25" data-cold-temperature="-18">Посьет
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27" data-cold-temperature="-35">Поярково
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,5" data-cold-temperature="-16">Преображение
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,4" data-cold-temperature="-50">Преображенка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="30" data-cold-temperature="-15">
+                        Приморско-Ахтарск</option>
+                      <option class="calc__option" data-heat-temperature="23,8" data-cold-temperature="-25">Псков
+                      </option>
+                      <option class="calc__option" data-heat-temperature="14,7" data-cold-temperature="-26">Пялица
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21" data-cold-temperature="-34">Реболы
+                      </option>
+                      <option class="calc__option" data-heat-temperature="28,2" data-cold-temperature="-37">Родино
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29,1" data-cold-temperature="-18">
+                        Ростов-на-Дону</option>
+                      <option class="calc__option" data-heat-temperature="28,3" data-cold-temperature="-37">Рубцовск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,6" data-cold-temperature="-19">Рудная
+                        Пристань
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-25">Рязань
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,5" data-cold-temperature="-50">Сангар
+                      </option>
+                      <option class="calc__option" data-heat-temperature="17,1" data-cold-temperature="-53">Саскылах
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,5" data-cold-temperature="-43">Салехард
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,5" data-cold-temperature="-27">Самара
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,2" data-cold-temperature="-24">
+                        Санкт-Петербург</option>
+                      <option class="calc__option" data-heat-temperature="25,9" data-cold-temperature="-28">Саранск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,8" data-cold-temperature="-31">Сарапул
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,5" data-cold-temperature="-24">Саратов
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,6" data-cold-temperature="-37">Свободный
+                      </option>
+                      <option class="calc__option" data-heat-temperature="27,7" data-cold-temperature="-7">Севастополь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="16" data-cold-temperature="-15">Семлячики
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29,5" data-cold-temperature="-13">Симферополь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,9" data-cold-temperature="-39">Сковородино
+                      </option>
+                      <option class="calc__option" data-heat-temperature="28,2" data-cold-temperature="-37">Славгород
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,3" data-cold-temperature="-23">Смоленск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="16,6" data-cold-temperature="-30">Соболево
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,1" data-cold-temperature="-25">Советская
+                        Гавань
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29" data-cold-temperature="-30">Сорочинск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22" data-cold-temperature="-28">Сортавала
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,2" data-cold-temperature="-36">
+                        Сосново-Озерское
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,4" data-cold-temperature="-21">Сосуново
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23" data-cold-temperature="-44">Сосьва
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,8" data-cold-temperature="-42">Софийский
+                        Прииск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="28,2" data-cold-temperature="-3">Сочи
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,8" data-cold-temperature="-50">Среднекан
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,2" data-cold-temperature="-39">Средний
+                        Васюган
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,9" data-cold-temperature="-46">Средний
+                        Калар
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,2" data-cold-temperature="-50">
+                        Среднеколымск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29,1" data-cold-temperature="-18">Ставрополь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,4" data-cold-temperature="-27">Старица
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,1" data-cold-temperature="-52">Сунтар
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,9" data-cold-temperature="-42">Сургут
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,9" data-cold-temperature="-31">Сурское
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,9" data-cold-temperature="-54">Сусуман
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,5" data-cold-temperature="-58">Сухана
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,5" data-cold-temperature="-35">Сыктывкар
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29,7" data-cold-temperature="-17">Таганрог
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-39">Тайга
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,9" data-cold-temperature="-39">Тайшет
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,8" data-cold-temperature="-25">Тамбов
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,8" data-cold-temperature="-38">Тара
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,8" data-cold-temperature="-47">Тарко-Сале
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,6" data-cold-temperature="-37">Татарск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,2" data-cold-temperature="-27">Тверь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="32,9" data-cold-temperature="-17">
+                        Терекли-Мектеб
+                      </option>
+                      <option class="calc__option" data-heat-temperature="16" data-cold-temperature="-21">Териберка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25" data-cold-temperature="-39">Тисуль
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,7" data-cold-temperature="-29">Тихвин
+                      </option>
+                      <option class="calc__option" data-heat-temperature="31" data-cold-temperature="-17">Тихорецк
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-39">Тобольск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26" data-cold-temperature="-35">Тогул</option>
+                      <option class="calc__option" data-heat-temperature="25,2" data-cold-temperature="-39">Томск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25" data-cold-temperature="-37">Топки</option>
+                      <option class="calc__option" data-heat-temperature="23,5" data-cold-temperature="-33">Тотьма
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,7" data-cold-temperature="-51">Токо
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,3" data-cold-temperature="-50">Томмот
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24" data-cold-temperature="-54">Томпо
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,5" data-cold-temperature="-52">Туой-Хая
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,9" data-cold-temperature="-26">Троицкий АО
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23" data-cold-temperature="-39">
+                        Троицко-Печорское</option>
+                      <option class="calc__option" data-heat-temperature="26,4" data-cold-temperature="-32">Троицкое
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25" data-cold-temperature="-24">Тула</option>
+                      <option class="calc__option" data-heat-temperature="24,3" data-cold-temperature="-37">Тулун
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,8" data-cold-temperature="-43">Тунгокочен
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,6" data-cold-temperature="-43">Тупик
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,2" data-cold-temperature="-53">Тура
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,8" data-cold-temperature="-36">Туринск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,3" data-cold-temperature="-48">Туруханск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,7" data-cold-temperature="-40">Тында
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,8" data-cold-temperature="-35">Тюмень
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,6" data-cold-temperature="-50">Тяня
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,5" data-cold-temperature="-40">Уакит
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,5" data-cold-temperature="-42">Угут
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,7" data-cold-temperature="-35">Улан-Удэ
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,7" data-cold-temperature="-33">Ульяновск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,8" data-cold-temperature="-29">Умба
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,9" data-cold-temperature="-48">Уренгой
+                      </option>
+                      <option class="calc__option" data-heat-temperature="13,4" data-cold-temperature="-34">
+                        Усть-Воямполка</option>
+                      <option class="calc__option" data-heat-temperature="25,9" data-cold-temperature="-37">Усть-Кабырза
+                      </option>
+                      <option class="calc__option" data-heat-temperature="16,2" data-cold-temperature="-28">
+                        Усть-Камчатск</option>
+                      <option class="calc__option" data-heat-temperature="25,3" data-cold-temperature="-43">Усть-Нюкжа
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,1" data-cold-temperature="-52">Усть-Мая
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,8" data-cold-temperature="-51">Усть-Миль
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,2" data-cold-temperature="-56">Усть-Мома
+                      </option>
+                      <option class="calc__option" data-heat-temperature="20,8" data-cold-temperature="-51">Усть-Олой
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-38">
+                        Усть-Ордынский</option>
+                      <option class="calc__option" data-heat-temperature="25,1" data-cold-temperature="-43">
+                        Усть-Озерное</option>
+                      <option class="calc__option" data-heat-temperature="20,5" data-cold-temperature="-41">Усть-Уса
+                      </option>
+                      <option class="calc__option" data-heat-temperature="16,2" data-cold-temperature="-30">
+                        Усть-Хайрюзово</option>
+                      <option class="calc__option" data-heat-temperature="21,1" data-cold-temperature="-40">Усть-Цильма
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21" data-cold-temperature="-45">Усть-Щугор
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,3" data-cold-temperature="-33">Уфа</option>
+                      <option class="calc__option" data-heat-temperature="21,4" data-cold-temperature="-38">Ухта
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29,5" data-cold-temperature="-12">Феодосия
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,8" data-cold-temperature="-29">Хабаровск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23" data-cold-temperature="-41">
+                        Ханты-Мансийск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="17,6" data-cold-temperature="-50">Хатанга
+                      </option>
+                      <option class="calc__option" data-heat-temperature="12,5" data-cold-temperature="-32">Ходовариха
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21" data-cold-temperature="-17">Холмск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,5" data-cold-temperature="-38">Хоринск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,5" data-cold-temperature="-42">Хоседа-Хард
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,4" data-cold-temperature="-45">Чара
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,4" data-cold-temperature="-29">Чебоксары
+                      </option>
+                      <option class="calc__option" data-heat-temperature="3,1" data-cold-temperature="-41">Челюскин
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,3" data-cold-temperature="-32">Челябинск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,1" data-cold-temperature="-37">Чердынь
+                      </option>
+                      <option class="calc__option" data-heat-temperature="28,1" data-cold-temperature="-16">Черкеск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,5" data-cold-temperature="-36">Черлак
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26,4" data-cold-temperature="-40">Черняево
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,1" data-cold-temperature="-27">Черусти
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,3" data-cold-temperature="-49">Чечуйск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="26" data-cold-temperature="-37">Чита</option>
+                      <option class="calc__option" data-heat-temperature="27,8" data-cold-temperature="-30">Чугуевка
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,6" data-cold-temperature="-38">Чулым
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,1" data-cold-temperature="-43">Чульман
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,7" data-cold-temperature="-32">Чумикан
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,3" data-cold-temperature="-54">Чурапча
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,1" data-cold-temperature="-32">Чухлома
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,4" data-cold-temperature="-36">Шамары
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,6" data-cold-temperature="-32">Шарья
+                      </option>
+                      <option class="calc__option" data-heat-temperature="22,5" data-cold-temperature="-57">Шелагонцы
+                      </option>
+                      <option class="calc__option" data-heat-temperature="23,9" data-cold-temperature="-35">Шенкурск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,1" data-cold-temperature="-37">Шимановск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25" data-cold-temperature="-36">Шира
+                      </option>
+                      <option class="calc__option" data-heat-temperature="21,2" data-cold-temperature="-52">Эйк
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,6" data-cold-temperature="-42">Экимчан
+                      </option>
+                      <option class="calc__option" data-heat-temperature="32,1" data-cold-temperature="-21">Элиста
+                      </option>
+                      <option class="calc__option" data-heat-temperature="32,5" data-cold-temperature="-24">Эльтон
+                      </option>
+                      <option class="calc__option" data-heat-temperature="19,8" data-cold-temperature="-48">Эньмувеем
+                      </option>
+                      <option class="calc__option" data-heat-temperature="18,6" data-cold-temperature="-12">
+                        Южно-Курильск</option>
+                      <option class="calc__option" data-heat-temperature="22,6" data-cold-temperature="-21">
+                        Южно-Сахалинск</option>
+                      <option class="calc__option" data-heat-temperature="24,8" data-cold-temperature="-24">Яйлю
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,5" data-cold-temperature="-52">Якутск
+                      </option>
+                      <option class="calc__option" data-heat-temperature="29,4" data-cold-temperature="-4">Ялта
+                      </option>
+                      <option class="calc__option" data-heat-temperature="25,8" data-cold-temperature="-34">Янаул
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,6" data-cold-temperature="-29">Ярославль
+                      </option>
+                      <option class="calc__option" data-heat-temperature="24,8" data-cold-temperature="-46">Ярцево
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Ориентация оборудования</span></div>
+                <div class="calc__col">
+                  <div class="radioButton">
+                    <input type="radio" id="position_1" checked="checked" name="position" value="horizontal" required>
+                    <label for="position_1"><span>Горизонтальная</span></label>
+                  </div>
+                  <div class="radioButton">
+                    <input type="radio" id="position_2" name="position" value="vertical">
+                    <label for="position_2"><span>Вертикальная</span></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Расположение изолируемого объекта</span></div>
+                <div class="calc__col">
+                  <div class="radioButton">
+                    <input type="radio" id="indoor_1" checked="checked" name="indoor" value="close" required>
+                    <label for="indoor_1"><span>В помещении</span></label>
+                  </div>
+                  <div class="radioButton">
+                    <input type="radio" id="indoor_2" name="indoor" value="open">
+                    <label for="indoor_2"><span>На открытом воздухе</span></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Изолируемая поверхность</span></div>
+                <div class="calc__col">
+                  <div class="radioButton">
+                    <input type="radio" id="flat_true" checked="checked" name="flat" value="flat">
+                    <label for="flat_true"><span>Плоская</span></label>
+                  </div>
+                  <div class="radioButton">
+                    <input type="radio" id="flat_false" checked="checked" name="flat" value="round">
+                    <label for="flat_false"><span>Криволинейная</span></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Тип и размеры трубопровода, мм</span></div>
+                <div class="calc__col">
+                  <div class="calc__radio">
+                    <!-- <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_0" id="diameter_type_0">
+                      <label for="diameter_type_0"><span>Стальной ВГП <br>ГОСТ 3262-75</span></label>
+                    </div> -->
+                    <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_0" id="diameter_type_0">
+                      <label for="diameter_type_0"><span>Стальной ВГП <br>ГОСТ 3262-75</span></label>
+                    </div>
+                    <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_21" id="diameter_type_21">
+                      <label for="diameter_type_21"><span>Стальной ЭС <br>ГОСТ 10704-91</span></label>
+                    </div>
+                    <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_50" id="diameter_type_50">
+                      <label for="diameter_type_50"><span>Стальной НЖ <br>ГОСТ 9941-81</span></label>
+                    </div>
+                    <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_75" id="diameter_type_75">
+                      <label for="diameter_type_75"><span>Полимерный <br>ГОСТ 32415-2013</span></label>
+                    </div>
+                    <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_109" id="diameter_type_109">
+                      <label for="diameter_type_109"><span>Медный <br>ГОСТ 617-2006</span></label>
+                    </div>
+                    <div class="radioButton">
+                      <input type="radio" checked id="diameter_type_custom" name="diameter_type"
+                        value="diameter_custom">
+                      <label for="diameter_type_custom"><span>Произвольные размеры</span></label>
+                    </div>
+                  </div>
+                  <div class="calc__select">
+                    <select class="js-select-radio" name="diameter" id="diameter">
+                      <optgroup label="Задать вручную" id="diameter_custom">
+                        <option value="" data-dh="">Собственные размеры</option>
+                      </optgroup>
+
+                      <optgroup label="Стальной ВГП ГОСТ 3262-75" id="diameter_0">
+
+                        <option class="calc__option" value="6" data-dh="10.2">Ду 6, Дн 10,2</option>
+
+                        <option class="calc__option" value="8" data-dh="13.5">Ду 8, Дн 13,5</option>
+
+                        <option class="calc__option" value="10" data-dh="17">Ду 10, Дн 17</option>
+
+                        <option class="calc__option" value="15" data-dh="21.3">Ду 15, Дн 21,3</option>
+
+                        <option class="calc__option" value="20" data-dh="26.8">Ду 20, Дн 26,8</option>
+
+                        <option class="calc__option" value="25" data-dh="33.5">Ду 25, Дн 33,5</option>
+
+                        <option class="calc__option" value="32" data-dh="42.3">Ду 32, Дн 42,3</option>
+
+                        <option class="calc__option" value="40" data-dh="48">Ду 40, Дн 48</option>
+
+                        <option class="calc__option" value="50" data-dh="60">Ду 50, Дн 60</option>
+
+                        <option class="calc__option" value="65" data-dh="75.5">Ду 65, Дн 75,5</option>
+
+                        <option class="calc__option" value="80" data-dh="88.5">Ду 80, Дн 88,5</option>
+
+                        <option class="calc__option" value="90" data-dh="101.3">Ду 90, Дн 101,3</option>
+
+                        <option class="calc__option" value="100" data-dh="114">Ду 100, Дн 114</option>
+
+                        <option class="calc__option" value="125" data-dh="140">Ду 125, Дн 140</option>
+
+                        <option class="calc__option" value="150" data-dh="165">Ду 150, Дн 165</option>
+                      </optgroup>
+
+                      <optgroup label="Стальной ЭС ГОСТ 10704-91" id="diameter_21">
+
+                        <option class="calc__option" value="10" data-dh="15">Ду 10, Дн 15</option>
+
+                        <option class="calc__option" value="15" data-dh="21.3">Ду 15, Дн 21,3</option>
+
+                        <option class="calc__option" value="20" data-dh="25">Ду 20, Дн 25</option>
+
+                        <option class="calc__option" value="25" data-dh="32">Ду 25, Дн 32</option>
+
+                        <option class="calc__option" value="32" data-dh="38">Ду 32, Дн 38</option>
+
+                        <option class="calc__option" value="40" data-dh="48">Ду 40, Дн 48</option>
+
+                        <option class="calc__option" value="50" data-dh="57">Ду 50, Дн 57</option>
+
+                        <option class="calc__option" value="65" data-dh="76">Ду 65, Дн 76</option>
+
+                        <option class="calc__option" value="80" data-dh="89">Ду 80, Дн 89</option>
+
+                        <option class="calc__option" value="95" data-dh="102">Ду 95, Дн 102</option>
+
+                        <option class="calc__option" value="100" data-dh="108">Ду 100, Дн 108</option>
+
+                        <option class="calc__option" value="100" data-dh="114">Ду 100, Дн 114</option>
+
+                        <option class="calc__option" value="125" data-dh="133">Ду 125, Дн 133</option>
+
+                        <option class="calc__option" value="150" data-dh="159">Ду 150, Дн 159</option>
+
+                        <option class="calc__option" value="200" data-dh="219">Ду 200, Дн 219</option>
+
+                        <option class="calc__option" value="250" data-dh="273">Ду 250, Дн 273</option>
+
+                        <option class="calc__option" value="300" data-dh="325">Ду 300, Дн 325</option>
+
+                        <option class="calc__option" value="350" data-dh="355">Ду 350, Дн 355</option>
+
+                        <option class="calc__option" value="350" data-dh="377">Ду 350, Дн 377</option>
+
+                        <option class="calc__option" value="400" data-dh="426">Ду 400, Дн 426</option>
+
+                        <option class="calc__option" value="500" data-dh="530">Ду 500, Дн 530</option>
+
+                        <option class="calc__option" value="600" data-dh="630">Ду 600, Дн 630</option>
+
+                        <option class="calc__option" value="700" data-dh="720">Ду 700, Дн 720</option>
+
+                        <option class="calc__option" value="800" data-dh="820">Ду 800, Дн 820</option>
+
+                        <option class="calc__option" value="900" data-dh="920">Ду 900, Дн 920</option>
+
+                        <option class="calc__option" value="1000" data-dh="1020">Ду 1000, Дн 1020</option>
+
+                        <option class="calc__option" value="1200" data-dh="1220">Ду 1200, Дн 1220</option>
+
+                        <option class="calc__option" value="1400" data-dh="1420">Ду 1400, Дн 1420</option>
+                      </optgroup>
+
+                      <optgroup label="Стальной НЖ ГОСТ 9941-81" id="diameter_50">
+
+                        <option class="calc__option" value="10" data-dh="16">Ду 10, Дн 16</option>
+
+                        <option class="calc__option" value="15" data-dh="20">Ду 15, Дн 20</option>
+
+                        <option class="calc__option" value="20" data-dh="25">Ду 20, Дн 25</option>
+
+                        <option class="calc__option" value="25" data-dh="30">Ду 25, Дн 30</option>
+
+                        <option class="calc__option" value="25" data-dh="32">Ду 25, Дн 32</option>
+
+                        <option class="calc__option" value="32" data-dh="38">Ду 32, Дн 38</option>
+
+                        <option class="calc__option" value="32" data-dh="42">Ду 32, Дн 42</option>
+
+                        <option class="calc__option" value="40" data-dh="45">Ду 40, Дн 45</option>
+
+                        <option class="calc__option" value="40" data-dh="48">Ду 40, Дн 48</option>
+
+                        <option class="calc__option" value="45" data-dh="50">Ду 45, Дн 50</option>
+
+                        <option class="calc__option" value="45" data-dh="51">Ду 45, Дн 51</option>
+
+                        <option class="calc__option" value="65" data-dh="70">Ду 65, Дн 70</option>
+
+                        <option class="calc__option" value="65" data-dh="73">Ду 65, Дн 73</option>
+
+                        <option class="calc__option" value="65" data-dh="76">Ду 65, Дн 76</option>
+
+                        <option class="calc__option" value="65" data-dh="80">Ду 65, Дн 80</option>
+
+                        <option class="calc__option" value="80" data-dh="89">Ду 80, Дн 89</option>
+
+                        <option class="calc__option" value="80" data-dh="90">Ду 80, Дн 90</option>
+
+                        <option class="calc__option" value="90" data-dh="102">Ду 90, Дн 102</option>
+
+                        <option class="calc__option" value="100" data-dh="108">Ду 100, Дн 108</option>
+
+                        <option class="calc__option" value="125" data-dh="130">Ду 125, Дн 130</option>
+
+                        <option class="calc__option" value="125" data-dh="140">Ду 125, Дн 140</option>
+
+                        <option class="calc__option" value="150" data-dh="160">Ду 150, Дн 160</option>
+
+                        <option class="calc__option" value="200" data-dh="220">Ду 200, Дн 220</option>
+
+                        <option class="calc__option" value="250" data-dh="273">Ду 250, Дн 273</option>
+                      </optgroup>
+
+                      <optgroup label="Полимерный ГОСТ 32415-2013" id="diameter_75">
+
+                        <option class="calc__option" value="6" data-dh="10">Ду 6, Дн 10</option>
+
+                        <option class="calc__option" value="6" data-dh="12">Ду 6, Дн 12</option>
+
+                        <option class="calc__option" value="10" data-dh="16">Ду 10, Дн 16</option>
+
+                        <option class="calc__option" value="15" data-dh="20">Ду 15, Дн 20</option>
+
+                        <option class="calc__option" value="20" data-dh="25">Ду 20, Дн 25</option>
+
+                        <option class="calc__option" value="25" data-dh="32">Ду 25, Дн 32</option>
+
+                        <option class="calc__option" value="32" data-dh="40">Ду 32, Дн 40</option>
+
+                        <option class="calc__option" value="40" data-dh="50">Ду 40, Дн 50</option>
+
+                        <option class="calc__option" value="50" data-dh="63">Ду 50, Дн 63</option>
+
+                        <option class="calc__option" value="65" data-dh="75">Ду 65, Дн 75</option>
+
+                        <option class="calc__option" value="80" data-dh="90">Ду 80, Дн 90</option>
+
+                        <option class="calc__option" value="100" data-dh="110">Ду 100, Дн 110</option>
+
+                        <option class="calc__option" value="100" data-dh="125">Ду 100, Дн 125</option>
+
+                        <option class="calc__option" value="125" data-dh="140">Ду 125, Дн 140</option>
+
+                        <option class="calc__option" value="150" data-dh="160">Ду 150, Дн 160</option>
+
+                        <option class="calc__option" value="150" data-dh="180">Ду 150, Дн 180</option>
+
+                        <option class="calc__option" value="160" data-dh="200">Ду 160, Дн 200</option>
+
+                        <option class="calc__option" value="200" data-dh="225">Ду 200, Дн 225</option>
+
+                        <option class="calc__option" value="225" data-dh="250">Ду 225, Дн 250</option>
+
+                        <option class="calc__option" value="250" data-dh="280">Ду 250, Дн 280</option>
+
+                        <option class="calc__option" value="300" data-dh="315">Ду 300, Дн 315</option>
+
+                        <option class="calc__option" value="300" data-dh="355">Ду 300, Дн 355</option>
+
+                        <option class="calc__option" value="350" data-dh="400">Ду 350, Дн 400</option>
+
+                        <option class="calc__option" value="400" data-dh="450">Ду 400, Дн 450</option>
+
+                        <option class="calc__option" value="450" data-dh="500">Ду 450, Дн 500</option>
+
+                        <option class="calc__option" value="500" data-dh="560">Ду 500, Дн 560</option>
+
+                        <option class="calc__option" value="600" data-dh="630">Ду 600, Дн 630</option>
+
+                        <option class="calc__option" value="650" data-dh="710">Ду 650, Дн 710</option>
+
+                        <option class="calc__option" value="700" data-dh="800">Ду 700, Дн 800</option>
+
+                        <option class="calc__option" value="800" data-dh="900">Ду 800, Дн 900</option>
+
+                        <option class="calc__option" value="900" data-dh="1000">Ду 900, Дн 1000</option>
+
+                        <option class="calc__option" value="1000" data-dh="1200">Ду 1000, Дн 1200</option>
+
+                        <option class="calc__option" value="1200" data-dh="1400">Ду 1200, Дн 1400</option>
+                      </optgroup>
+
+                      <optgroup label="Медный ГОСТ 617-2006" id="diameter_109">
+
+                        <option class="calc__option" value="4" data-dh="6">Ду 4, Дн 6</option>
+
+                        <option class="calc__option" value="6" data-dh="8">Ду 6, Дн 8</option>
+
+                        <option class="calc__option" value="8" data-dh="10">Ду 8, Дн 10</option>
+
+                        <option class="calc__option" value="10" data-dh="12">Ду 10, Дн 12</option>
+
+                        <option class="calc__option" value="10" data-dh="15">Ду 10, Дн 15</option>
+
+                        <option class="calc__option" value="15" data-dh="18">Ду 15, Дн 18</option>
+
+                        <option class="calc__option" value="15" data-dh="22">Ду 15, Дн 22</option>
+
+                        <option class="calc__option" value="20" data-dh="28">Ду 20, Дн 28</option>
+
+                        <option class="calc__option" value="25" data-dh="35">Ду 25, Дн 35</option>
+
+                        <option class="calc__option" value="32" data-dh="42">Ду 32, Дн 42</option>
+
+                        <option class="calc__option" value="45" data-dh="54">Ду 45, Дн 54</option>
+
+                        <option class="calc__option" value="50" data-dh="64">Ду 50, Дн 64</option>
+
+                        <option class="calc__option" value="50" data-dh="66.7">Ду 50, Дн 66,7</option>
+
+                        <option class="calc__option" value="65" data-dh="76.1">Ду 65, Дн 76,1</option>
+
+                        <option class="calc__option" value="80" data-dh="88.9">Ду 80, Дн 88,9</option>
+
+                        <option class="calc__option" value="100" data-dh="108">Ду 100, Дн 108</option>
+
+                        <option class="calc__option" value="125" data-dh="133">Ду 125, Дн 133</option>
+
+                        <option class="calc__option" value="150" data-dh="159">Ду 150, Дн 159</option>
+
+                        <option class="calc__option" value="200" data-dh="219">Ду 200, Дн 219</option>
+
+                        <option class="calc__option" value="250" data-dh="267">Ду 250, Дн 267</option>
+
+                      </optgroup>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Внутренний диаметр трубопровода, мм</span></div>
+                <div class="calc__col">
+                  <input type="text" name="diameter_in" placeholder="50" class="input _inputAttr">
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Внешний диаметр трубопровода, мм</span></div>
+                <div class="calc__col">
+                  <input type="text" name="diameter_out" placeholder="60" class="input _inputAttr">
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Температура теплоносителя, °С</span></div>
+                <div class="calc__col">
+                  <input type="text" placeholder="200" class="input _inputAttr temperature_in">
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Температура окружающего воздуха, °С</span></div>
+                <div class="calc__col">
+                  <input type="text" placeholder="-5" value="20" class="input _inputAttr temperature_out">
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Изоляционный материал</span></div>
+                <div class="calc__col">
+                  <div class="calc__select">
+                    <select class="js-select-single" name="material" id="material">
+                      <option value="0" selected>Aeroflex EPDM</option>
+                      <option value="1">Aeroflex EPDM HT</option>
+                      <option value="2">Aeroflex FIRO</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Покровный материал</span></div>
+                <div class="calc__col">
+                  <div class="calc__select">
+                    <select class="js-select-single" name="pipe" id="pipe">
+                      <option data-material="metal" value="0" selected>Сталь оцинкованная</option>
+                      <option data-material="metal" value="0">Сталь нержавеющая</option>
+                      <option data-material="metal" value="0">Алюминий</option>
+                      <option data-material="metal" value="0">Metal Pro</option>
+                      <option data-material="metal" value="0">Alu</option>
+                      <option data-material="no-metal" value="1">FG</option>
+                      <option data-material="no-metal" value="1">Aerojacket</option>
+                      <option data-material="metal" value="0">FG Alu</option>
+                      <option data-material="no-metal" value="1">Protape</option>
+                      <option data-material="no-metal" value="1">Окраска красками Aerocoat</option>
+                      <option data-material="no-metal" value="1">Без покрытия</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col">
+                  <span>Коэффициент конвективной теплоотдачи от наружной поверхности, αн, Вт/м<sup>2</sup>·С</span>
+                </div>
+                <div class="calc__col">
+                  <input type="text" name="heat_coefficient" readonly placeholder="" class="input" value="">
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Температура на поверхности изоляции, °С</span></div>
+                <div class="calc__col">
+                  <input type="text" value="40" class="input _inputAttr surface_insulation_temperature">
+                  <div class="surface_insulation_temperature__error calc__col_error">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="calc__button btn _result">Рассчитать</div>
+            <div class="calc__result">
+              <div class="calc__row">
+                <div class="calc__col"><span>Толщина изоляции, мм</span></div>
+                <div class="calc__col">
+                  <input type="text" readonly value="" class="input otvet">
+                </div>
+              </div>
+              <div class="calc__row hidden">
+                <div class="calc__col"><span>Толщина изоляции (метод последовательных приближений), мм</span></div>
+                <div class="calc__col">
+                  <input type="text" readonly disabled value="" class="input approx">
+                </div>
+              </div>
+            </div>
+            <div id="bxdynamic_SGQHGF_end" style="display:none"></div>
+          </div>
+        </section>
+      </div>
+      <div class="blur__bg"></div>
+    </main>
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <a href="../../../index.html" class="footer__logo">
+            <img src="../../../local/templates/aeroflex/assets/img/Logo.png" alt="">
+            <span>Профессиональная <br> теплоизоляция из каучука</span>
+          </a>
+          <div class="footer__menu">
+            <div id="bxdynamic_g8taYv_start" style="display:none"></div>
+            <div class="footer__row">
+              <div class="footer__col">
+                <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/index.html" class="footer__title">Техническая
+                  изоляция</a>
+                <div class="footer__links">
+                  <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm-ht/index.html"><span>Aeroflex
+                      EPDM HT</span></a>
+                  <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-firo/index.html"><span>Aeroflex
+                      FIRO</span></a>
+                  <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm/index.html"><span>Aeroflex
+                      EPDM</span></a>
+                </div>
+              </div>
+              <div class="footer__col">
+                <a href="../../../produktsiya/pokrytiya-i-sistemy/index.html" class="footer__title">Покрытия и
+                  системы</a>
+                <div class="footer__links">
+                  <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-metal-pro/index.html"><span>Aeroflex Metal
+                      Pro</span></a>
+                  <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg-alu/index.html"><span>Aeroflex FG
+                      Alu</span></a>
+                  <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg/index.html"><span>Aeroflex FG</span></a>
+                  <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-alu/index.html"><span>Aeroflex
+                      Alu</span></a>
+                </div>
+              </div>
+              <div class="footer__col">
+                <a href="../../../produktsiya/aksessuary/index.html" class="footer__title">Аксессуары</a>
+                <div class="footer__links">
+                  <a href="../../../produktsiya/aksessuary/podvesy-aerofix/index.html"><span>Подвесы Aerofix</span></a>
+                  <a href="../../../produktsiya/aksessuary/kley-aeroseal/index.html"><span>Клей Aeroseal</span></a>
+                  <a href="../../../produktsiya/aksessuary/kley-aeroseal-tf-ht/index.html"><span>Клей Aeroseal
+                      TF/HT</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-aerotape/index.html"><span>Лента Aerotape</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-aerotape-ht/index.html"><span>Лента Aerotape
+                      HT</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-alutape/index.html"><span>Лента Alutape</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-alutape-arm/index.html"><span>Лента Alutape
+                      ARM</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-alutape-mka/index.html"><span>Лента Alutape
+                      MKA</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-fg-tape/index.html"><span>Лента FG-tape</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-protape/index.html"><span>Лента Protape</span></a>
+                </div>
+              </div>
+            </div>
+            <div id="bxdynamic_g8taYv_end" style="display:none"></div>
+            <div class="footer__row">
+              <div class="footer__col">
+                <span class="footer__title">Применение</span>
+                <div id="bxdynamic_rIpOz9_start" style="display:none"></div>
+                <div class="footer__links">
+                  <a href="../../../primenenie/izolyatsiya-kriogennogo-oborudovaniya/index.html"><span>Изоляция
+                      криогенного оборудования</span></a>
+                  <a href="../../../primenenie/izolyatsiya-kholodilnogo-oborudovaniya/index.html"><span>Изоляция
+                      холодильного оборудования</span></a>
+                  <a href="../../../primenenie/izolyatsiya-hvac/index.html"><span>Изоляция HVAC</span></a>
+                  <a href="../../../primenenie/izolyatsiya-teplovykh-punktov-i-setey/index.html"><span>Изоляция тепловых
+                      пунктов и сетей</span></a>
+                  <a
+                    href="../../../primenenie/izolyatsiya-tekhnologicheskikh-truboprovodov-i-emkostnogo-oborudovaniya/index.html"><span>Изоляция
+                      трубопроводов и ёмкостного оборудования</span></a>
+                  <a href="../../../primenenie/izolyatsiya-solnechnoy-energetiki/index.html"><span>Изоляция систем
+                      солнечной энергетики</span></a>
+                </div>
+                <div id="bxdynamic_rIpOz9_end" style="display:none"></div>
+              </div>
+              <div class="footer__col">
+                <span class="footer__title">Поддержка</span>
+                <div class="footer__links">
+                  <div id="bxdynamic_NMQc3w_start" style="display:none"></div>
+                  <div class="footer__links">
+                    <a href="index.html"><span>Технические калькуляторы</span></a>
+                    <a href="../../download/index.html"><span>Скачиваемые материалы</span></a>
+                    <a href="https://aeroflex-russia.ru/podderzhka/faq"><span>Часто задаваемые вопросы</span></a>
+                  </div>
+                  <div id="bxdynamic_NMQc3w_end" style="display:none"></div>
+                </div>
+
+                <span class="footer__title">О компании</span>
+                <div class="footer__links">
+
+                  <a href="https://aeroflex-russia.ru/o-kompanii/company"><span>О компании</span></a>
+                  <a href="https://aeroflex-russia.ru/o-kompanii/kontakty"><span>Контакты</span></a>
+                </div>
+              </div>
+              <div class="footer__col">
+                <a href="../../../proekty/index.html" class="footer__title footer__title_notLinks">Проекты</a>
+                <a href="../../../kontakty/index.html" class="footer__title">Контакты</a>
+                <div class="footer__links">
+                  <a href="../../../kontakty/index.html"><span>Дилеры</span></a>
+                  <span class="address">614000, г. Пермь, ул.Дзержинского, 59</span>
+                  <a href="mailto:info@aeroflex-russia.ru"><span
+                      class="callibri_email">info@aeroflex-russia.ru</span></a>
+                  <a href="tel:+73422099506" class="tel">+7 342 209-95-06</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer__copyright">
+            <a href="http://ckdigital.ru" target="_blank" class="copyright__logo">
+              <span>Создание сайта</span>
+              <div class="copyright__images">
+                <img src="../../../local/templates/aeroflex/assets/img/ck_logo.png" alt="">
+                <img src="../../../local/templates/aeroflex/assets/img/ck_logoColor.png" alt="">
+              </div>
+            </a>
+            <div class="copyright__content">
+              <div class="footer__row">
+                <div class="footer__col">
+                  <div class="footer__links">
+                    <a href="../../../politics/processing-of-personal-data/index.html"><span>Обработка персональных
+                        данных</span></a>
+                  </div>
+                </div>
+                <div class="footer__col">
+                  <div class="footer__links">
+                    <a href="../../../politics/terms-of-cooperation/index.html"><span>Пользовательское
+                        соглашение</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="overlay"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- js -->
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/lib/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/lib/jquery.maskedinput.min.js"></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/lib/slick/slick.js"></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/js/main.js" async defer></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/lib/select2/js/select2.min.js"
+    defer></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/lib/select2/js/i18n/ru.js"
+    defer></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/js/calc.1-1.js" defer></script>
+  <script src="https://cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    $('.product__button._order').on('click', function () { track('order_button') });
+    $('.contacts__button._diler').on('click', function () { track('dealer_button') })
+    function track(event) {
+      if (event) {
+        if ('undefined' !== typeof Ya && 'undefined' !== typeof Ya._metrika) {
+          $.each(Ya._metrika.counters, function (key, counter) {
+            counter.reachGoal(event);
+          });
+        }
+        if ('undefined' !== typeof ga) {
+          ga(ga.getAll()[0].get('name') + '.send', 'pageview', '/virtual/' + event);
+        }
+      }
+    }
+  </script>
+</body>
+
+</html><!--edbf57fb7e7dd65aee3ba956d0f6dcef-->

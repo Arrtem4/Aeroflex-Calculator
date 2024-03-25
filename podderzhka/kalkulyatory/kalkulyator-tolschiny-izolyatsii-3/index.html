@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="Keywords" />
+  <meta name="description"
+    content="Калькулятор технической изоляции - подробнее на сайте или по ☎  +7 342 209-95-06 | Интернет-магазин «AEROFLEX»" />
+  <link href="../../../bitrix/js/main/core/css/core.css" type="text/css" rel="stylesheet" />
+
+  <script type="text/javascript"
+    data-skip-moving="true">(function (w, d) { var v = w.frameCacheVars = { 'CACHE_MODE': 'HTMLCACHE', 'storageBlocks': [], 'dynamicBlocks': { 'SGQHGF': '80c50647f0fc', 'g8taYv': '95121e0b15ad', 'rIpOz9': '98ccec9261d3', 'NMQc3w': 'f9f9a23f0c7a' }, 'AUTO_UPDATE': true, 'AUTO_UPDATE_TTL': '120' }; var inv = false; if (v.AUTO_UPDATE === false) { if (v.AUTO_UPDATE_TTL && v.AUTO_UPDATE_TTL > 0) { var lm = Date.parse(d.lastModified); if (!isNaN(lm)) { var td = new Date().getTime(); if ((lm + v.AUTO_UPDATE_TTL * 1000) >= td) { w.frameRequestStart = false; w.preventAutoUpdate = true; return; } inv = true; } } else { w.frameRequestStart = false; w.preventAutoUpdate = true; return; } } var r = w.XMLHttpRequest ? new XMLHttpRequest() : (w.ActiveXObject ? new w.ActiveXObject("Microsoft.XMLHTTP") : null); if (!r) { return; } w.frameRequestStart = true; var m = v.CACHE_MODE; var l = w.location; var x = new Date().getTime(); var q = "?bxrand=" + x + (l.search.length > 0 ? "&" + l.search.substring(1) : ""); var u = l.protocol + "//" + l.host + l.pathname + q; r.open("GET", u, true); r.setRequestHeader("BX-ACTION-TYPE", "get_dynamic"); r.setRequestHeader("X-Bitrix-Composite", "get_dynamic"); r.setRequestHeader("BX-CACHE-MODE", m); r.setRequestHeader("BX-CACHE-BLOCKS", v.dynamicBlocks ? JSON.stringify(v.dynamicBlocks) : ""); if (inv) { r.setRequestHeader("BX-INVALIDATE-CACHE", "Y"); } try { r.setRequestHeader("BX-REF", d.referrer || ""); } catch (e) { } if (m === "APPCACHE") { r.setRequestHeader("BX-APPCACHE-PARAMS", JSON.stringify(v.PARAMS)); r.setRequestHeader("BX-APPCACHE-URL", v.PAGE_URL ? v.PAGE_URL : ""); } r.onreadystatechange = function () { if (r.readyState != 4) { return; } var a = r.getResponseHeader("BX-RAND"); var b = w.BX && w.BX.frameCache ? w.BX.frameCache : false; if (a != x || !((r.status >= 200 && r.status < 300) || r.status === 304 || r.status === 1223 || r.status === 0)) { var f = { error: true, reason: a != x ? "bad_rand" : "bad_status", url: u, xhr: r, status: r.status }; if (w.BX && w.BX.ready) { BX.ready(function () { setTimeout(function () { BX.onCustomEvent("onFrameDataRequestFail", [f]); }, 0); }); } else { w.frameRequestFail = f; } return; } if (b) { b.onFrameDataReceived(r.responseText); if (!w.frameUpdateInvoked) { b.update(false); } w.frameUpdateInvoked = true; } else { w.frameDataString = r.responseText; } }; r.send(); })(window, document);</script>
+
+
+  <link href="../../../local/templates/aeroflex/assets/lib/select2/css/select2.min.css" type="text/css"
+    rel="stylesheet" />
+  <link href="../../../local/templates/aeroflex/assets/css/calc.css" type="text/css" rel="stylesheet" />
+  <link href="../../../local/templates/aeroflex/assets/lib/slick/slick.css?16163897331854" type="text/css"
+    data-template-style="true" rel="stylesheet" />
+  <link href="../../../local/templates/aeroflex/assets/css/main.css" type="text/css" data-template-style="true"
+    rel="stylesheet" />
+  <link href="../../../local/templates/aeroflex/template_styles.css
+" type="text/css" data-template-style="true" rel="stylesheet" />
+  <script
+    type="text/javascript">if (!window.BX) window.BX = {}; if (!window.BX.message) window.BX.message = function (mess) { if (typeof mess === 'object') { for (let i in mess) { BX.message[i] = mess[i]; } return true; } };</script>
+  <script
+    type="text/javascript">(window.BX || top.BX).message({ 'JS_CORE_LOADING': 'Загрузка...', 'JS_CORE_NO_DATA': '- Нет данных -', 'JS_CORE_WINDOW_CLOSE': 'Закрыть', 'JS_CORE_WINDOW_EXPAND': 'Развернуть', 'JS_CORE_WINDOW_NARROW': 'Свернуть в окно', 'JS_CORE_WINDOW_SAVE': 'Сохранить', 'JS_CORE_WINDOW_CANCEL': 'Отменить', 'JS_CORE_WINDOW_CONTINUE': 'Продолжить', 'JS_CORE_H': 'ч', 'JS_CORE_M': 'м', 'JS_CORE_S': 'с', 'JSADM_AI_HIDE_EXTRA': 'Скрыть лишние', 'JSADM_AI_ALL_NOTIF': 'Показать все', 'JSADM_AUTH_REQ': 'Требуется авторизация!', 'JS_CORE_WINDOW_AUTH': 'Войти', 'JS_CORE_IMAGE_FULL': 'Полный размер' });</script>
+
+  <script type="text/javascript" src="../../../bitrix/js/main/core/core.js?1616389763563115"></script>
+
+  <script>BX.setJSList(['/bitrix/js/main/core/core_ajax.js', '/bitrix/js/main/core/core_promise.js', '/bitrix/js/main/polyfill/promise/js/promise.js', '/bitrix/js/main/loadext/loadext.js', '/bitrix/js/main/loadext/extension.js', '/bitrix/js/main/polyfill/promise/js/promise.js', '/bitrix/js/main/polyfill/find/js/find.js', '/bitrix/js/main/polyfill/includes/js/includes.js', '/bitrix/js/main/polyfill/matches/js/matches.js', '/bitrix/js/ui/polyfill/closest/js/closest.js', '/bitrix/js/main/polyfill/fill/main.polyfill.fill.js', '/bitrix/js/main/polyfill/find/js/find.js', '/bitrix/js/main/polyfill/matches/js/matches.js', '/bitrix/js/main/polyfill/core/dist/polyfill.bundle.js', '/bitrix/js/main/core/core.js', '/bitrix/js/main/polyfill/intersectionobserver/js/intersectionobserver.js', '/bitrix/js/main/lazyload/dist/lazyload.bundle.js', '/bitrix/js/main/polyfill/core/dist/polyfill.bundle.js', '/bitrix/js/main/parambag/dist/parambag.bundle.js']);
+    BX.setCSSList(['/bitrix/js/main/core/css/core.css', '/bitrix/js/main/lazyload/dist/lazyload.bundle.css', '/bitrix/js/main/parambag/dist/parambag.bundle.css']);</script>
+  <script
+    type="text/javascript">(window.BX || top.BX).message({ 'LANGUAGE_ID': 'ru', 'FORMAT_DATE': 'DD.MM.YYYY', 'FORMAT_DATETIME': 'DD.MM.YYYY HH:MI:SS', 'COOKIE_PREFIX': 'BITRIX_SM', 'SERVER_TZ_OFFSET': '18000', 'SITE_ID': 's1', 'SITE_DIR': '/' });</script>
+
+
+  <script type="text/javascript"
+    src="../../../bitrix/js/main/polyfill/customevent/main.polyfill.customevent.js?1616389766913"></script>
+  <script type="text/javascript"
+    src="../../../bitrix/js/ui/dexie/dist/dexie.bitrix.bundle.js?1616389757196311"></script>
+  <script type="text/javascript" src="../../../bitrix/js/main/core/core_ls.js?161638976310430"></script>
+  <script type="text/javascript" src="../../../bitrix/js/main/core/core_fx.js?161638976316888"></script>
+  <script type="text/javascript" src="../../../bitrix/js/main/core/core_frame_cache.js?161638976316064"></script>
+
+
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/js/calc.js"></script>
+  <script
+    type="text/javascript">var _ba = _ba || []; _ba.push(["aid", "bc842d82a95271a702192159981fe09d"]); _ba.push(["host", "aeroflex-russia.ru"]); (function () { var ba = document.createElement("script"); ba.type = "text/javascript"; ba.async = true; ba.src = (document.location.protocol == "https:" ? "https://" : "http://") + "bitrix.info/ba.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ba, s); })();</script>
+
+
+  <title>Калькулятор технической изоляции - интернет-магазин «AEROFLEX»</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+
+  <meta property="og:title" content="Калькулятор технической изоляции - интернет-магазин «AEROFLEX»">
+  <meta property="og:type" content="website">
+  <meta property="og:url"
+    content="https://aeroflex-russia.ru/podderzhka/kalkulyatory/kalkulyator-tekhnicheskoy-izolyatsii/">
+  <meta property="og:image" content="https://aeroflex-russia.ru/local/templates/aeroflex/assets/img/Logo.png">
+
+  <!-- css -->
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(69163153, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/69163153" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <meta name="cmsmagazine" content="a8f0398fc1705a17a38b43e0686d360b" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-182347685-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-182347685-1');
+  </script>
+  <script
+    type="text/javascript">!function () { var t = document.createElement("script"); t.type = "text/javascript", t.async = !0, t.src = "https://vk.com/js/api/openapi.js?169", t.onload = function () { VK.Retargeting.Init("VK-RTRG-993250-6y6i7"), VK.Retargeting.Hit() }, document.head.appendChild(t) }();</script>
+  <noscript>
+    <img src="https://vk.com/rtrg?p=VK-RTRG-993250-6y6i7" style="position:fixed; left:-999px;" alt="" />
+  </noscript>
+</head>
+<!--<div class="preloader"></div>-->
+<div class="preloader_1">
+  <img src="../../../local/templates/aeroflex/assets/img/Logo.png" alt="">
+</div>
+<!--<div class="preloader_2"></div>-->
+<!--<div class="preloader_3">-->
+<!--    <div class="loader">Loading...</div>-->
+<!--</div>-->
+
+<body>
+
+  <div id="root">
+    <header class="header header_black">
+      <div class="header__mobile _viewMenu">
+        <span></span>
+      </div>
+
+      <!--<pre style="position: absolute; right: 0; top: 0; color: cadetblue; background-color: antiquewhite;">-->
+      <!--</pre>-->
+      <div class="header__mobileMenu">
+        <div class="header__mobileBg"></div>
+        <div class="header__mobileClose _closeMobile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+            <path class="cls-1" d="M3.222,3.222L18.778,18.778M19,3L3,19" />
+          </svg>
+        </div>
+        <div class="menu__list">
+          <div class="menu__item_dropdown _viewSecMenu">
+            <a href="../../../produktsiya/index.html" class="menu__item ">
+              <span> Продукция <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="menu__dropdownBack _dropdownBack">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                  id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                  <path
+                    d="M508.875,248.458l-160-160c-4.167-4.167-10.917-4.167-15.083,0c-4.167,4.167-4.167,10.917,0,15.083l141.792,141.792    H10.667C4.771,245.333,0,250.104,0,256s4.771,10.667,10.667,10.667h464.917L333.792,408.458c-4.167,4.167-4.167,10.917,0,15.083    c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125l160-160C513.042,259.375,513.042,252.625,508.875,248.458z    " />
+                </svg>
+                <span>Назад</span>
+              </div>
+              <div class="dropdown">
+
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Техническая изоляция</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm-ht/index.html"><span>Aeroflex
+                        EPDM HT</span></a>
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-firo/index.html"><span>Aeroflex
+                        FIRO</span></a>
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm/index.html"><span>Aeroflex
+                        EPDM</span></a>
+                  </div>
+                </div>
+
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Покрытия и системы</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-metal-pro/index.html"><span>Aeroflex
+                        Metal Pro</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg-alu/index.html"><span>Aeroflex FG
+                        Alu</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg/index.html"><span>Aeroflex
+                        FG</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-alu/index.html"><span>Aeroflex
+                        Alu</span></a>
+                  </div>
+                </div>
+
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Аксессуары</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/aksessuary/podvesy-aerofix/index.html"><span>Подвесы
+                        Aerofix</span></a>
+                    <a href="../../../produktsiya/aksessuary/kley-aeroseal/index.html"><span>Клей Aeroseal</span></a>
+                    <a href="../../../produktsiya/aksessuary/kley-aeroseal-tf-ht/index.html"><span>Клей Aeroseal
+                        TF/HT</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-aerotape/index.html"><span>Лента Aerotape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-aerotape-ht/index.html"><span>Лента Aerotape
+                        HT</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape/index.html"><span>Лента Alutape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape-arm/index.html"><span>Лента Alutape
+                        ARM</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape-mka/index.html"><span>Лента Alutape
+                        MKA</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-fg-tape/index.html"><span>Лента FG-tape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-protape/index.html"><span>Лента Protape</span></a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <a href="../../../o-kompanii/advantages/index.html" class="menu__item"><span>Преимущества</span> </a>
+
+          <a href="../../../primenenie/index.html" class="menu__item"><span>Применение</span> </a>
+
+          <div class="menu__item_dropdown _viewSecMenu">
+            <a href="../../index.html" class="menu__item ">
+              <span> Поддержка <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="menu__dropdownBack _dropdownBack">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                  id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                  <path
+                    d="M508.875,248.458l-160-160c-4.167-4.167-10.917-4.167-15.083,0c-4.167,4.167-4.167,10.917,0,15.083l141.792,141.792    H10.667C4.771,245.333,0,250.104,0,256s4.771,10.667,10.667,10.667h464.917L333.792,408.458c-4.167,4.167-4.167,10.917,0,15.083    c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125l160-160C513.042,259.375,513.042,252.625,508.875,248.458z    " />
+                </svg>
+                <span>Назад</span>
+              </div>
+              <div class="dropdown">
+
+                <a href="../../download/index.html" class="dropdown__title">Скачиваемые материалы</a>
+
+                <a href="../../faq/index.html" class="dropdown__title">Часто задаваемые вопросы</a>
+
+                <a href="index.html" class="dropdown__title">Калькуляторы</a>
+
+              </div>
+            </div>
+          </div>
+          <div class="menu__item_dropdown _viewSecMenu">
+            <a href="../../../o-kompanii/index.html" class="menu__item ">
+              <span> Компания <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="menu__dropdownBack _dropdownBack">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                  id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                  <path
+                    d="M508.875,248.458l-160-160c-4.167-4.167-10.917-4.167-15.083,0c-4.167,4.167-4.167,10.917,0,15.083l141.792,141.792    H10.667C4.771,245.333,0,250.104,0,256s4.771,10.667,10.667,10.667h464.917L333.792,408.458c-4.167,4.167-4.167,10.917,0,15.083    c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125l160-160C513.042,259.375,513.042,252.625,508.875,248.458z    " />
+                </svg>
+                <span>Назад</span>
+              </div>
+              <div class="dropdown">
+
+                <a href="../../../o-kompanii/company/index.html" class="dropdown__title">О компании</a>
+
+                <a href="../../../o-kompanii/kontakty/index.html" class="dropdown__title">Контакты</a>
+
+              </div>
+            </div>
+          </div>
+          <a href="../../../proekty/index.html" class="menu__item"><span>Примеры</span> </a>
+
+        </div>
+      </div>
+
+      <a href="../../../index.html" class="header__logo">
+        <img src="../../../local/templates/aeroflex/assets/img/Logo.png" alt="">
+        <span>Профессиональная теплоизоляция из каучука</span>
+      </a>
+
+
+      <div class="header__menu">
+        <div class="menu__list">
+          <div class="menu__item_dropdown ">
+            <a href="../../../produktsiya/index.html" class="menu__item">
+              <span>
+                Продукция <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="dropdown">
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Техническая изоляция</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm-ht/index.html"><span>Aeroflex
+                        EPDM HT</span></a>
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-firo/index.html"><span>Aeroflex
+                        FIRO</span></a>
+                    <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm/index.html"><span>Aeroflex
+                        EPDM</span></a>
+                  </div>
+                </div>
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Покрытия и системы</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-metal-pro/index.html"><span>Aeroflex
+                        Metal Pro</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg-alu/index.html"><span>Aeroflex FG
+                        Alu</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg/index.html"><span>Aeroflex
+                        FG</span></a>
+                    <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-alu/index.html"><span>Aeroflex
+                        Alu</span></a>
+                  </div>
+                </div>
+                <div class="dropdown__col">
+                  <span class="dropdown__title">Аксессуары</span>
+                  <div class="dropdown__items">
+                    <a href="../../../produktsiya/aksessuary/podvesy-aerofix/index.html"><span>Подвесы
+                        Aerofix</span></a>
+                    <a href="../../../produktsiya/aksessuary/kley-aeroseal/index.html"><span>Клей Aeroseal</span></a>
+                    <a href="../../../produktsiya/aksessuary/kley-aeroseal-tf-ht/index.html"><span>Клей Aeroseal
+                        TF/HT</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-aerotape/index.html"><span>Лента Aerotape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-aerotape-ht/index.html"><span>Лента Aerotape
+                        HT</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape/index.html"><span>Лента Alutape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape-arm/index.html"><span>Лента Alutape
+                        ARM</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-alutape-mka/index.html"><span>Лента Alutape
+                        MKA</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-fg-tape/index.html"><span>Лента FG-tape</span></a>
+                    <a href="../../../produktsiya/aksessuary/lenta-protape/index.html"><span>Лента Protape</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="../../../o-kompanii/advantages/index.html" class="menu__item"><span>Преимущества</span> </a>
+          <a href="../../../primenenie/index.html" class="menu__item"><span>Применение</span> </a>
+          <div class="menu__item_dropdown single">
+            <a href="../../index.html" class="menu__item">
+              <span>
+                Поддержка <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="dropdown">
+                <a href="../../download/index.html" class="dropdown__title"><span>Скачиваемые материалы</span></a>
+                <a href="../../faq/index.html" class="dropdown__title"><span>Часто задаваемые вопросы</span></a>
+                <a href="index.html" class="dropdown__title"><span>Калькуляторы</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="menu__item_dropdown single">
+            <a href="../../../o-kompanii/index.html" class="menu__item">
+              <span>
+                Компания <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="8.5px" height="5.5px">
+                  <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
+                    stroke-linejoin="round" fill="none" d="M1.500,1.500 L4.000,3.500 L6.500,1.500 " />
+                </svg>
+              </span>
+            </a>
+            <div class="menu__dropdown">
+              <div class="dropdown">
+                <a href="../../../o-kompanii/company/index.html" class="dropdown__title"><span>О компании</span></a>
+                <a href="../../../o-kompanii/kontakty/index.html" class="dropdown__title"><span>Контакты</span></a>
+              </div>
+            </div>
+          </div>
+          <a href="../../../proekty/index.html" class="menu__item"><span>Примеры</span> </a>
+        </div>
+
+
+        <div class="header__search">
+          <div class="search__icon _search">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+              id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+              xml:space="preserve">
+              <path
+                d="M508.875,493.792L353.089,338.005c32.358-35.927,52.245-83.296,52.245-135.339C405.333,90.917,314.417,0,202.667,0    S0,90.917,0,202.667s90.917,202.667,202.667,202.667c52.043,0,99.411-19.887,135.339-52.245l155.786,155.786    c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125C513.042,504.708,513.042,497.958,508.875,493.792z     M202.667,384c-99.979,0-181.333-81.344-181.333-181.333S102.688,21.333,202.667,21.333S384,102.677,384,202.667    S302.646,384,202.667,384z" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="search__input">
+          <form action="https://aeroflex-russia.ru/search/index.php">
+            <input type="text" name="q" placeholder="Что будем искать?">
+            <svg class="_searchClose" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.001 512.001"
+              style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+              <path
+                d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717    L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859    c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287    l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285    L284.286,256.002z" />
+            </svg>
+          </form>
+        </div>
+      </div>
+
+    </header>
+
+
+
+
+
+
+
+
+    
+    <main>
+      <div class="blur">
+        <section class="section firstScreen firstScreen_v2 firstScreen_v3">
+          <div class="firstScreen__bg">
+          </div>
+          <div class="container">
+            <div class="firstScreen__content">
+              <div class="firstScreen__slideContent">
+                <div class="firstScreen__item">
+                  <div class="breadcrumbs__items" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <div class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                      itemtype="https://schema.org/ListItem"><a href="../../../index.html" title="Главная"
+                        itemprop="item"><span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="0">
+                      </a></div>
+                    <div class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                      itemtype="https://schema.org/ListItem"><a href="../../index.html" title="Поддержка"
+                        itemprop="item"><span itemprop="name">Поддержка</span>
+                        <meta itemprop="position" content="1">
+                      </a></div>
+                    <div class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                      itemtype="https://schema.org/ListItem"><a href="../index.html" title="Калькуляторы"
+                        itemprop="item"><span itemprop="name">Калькуляторы</span>
+                        <meta itemprop="position" content="2">
+                      </a></div>
+                    <div class="breadcrumbs__item" itemprop="itemListElement" itemscope
+                      itemtype="https://schema.org/ListItem"><a href="index.html#"" title=" Калькулятор технической
+                        изоляции" itemprop="item" class="breadcrumbs__item"><span itemprop="name">Калькулятор
+                          технической изоляции</span>
+                        <meta itemprop="position" content="3">
+                      </a></div>
+                  </div>
+                  <div class="firstScreen__title">
+                    <h1>
+                      Расчет толщины тепловой изоляции, предотвращающей конденсацию влаги из воздуха на её поверхности
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section calc calc_test">
+          <div class="container">
+
+            <div class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a href="../index.html" title="Калькуляторы" itemprop="item" class="breadcrumbs__item">
+                <span itemprop="name">Вернуться к методам расчёта</span>
+                <!-- <meta itemprop="position" content="3"> -->
+              </a>
+            </div>
+
+            <div id="bxdynamic_SGQHGF_start" style="display:none"></div>
+            <div class="calc__content">
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Изолируемая поверхность</span></div>
+                <div class="calc__col">
+                  <div class="radioButton">
+                    <input type="radio" id="flat_true" checked="checked" name="flat" value="flat">
+                    <label for="flat_true"><span>Плоская</span></label>
+                  </div>
+                  <div class="radioButton">
+                    <input type="radio" id="flat_false" checked="checked" name="flat" value="round">
+                    <label for="flat_false"><span>Криволинейная</span></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Тип и размеры трубопровода, мм</span></div>
+                <div class="calc__col">
+                  <div class="calc__radio">
+                    <!-- <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_0" id="diameter_type_0">
+                      <label for="diameter_type_0"><span>Стальной ВГП <br>ГОСТ 3262-75</span></label>
+                    </div> -->
+                    <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_0" id="diameter_type_0">
+                      <label for="diameter_type_0"><span>Стальной ВГП <br>ГОСТ 3262-75</span></label>
+                    </div>
+                    <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_21" id="diameter_type_21">
+                      <label for="diameter_type_21"><span>Стальной ЭС <br>ГОСТ 10704-91</span></label>
+                    </div>
+                    <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_50" id="diameter_type_50">
+                      <label for="diameter_type_50"><span>Стальной НЖ <br>ГОСТ 9941-81</span></label>
+                    </div>
+                    <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_75" id="diameter_type_75">
+                      <label for="diameter_type_75"><span>Полимерный <br>ГОСТ 32415-2013</span></label>
+                    </div>
+                    <div class="radioButton">
+                      <input type="radio" name="diameter_type" value="diameter_109" id="diameter_type_109">
+                      <label for="diameter_type_109"><span>Медный <br>ГОСТ 617-2006</span></label>
+                    </div>
+                    <div class="radioButton">
+                      <input type="radio" checked id="diameter_type_custom" name="diameter_type"
+                        value="diameter_custom">
+                      <label for="diameter_type_custom"><span>Произвольные размеры</span></label>
+                    </div>
+                  </div>
+                  <div class="calc__select">
+                    <select class="js-select-radio" name="diameter" id="diameter">
+                      <optgroup label="Задать вручную" id="diameter_custom">
+                        <option value="" data-dh="">Собственные размеры</option>
+                      </optgroup>
+
+                      <optgroup label="Стальной ВГП ГОСТ 3262-75" id="diameter_0">
+
+                        <option class="calc__option" value="6" data-dh="10.2">Ду 6, Дн 10,2</option>
+
+                        <option class="calc__option" value="8" data-dh="13.5">Ду 8, Дн 13,5</option>
+
+                        <option class="calc__option" value="10" data-dh="17">Ду 10, Дн 17</option>
+
+                        <option class="calc__option" value="15" data-dh="21.3">Ду 15, Дн 21,3</option>
+
+                        <option class="calc__option" value="20" data-dh="26.8">Ду 20, Дн 26,8</option>
+
+                        <option class="calc__option" value="25" data-dh="33.5">Ду 25, Дн 33,5</option>
+
+                        <option class="calc__option" value="32" data-dh="42.3">Ду 32, Дн 42,3</option>
+
+                        <option class="calc__option" value="40" data-dh="48">Ду 40, Дн 48</option>
+
+                        <option class="calc__option" value="50" data-dh="60">Ду 50, Дн 60</option>
+
+                        <option class="calc__option" value="65" data-dh="75.5">Ду 65, Дн 75,5</option>
+
+                        <option class="calc__option" value="80" data-dh="88.5">Ду 80, Дн 88,5</option>
+
+                        <option class="calc__option" value="90" data-dh="101.3">Ду 90, Дн 101,3</option>
+
+                        <option class="calc__option" value="100" data-dh="114">Ду 100, Дн 114</option>
+
+                        <option class="calc__option" value="125" data-dh="140">Ду 125, Дн 140</option>
+
+                        <option class="calc__option" value="150" data-dh="165">Ду 150, Дн 165</option>
+                      </optgroup>
+
+                      <optgroup label="Стальной ЭС ГОСТ 10704-91" id="diameter_21">
+
+                        <option class="calc__option" value="10" data-dh="15">Ду 10, Дн 15</option>
+
+                        <option class="calc__option" value="15" data-dh="21.3">Ду 15, Дн 21,3</option>
+
+                        <option class="calc__option" value="20" data-dh="25">Ду 20, Дн 25</option>
+
+                        <option class="calc__option" value="25" data-dh="32">Ду 25, Дн 32</option>
+
+                        <option class="calc__option" value="32" data-dh="38">Ду 32, Дн 38</option>
+
+                        <option class="calc__option" value="40" data-dh="48">Ду 40, Дн 48</option>
+
+                        <option class="calc__option" value="50" data-dh="57">Ду 50, Дн 57</option>
+
+                        <option class="calc__option" value="65" data-dh="76">Ду 65, Дн 76</option>
+
+                        <option class="calc__option" value="80" data-dh="89">Ду 80, Дн 89</option>
+
+                        <option class="calc__option" value="95" data-dh="102">Ду 95, Дн 102</option>
+
+                        <option class="calc__option" value="100" data-dh="108">Ду 100, Дн 108</option>
+
+                        <option class="calc__option" value="100" data-dh="114">Ду 100, Дн 114</option>
+
+                        <option class="calc__option" value="125" data-dh="133">Ду 125, Дн 133</option>
+
+                        <option class="calc__option" value="150" data-dh="159">Ду 150, Дн 159</option>
+
+                        <option class="calc__option" value="200" data-dh="219">Ду 200, Дн 219</option>
+
+                        <option class="calc__option" value="250" data-dh="273">Ду 250, Дн 273</option>
+
+                        <option class="calc__option" value="300" data-dh="325">Ду 300, Дн 325</option>
+
+                        <option class="calc__option" value="350" data-dh="355">Ду 350, Дн 355</option>
+
+                        <option class="calc__option" value="350" data-dh="377">Ду 350, Дн 377</option>
+
+                        <option class="calc__option" value="400" data-dh="426">Ду 400, Дн 426</option>
+
+                        <option class="calc__option" value="500" data-dh="530">Ду 500, Дн 530</option>
+
+                        <option class="calc__option" value="600" data-dh="630">Ду 600, Дн 630</option>
+
+                        <option class="calc__option" value="700" data-dh="720">Ду 700, Дн 720</option>
+
+                        <option class="calc__option" value="800" data-dh="820">Ду 800, Дн 820</option>
+
+                        <option class="calc__option" value="900" data-dh="920">Ду 900, Дн 920</option>
+
+                        <option class="calc__option" value="1000" data-dh="1020">Ду 1000, Дн 1020</option>
+
+                        <option class="calc__option" value="1200" data-dh="1220">Ду 1200, Дн 1220</option>
+
+                        <option class="calc__option" value="1400" data-dh="1420">Ду 1400, Дн 1420</option>
+                      </optgroup>
+
+                      <optgroup label="Стальной НЖ ГОСТ 9941-81" id="diameter_50">
+
+                        <option class="calc__option" value="10" data-dh="16">Ду 10, Дн 16</option>
+
+                        <option class="calc__option" value="15" data-dh="20">Ду 15, Дн 20</option>
+
+                        <option class="calc__option" value="20" data-dh="25">Ду 20, Дн 25</option>
+
+                        <option class="calc__option" value="25" data-dh="30">Ду 25, Дн 30</option>
+
+                        <option class="calc__option" value="25" data-dh="32">Ду 25, Дн 32</option>
+
+                        <option class="calc__option" value="32" data-dh="38">Ду 32, Дн 38</option>
+
+                        <option class="calc__option" value="32" data-dh="42">Ду 32, Дн 42</option>
+
+                        <option class="calc__option" value="40" data-dh="45">Ду 40, Дн 45</option>
+
+                        <option class="calc__option" value="40" data-dh="48">Ду 40, Дн 48</option>
+
+                        <option class="calc__option" value="45" data-dh="50">Ду 45, Дн 50</option>
+
+                        <option class="calc__option" value="45" data-dh="51">Ду 45, Дн 51</option>
+
+                        <option class="calc__option" value="65" data-dh="70">Ду 65, Дн 70</option>
+
+                        <option class="calc__option" value="65" data-dh="73">Ду 65, Дн 73</option>
+
+                        <option class="calc__option" value="65" data-dh="76">Ду 65, Дн 76</option>
+
+                        <option class="calc__option" value="65" data-dh="80">Ду 65, Дн 80</option>
+
+                        <option class="calc__option" value="80" data-dh="89">Ду 80, Дн 89</option>
+
+                        <option class="calc__option" value="80" data-dh="90">Ду 80, Дн 90</option>
+
+                        <option class="calc__option" value="90" data-dh="102">Ду 90, Дн 102</option>
+
+                        <option class="calc__option" value="100" data-dh="108">Ду 100, Дн 108</option>
+
+                        <option class="calc__option" value="125" data-dh="130">Ду 125, Дн 130</option>
+
+                        <option class="calc__option" value="125" data-dh="140">Ду 125, Дн 140</option>
+
+                        <option class="calc__option" value="150" data-dh="160">Ду 150, Дн 160</option>
+
+                        <option class="calc__option" value="200" data-dh="220">Ду 200, Дн 220</option>
+
+                        <option class="calc__option" value="250" data-dh="273">Ду 250, Дн 273</option>
+                      </optgroup>
+
+                      <optgroup label="Полимерный ГОСТ 32415-2013" id="diameter_75">
+
+                        <option class="calc__option" value="6" data-dh="10">Ду 6, Дн 10</option>
+
+                        <option class="calc__option" value="6" data-dh="12">Ду 6, Дн 12</option>
+
+                        <option class="calc__option" value="10" data-dh="16">Ду 10, Дн 16</option>
+
+                        <option class="calc__option" value="15" data-dh="20">Ду 15, Дн 20</option>
+
+                        <option class="calc__option" value="20" data-dh="25">Ду 20, Дн 25</option>
+
+                        <option class="calc__option" value="25" data-dh="32">Ду 25, Дн 32</option>
+
+                        <option class="calc__option" value="32" data-dh="40">Ду 32, Дн 40</option>
+
+                        <option class="calc__option" value="40" data-dh="50">Ду 40, Дн 50</option>
+
+                        <option class="calc__option" value="50" data-dh="63">Ду 50, Дн 63</option>
+
+                        <option class="calc__option" value="65" data-dh="75">Ду 65, Дн 75</option>
+
+                        <option class="calc__option" value="80" data-dh="90">Ду 80, Дн 90</option>
+
+                        <option class="calc__option" value="100" data-dh="110">Ду 100, Дн 110</option>
+
+                        <option class="calc__option" value="100" data-dh="125">Ду 100, Дн 125</option>
+
+                        <option class="calc__option" value="125" data-dh="140">Ду 125, Дн 140</option>
+
+                        <option class="calc__option" value="150" data-dh="160">Ду 150, Дн 160</option>
+
+                        <option class="calc__option" value="150" data-dh="180">Ду 150, Дн 180</option>
+
+                        <option class="calc__option" value="160" data-dh="200">Ду 160, Дн 200</option>
+
+                        <option class="calc__option" value="200" data-dh="225">Ду 200, Дн 225</option>
+
+                        <option class="calc__option" value="225" data-dh="250">Ду 225, Дн 250</option>
+
+                        <option class="calc__option" value="250" data-dh="280">Ду 250, Дн 280</option>
+
+                        <option class="calc__option" value="300" data-dh="315">Ду 300, Дн 315</option>
+
+                        <option class="calc__option" value="300" data-dh="355">Ду 300, Дн 355</option>
+
+                        <option class="calc__option" value="350" data-dh="400">Ду 350, Дн 400</option>
+
+                        <option class="calc__option" value="400" data-dh="450">Ду 400, Дн 450</option>
+
+                        <option class="calc__option" value="450" data-dh="500">Ду 450, Дн 500</option>
+
+                        <option class="calc__option" value="500" data-dh="560">Ду 500, Дн 560</option>
+
+                        <option class="calc__option" value="600" data-dh="630">Ду 600, Дн 630</option>
+
+                        <option class="calc__option" value="650" data-dh="710">Ду 650, Дн 710</option>
+
+                        <option class="calc__option" value="700" data-dh="800">Ду 700, Дн 800</option>
+
+                        <option class="calc__option" value="800" data-dh="900">Ду 800, Дн 900</option>
+
+                        <option class="calc__option" value="900" data-dh="1000">Ду 900, Дн 1000</option>
+
+                        <option class="calc__option" value="1000" data-dh="1200">Ду 1000, Дн 1200</option>
+
+                        <option class="calc__option" value="1200" data-dh="1400">Ду 1200, Дн 1400</option>
+                      </optgroup>
+
+                      <optgroup label="Медный ГОСТ 617-2006" id="diameter_109">
+
+                        <option class="calc__option" value="4" data-dh="6">Ду 4, Дн 6</option>
+
+                        <option class="calc__option" value="6" data-dh="8">Ду 6, Дн 8</option>
+
+                        <option class="calc__option" value="8" data-dh="10">Ду 8, Дн 10</option>
+
+                        <option class="calc__option" value="10" data-dh="12">Ду 10, Дн 12</option>
+
+                        <option class="calc__option" value="10" data-dh="15">Ду 10, Дн 15</option>
+
+                        <option class="calc__option" value="15" data-dh="18">Ду 15, Дн 18</option>
+
+                        <option class="calc__option" value="15" data-dh="22">Ду 15, Дн 22</option>
+
+                        <option class="calc__option" value="20" data-dh="28">Ду 20, Дн 28</option>
+
+                        <option class="calc__option" value="25" data-dh="35">Ду 25, Дн 35</option>
+
+                        <option class="calc__option" value="32" data-dh="42">Ду 32, Дн 42</option>
+
+                        <option class="calc__option" value="45" data-dh="54">Ду 45, Дн 54</option>
+
+                        <option class="calc__option" value="50" data-dh="64">Ду 50, Дн 64</option>
+
+                        <option class="calc__option" value="50" data-dh="66.7">Ду 50, Дн 66,7</option>
+
+                        <option class="calc__option" value="65" data-dh="76.1">Ду 65, Дн 76,1</option>
+
+                        <option class="calc__option" value="80" data-dh="88.9">Ду 80, Дн 88,9</option>
+
+                        <option class="calc__option" value="100" data-dh="108">Ду 100, Дн 108</option>
+
+                        <option class="calc__option" value="125" data-dh="133">Ду 125, Дн 133</option>
+
+                        <option class="calc__option" value="150" data-dh="159">Ду 150, Дн 159</option>
+
+                        <option class="calc__option" value="200" data-dh="219">Ду 200, Дн 219</option>
+
+                        <option class="calc__option" value="250" data-dh="267">Ду 250, Дн 267</option>
+
+                      </optgroup>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Внутренний диаметр трубопровода, мм</span></div>
+                <div class="calc__col">
+                  <input type="text" name="diameter_in" placeholder="50" class="input _inputAttr">
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Внешний диаметр трубопровода, мм</span></div>
+                <div class="calc__col">
+                  <input type="text" name="diameter_out" placeholder="60" class="input _inputAttr">
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Температура теплоносителя, °С</span></div>
+                <div class="calc__col">
+                  <input type="text" placeholder="200" class="input _inputAttr temperature_in">
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Температура окружающего воздуха, °С</span></div>
+                <div class="calc__col">
+                  <input type="text" placeholder="-5" class="input _inputAttr temperature_out">
+                  <div class="temperature_out_error calc__col_error"></div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Влажность окружающего воздуха, %</span></div>
+                <div class="calc__col">
+                  <input type="text" name="humidity_out"  class="input _inputAttr">
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Температура "точки росы", °С</span></div>
+                <div class="calc__col">
+                  <input type="text" name="dew-point-temperature" readonly disabled class="input _inputAttr">
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Изоляционный материал</span></div>
+                <div class="calc__col">
+                  <div class="calc__select">
+                    <select class="js-select-single" name="material" id="material">
+                      <option value="0" selected>Aeroflex EPDM</option>
+                      <option value="1">Aeroflex EPDM HT</option>
+                      <option value="2">Aeroflex FIRO</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col"><span>Покровный материал</span></div>
+                <div class="calc__col">
+                  <div class="calc__select">
+                    <select class="js-select-single" name="pipe" id="pipe">
+                      <option value="5" selected>Сталь оцинкованная</option>
+                      <option value="5">Сталь нержавеющая</option>
+                      <option value="5">Алюминий</option>
+                      <option value="5">Metal Pro</option>
+                      <option value="5">Alu</option>
+                      <option value="7">FG</option>
+                      <option value="7">Aerojacket</option>
+                      <option value="5">FG Alu</option>
+                      <option value="7">Protape</option>
+                      <option value="7">Окраска красками Aerocoat</option>
+                      <option value="7">Без покрытия</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row">
+                <div class="calc__col">
+                  <span>Коэффициент конвективной теплоотдачи от наружной поверхности, αн, Вт/м<sup>2</sup>·С</span>
+                </div>
+                <div class="calc__col">
+                  <input type="text" name="heat_coefficient" readonly disabled placeholder="" class="input" value="">
+                </div>
+              </div>
+
+            </div>
+            <div class="calc__button btn _result">Рассчитать</div>
+            <div class="calc__result">
+              <div class="calc__row">
+                <div class="calc__col"><span>Толщина изоляции, мм</span></div>
+                <div class="calc__col">
+                  <input type="text" readonly value="" class="input otvet">
+                </div>
+              </div>
+              <div class="calc__row hidden">
+                <div class="calc__col"><span>Толщина изоляции (метод последовательных приближений), мм</span></div>
+                <div class="calc__col">
+                  <input type="text" readonly value="" class="input approx">
+                </div>
+              </div>
+            </div>
+            <div id="bxdynamic_SGQHGF_end" style="display:none"></div>
+          </div>
+        </section>
+      </div>
+      <div class="blur__bg"></div>
+    </main>
+
+
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <a href="../../../index.html" class="footer__logo">
+            <img src="../../../local/templates/aeroflex/assets/img/Logo.png" alt="">
+            <span>Профессиональная <br> теплоизоляция из каучука</span>
+          </a>
+          <div class="footer__menu">
+            <div id="bxdynamic_g8taYv_start" style="display:none"></div>
+            <div class="footer__row">
+              <div class="footer__col">
+                <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/index.html" class="footer__title">Техническая
+                  изоляция</a>
+                <div class="footer__links">
+                  <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm-ht/index.html"><span>Aeroflex
+                      EPDM HT</span></a>
+                  <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-firo/index.html"><span>Aeroflex
+                      FIRO</span></a>
+                  <a href="../../../produktsiya/tekhnicheskaya-izolyatsiya/aeroflex-epdm/index.html"><span>Aeroflex
+                      EPDM</span></a>
+                </div>
+              </div>
+              <div class="footer__col">
+                <a href="../../../produktsiya/pokrytiya-i-sistemy/index.html" class="footer__title">Покрытия и
+                  системы</a>
+                <div class="footer__links">
+                  <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-metal-pro/index.html"><span>Aeroflex Metal
+                      Pro</span></a>
+                  <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg-alu/index.html"><span>Aeroflex FG
+                      Alu</span></a>
+                  <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-fg/index.html"><span>Aeroflex FG</span></a>
+                  <a href="../../../produktsiya/pokrytiya-i-sistemy/aeroflex-alu/index.html"><span>Aeroflex
+                      Alu</span></a>
+                </div>
+              </div>
+              <div class="footer__col">
+                <a href="../../../produktsiya/aksessuary/index.html" class="footer__title">Аксессуары</a>
+                <div class="footer__links">
+                  <a href="../../../produktsiya/aksessuary/podvesy-aerofix/index.html"><span>Подвесы Aerofix</span></a>
+                  <a href="../../../produktsiya/aksessuary/kley-aeroseal/index.html"><span>Клей Aeroseal</span></a>
+                  <a href="../../../produktsiya/aksessuary/kley-aeroseal-tf-ht/index.html"><span>Клей Aeroseal
+                      TF/HT</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-aerotape/index.html"><span>Лента Aerotape</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-aerotape-ht/index.html"><span>Лента Aerotape
+                      HT</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-alutape/index.html"><span>Лента Alutape</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-alutape-arm/index.html"><span>Лента Alutape
+                      ARM</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-alutape-mka/index.html"><span>Лента Alutape
+                      MKA</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-fg-tape/index.html"><span>Лента FG-tape</span></a>
+                  <a href="../../../produktsiya/aksessuary/lenta-protape/index.html"><span>Лента Protape</span></a>
+                </div>
+              </div>
+            </div>
+            <div id="bxdynamic_g8taYv_end" style="display:none"></div>
+            <div class="footer__row">
+              <div class="footer__col">
+                <span class="footer__title">Применение</span>
+                <div id="bxdynamic_rIpOz9_start" style="display:none"></div>
+                <div class="footer__links">
+                  <a href="../../../primenenie/izolyatsiya-kriogennogo-oborudovaniya/index.html"><span>Изоляция
+                      криогенного оборудования</span></a>
+                  <a href="../../../primenenie/izolyatsiya-kholodilnogo-oborudovaniya/index.html"><span>Изоляция
+                      холодильного оборудования</span></a>
+                  <a href="../../../primenenie/izolyatsiya-hvac/index.html"><span>Изоляция HVAC</span></a>
+                  <a href="../../../primenenie/izolyatsiya-teplovykh-punktov-i-setey/index.html"><span>Изоляция тепловых
+                      пунктов и сетей</span></a>
+                  <a
+                    href="../../../primenenie/izolyatsiya-tekhnologicheskikh-truboprovodov-i-emkostnogo-oborudovaniya/index.html"><span>Изоляция
+                      трубопроводов и ёмкостного оборудования</span></a>
+                  <a href="../../../primenenie/izolyatsiya-solnechnoy-energetiki/index.html"><span>Изоляция систем
+                      солнечной энергетики</span></a>
+                </div>
+                <div id="bxdynamic_rIpOz9_end" style="display:none"></div>
+              </div>
+              <div class="footer__col">
+                <span class="footer__title">Поддержка</span>
+                <div class="footer__links">
+                  <div id="bxdynamic_NMQc3w_start" style="display:none"></div>
+                  <div class="footer__links">
+                    <a href="index.html"><span>Технические калькуляторы</span></a>
+                    <a href="../../download/index.html"><span>Скачиваемые материалы</span></a>
+                    <a href="https://aeroflex-russia.ru/podderzhka/faq"><span>Часто задаваемые вопросы</span></a>
+                  </div>
+                  <div id="bxdynamic_NMQc3w_end" style="display:none"></div>
+                </div>
+
+                <span class="footer__title">О компании</span>
+                <div class="footer__links">
+
+                  <a href="https://aeroflex-russia.ru/o-kompanii/company"><span>О компании</span></a>
+                  <a href="https://aeroflex-russia.ru/o-kompanii/kontakty"><span>Контакты</span></a>
+                </div>
+              </div>
+              <div class="footer__col">
+                <a href="../../../proekty/index.html" class="footer__title footer__title_notLinks">Проекты</a>
+                <a href="../../../kontakty/index.html" class="footer__title">Контакты</a>
+                <div class="footer__links">
+                  <a href="../../../kontakty/index.html"><span>Дилеры</span></a>
+                  <span class="address">614000, г. Пермь, ул.Дзержинского, 59</span>
+                  <a href="mailto:info@aeroflex-russia.ru"><span
+                      class="callibri_email">info@aeroflex-russia.ru</span></a>
+                  <a href="tel:+73422099506" class="tel">+7 342 209-95-06</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer__copyright">
+            <a href="http://ckdigital.ru" target="_blank" class="copyright__logo">
+              <span>Создание сайта</span>
+              <div class="copyright__images">
+                <img src="../../../local/templates/aeroflex/assets/img/ck_logo.png" alt="">
+                <img src="../../../local/templates/aeroflex/assets/img/ck_logoColor.png" alt="">
+              </div>
+            </a>
+            <div class="copyright__content">
+              <div class="footer__row">
+                <div class="footer__col">
+                  <div class="footer__links">
+                    <a href="../../../politics/processing-of-personal-data/index.html"><span>Обработка персональных
+                        данных</span></a>
+                  </div>
+                </div>
+                <div class="footer__col">
+                  <div class="footer__links">
+                    <a href="../../../politics/terms-of-cooperation/index.html"><span>Пользовательское
+                        соглашение</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="overlay"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- js -->
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/lib/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/lib/jquery.maskedinput.min.js"></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/lib/slick/slick.js"></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/js/main.js" async defer></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/lib/select2/js/select2.min.js"
+    defer></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/lib/select2/js/i18n/ru.js"
+    defer></script>
+  <script type="text/javascript" src="../../../local/templates/aeroflex/assets/js/calc.1-3.js" defer></script>
+  <script src="https://cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    $('.product__button._order').on('click', function () { track('order_button') });
+    $('.contacts__button._diler').on('click', function () { track('dealer_button') })
+    function track(event) {
+      if (event) {
+        if ('undefined' !== typeof Ya && 'undefined' !== typeof Ya._metrika) {
+          $.each(Ya._metrika.counters, function (key, counter) {
+            counter.reachGoal(event);
+          });
+        }
+        if ('undefined' !== typeof ga) {
+          ga(ga.getAll()[0].get('name') + '.send', 'pageview', '/virtual/' + event);
+        }
+      }
+    }
+  </script>
+</body>
+
+</html><!--edbf57fb7e7dd65aee3ba956d0f6dcef-->
