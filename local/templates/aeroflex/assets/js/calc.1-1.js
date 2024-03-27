@@ -240,16 +240,18 @@ $(function () {
                 $surfaceInsulationTemperature.val().replace(/,/, ".")
             );
         AeroflexCalc.init();
-
-        $heat_coefficient.attr(
-            "placeholder",
-            AeroflexCalc.getThermalLossCoefficient_1(
-                temperatureIn,
-                isVertical,
-                isIndoor,
-                emission
-            )
-        );
+        if (temperatureIn) {
+            $heat_coefficient.attr(
+                "placeholder",
+                AeroflexCalc.getThermalLossCoefficient_1(
+                    temperatureIn,
+                    isVertical,
+                    isFlat,
+                    isIndoor,
+                    emission
+                )
+            );
+        }
 
         // Extended
         const heat_coefficient = parseFloat(
@@ -320,6 +322,7 @@ $(function () {
                 emission,
                 surfaceInsulationTemperature
             );
+            console.log(isFlat);
             $result.addClass("active");
             $(".calc__result").addClass("active");
             $(".otvet").val(

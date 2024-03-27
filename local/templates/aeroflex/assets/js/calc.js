@@ -737,11 +737,12 @@ var AeroflexCalc = {
     getThermalLossCoefficient_1: function (
         temperatureIn,
         isVertical,
+        isFlat,
         isIndoor,
         emission
     ) {
         if (temperatureIn >= 20) {
-            if (isVertical) {
+            if (isVertical || isFlat) {
                 if (isIndoor) {
                     if (emission === 0) {
                         return 6;
@@ -1422,6 +1423,7 @@ var AeroflexCalc = {
             this.getThermalLossCoefficient_1(
                 temperatureIn,
                 isVertical,
+                isFlat,
                 isIndoor,
                 emission
             ) *
@@ -1457,6 +1459,7 @@ var AeroflexCalc = {
         const thermalLossCoefficient = this.getThermalLossCoefficient_1(
             temperatureIn,
             isVertical,
+            isFlat,
             isIndoor,
             emission
         );
