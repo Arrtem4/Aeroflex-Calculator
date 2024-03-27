@@ -223,7 +223,6 @@ $(function () {
         $approx.closest(".calc__row").addClass("hidden");
 
         $heat_coefficient.attr("placeholder", "");
-
         // Main
         const material = parseInt($material.val(), 10),
             diameterIn = parseFloat($diameter_in.val().replace(/,/, ".")),
@@ -244,8 +243,8 @@ $(function () {
 
         $heat_coefficient.attr(
             "placeholder",
-            AeroflexCalc.getThermalLossCoefficient(
-                isFlat,
+            AeroflexCalc.getThermalLossCoefficient_1(
+                temperatureIn,
                 isVertical,
                 isIndoor,
                 emission
@@ -322,7 +321,6 @@ $(function () {
                 surfaceInsulationTemperature
             );
             $result.addClass("active");
-
             $(".calc__result").addClass("active");
             $(".otvet").val(
                 errorMessage()
