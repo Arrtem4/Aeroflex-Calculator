@@ -734,6 +734,54 @@ var AeroflexCalc = {
                   emission
               ];
     },
+    getThermalLossCoefficient_1: function (
+        temperatureIn,
+        isVertical,
+        isIndoor,
+        emission
+    ) {
+        if (temperatureIn >= 20) {
+            if (isVertical) {
+                if (isIndoor) {
+                    if (emission === 0) {
+                        return 6;
+                    } else {
+                        return 11;
+                    }
+                } else {
+                    if (emission === 0) {
+                        return 6;
+                    } else {
+                        return 11;
+                    }
+                }
+            } else {
+                if (isIndoor) {
+                    if (emission === 0) {
+                        return 6;
+                    } else {
+                        return 10;
+                    }
+                } else {
+                    if (emission === 0) {
+                        return 6;
+                    } else {
+                        return 10;
+                    }
+                }
+            }
+        } else {
+            if (isIndoor) {
+                if (emission === 0) {
+                    return 6;
+                } else {
+                    return 11;
+                }
+            } else {
+                return 29;
+            }
+        }
+    },
 
     /**
      * Returns linear coefficient of thermal resistance to external heat transfer
@@ -1362,15 +1410,22 @@ var AeroflexCalc = {
                 ).toFixed(4)
             ) *
             (temperatureIn - surfaceInsulationTemperature);
+        // const bottomArg =
+        //     this.getThermalLossCoefficient(
+        //         isFlat,
+        //         isVertical,
+        //         isIndoor,
+        //         emission
+        //     ) *
+        //     (surfaceInsulationTemperature - temperatureOut);
         const bottomArg =
-            this.getThermalLossCoefficient(
-                isFlat,
+            this.getThermalLossCoefficient_1(
+                temperatureIn,
                 isVertical,
                 isIndoor,
                 emission
             ) *
             (surfaceInsulationTemperature - temperatureOut);
-
         return 1000 * (topArg / bottomArg);
     },
 
@@ -1393,8 +1448,14 @@ var AeroflexCalc = {
             1000;
         let k = Number(density.toFixed(3));
 
-        const thermalLossCoefficient = this.getThermalLossCoefficient(
-            isFlat,
+        // const thermalLossCoefficient = this.getThermalLossCoefficient(
+        //     isFlat,
+        //     isVertical,
+        //     isIndoor,
+        //     emission
+        // );
+        const thermalLossCoefficient = this.getThermalLossCoefficient_1(
+            temperatureIn,
             isVertical,
             isIndoor,
             emission
@@ -1960,13 +2021,6 @@ var AeroflexCalc = {
             gasKinematicViscosityProcessed / gasThermalDiffusivityProcessed,
             0.43
         );
-        console.log({
-            diameterInMeter,
-            gasThermalDiffusivityProcessed,
-            gasKinematicViscosityProcessed,
-            a,
-            b,
-        });
         return Number(
             gasThermalConductivity * 0.021 * a * (b / diameterInMeter)
         );
