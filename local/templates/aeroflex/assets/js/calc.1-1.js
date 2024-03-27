@@ -322,7 +322,6 @@ $(function () {
                 emission,
                 surfaceInsulationTemperature
             );
-            console.log(isFlat);
             $result.addClass("active");
             $(".calc__result").addClass("active");
             $(".otvet").val(

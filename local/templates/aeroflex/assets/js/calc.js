@@ -784,6 +784,91 @@ var AeroflexCalc = {
         }
     },
 
+    getThermalLossCoefficient_2: function (
+        startCarrierTemperature,
+        isVertical
+    ) {
+        if (startCarrierTemperature <= 19) {
+            return 29;
+        } else {
+            if (isVertical) {
+                return 35;
+            } else {
+                return 29;
+            }
+        }
+    },
+
+    getThermalLossCoefficient_3: function (
+        temperatureIn,
+        isVertical,
+        isFlat,
+        emission
+    ) {
+        if (temperatureIn >= 20) {
+            if (isVertical || isFlat) {
+                if (emission === 5) {
+                    return 7;
+                } else {
+                    return 12;
+                }
+            } else {
+                if (emission === 5) {
+                    return 6;
+                } else {
+                    return 11;
+                }
+            }
+        } else {
+            if (emission === 5) {
+                return 5;
+            } else {
+                return 7;
+            }
+        }
+    },
+
+    getThermalLossCoefficient_4: function (
+        temperatureIn,
+        isVertical,
+        isIndoor,
+        emission
+    ) {
+        if (temperatureIn >= 20) {
+            if (isVertical) {
+                if (isIndoor) {
+                    if (emission === 0) {
+                        return 7;
+                    } else {
+                        return 12;
+                    }
+                } else {
+                    return 35;
+                }
+            } else {
+                if (isIndoor) {
+                    if (emission === 0) {
+                        return 6;
+                    } else {
+                        return 11;
+                    }
+                } else {
+                    return 29;
+                }
+            }
+        } else {
+            if (isIndoor) {
+                if (emission === 0) {
+                    return 6;
+                } else {
+                    return 11;
+                }
+            } else {
+                return 29;
+            }
+        }
+    },
+
     /**
      * Returns linear coefficient of thermal resistance to external heat transfer
      *
@@ -1727,11 +1812,9 @@ var AeroflexCalc = {
                     stopTime
                 ) -
                     this.getFractionSecond(
-                        this.getThermalLossCoefficient(
-                            isFlat,
-                            isVertical,
-                            isIndoor,
-                            emission
+                        this.getThermalLossCoefficient_2(
+                            startCarrierTemperature,
+                            isVertical
                         ),
                         k,
                         diameterOut
@@ -1801,7 +1884,8 @@ var AeroflexCalc = {
         diameterOut,
         isFlat,
         humidityOut,
-        pipe
+        pipe,
+        isVertical
     ) {
         if (isFlat) {
             const b = +this.getThermalConductivityByMaterial(
@@ -1809,7 +1893,13 @@ var AeroflexCalc = {
                 temperatureIn,
                 temperatureOut
             ).toFixed(4);
-            const lossKoef = pipe;
+
+            const lossKoef = +this.getThermalLossCoefficient_3(
+                temperatureIn,
+                isVertical,
+                isFlat,
+                emission
+            );
 
             const a =
                 (b / lossKoef) *
@@ -2072,8 +2162,8 @@ var AeroflexCalc = {
 
         const diameterInProcessed = diameterIn / 1000;
 
-        const additionalLossKoef = +this.getThermalLossCoefficient(
-            false,
+        const additionalLossKoef = +this.getThermalLossCoefficient_4(
+            gasMovingTemperature,
             isVertical,
             isIndoor,
             emission

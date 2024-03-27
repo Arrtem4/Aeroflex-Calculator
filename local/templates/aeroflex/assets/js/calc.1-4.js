@@ -838,12 +838,6 @@ $(function () {
             ),
             emission = parseInt($pipe.val(), 10);
 
-        console.log({
-            gasThermalConductivity,
-            gasKinematicViscosity,
-            gasThermalDiffusivity,
-        });
-
         if ($gasPipeType.val() === "rectangular") {
             if (isNaN(gasPipeHeight)) {
                 $gasPipeHeight.addClass("error");
@@ -897,15 +891,17 @@ $(function () {
 
         AeroflexCalc.init();
 
-        $heat_coefficient.attr(
-            "placeholder",
-            AeroflexCalc.getThermalLossCoefficient(
-                false,
-                isVertical,
-                isIndoor,
-                emission
-            )
-        );
+        if (gasMovingTemperature) {
+            $heat_coefficient.attr(
+                "placeholder",
+                AeroflexCalc.getThermalLossCoefficient_4(
+                    gasMovingTemperature,
+                    isVertical,
+                    isIndoor,
+                    emission
+                )
+            );
+        }
 
         const diameterInRes =
             $gasPipeType.val() === "rectangular"
