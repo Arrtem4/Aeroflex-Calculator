@@ -130,17 +130,20 @@ $(function () {
     $(".calc_test ._result").on("click", function () {
         let $calc = $(this).closest(".calc_test"),
             $flat = $calc.find('[name="flat"]:checked'),
-            $diameter_in = $calc.find('[name="diameter_in"]'),
-            $diameter_out = $calc.find('[name="diameter_out"]'),
-            $temperatureIn = $calc.find(".temperature_in"),
-            $temperatureOut = $calc.find(".temperature_out"),
-            $humidityOut = $calc.find('[name="humidity_out"]'),
-            $dewPointTemperature = $calc.find('[name="dew-point-temperature"]'),
-            $material = $calc.find('[name="material"] option:selected'),
-            $pipe = $calc.find('[name="pipe"] option:selected'),
-            $result = $calc.find(".calc__result"),
-            $approx = $calc.find(".approx"),
-            $heat_coefficient = $calc.find('[name="heat_coefficient"]');
+            $position = $calc.find('[name="position"]:checked');
+        ($diameter_in = $calc.find('[name="diameter_in"]')),
+            ($diameter_out = $calc.find('[name="diameter_out"]')),
+            ($temperatureIn = $calc.find(".temperature_in")),
+            ($temperatureOut = $calc.find(".temperature_out")),
+            ($humidityOut = $calc.find('[name="humidity_out"]')),
+            ($dewPointTemperature = $calc.find(
+                '[name="dew-point-temperature"]'
+            )),
+            ($material = $calc.find('[name="material"] option:selected')),
+            ($pipe = $calc.find('[name="pipe"] option:selected')),
+            ($result = $calc.find(".calc__result")),
+            ($approx = $calc.find(".approx")),
+            ($heat_coefficient = $calc.find('[name="heat_coefficient"]'));
 
         $approx.closest(".calc__row").addClass("hidden");
 
@@ -149,6 +152,7 @@ $(function () {
         // Main
         const material = parseInt($material.val(), 10),
             isFlat = $flat.val() === "flat",
+            isVertical = $position.val() === "vertical",
             diameterIn = parseFloat($diameter_in.val().replace(/,/, ".")),
             diameterOut = parseFloat($diameter_out.val().replace(/,/, ".")),
             temperatureIn = parseFloat($temperatureIn.val().replace(/,/, ".")),
@@ -164,7 +168,19 @@ $(function () {
 
         AeroflexCalc.init();
 
-        $heat_coefficient.attr("placeholder", pipe);
+        if (temperatureIn) {
+            $heat_coefficient.attr(
+                "placeholder",
+                AeroflexCalc.getThermalLossCoefficient_3(
+                    temperatureIn,
+                    isVertical,
+                    isFlat,
+                    emission
+                )
+            );
+        }
+
+        // $heat_coefficient.attr("placeholder", pipe);
 
         // Extended
         const heat_coefficient = parseFloat(
@@ -222,7 +238,8 @@ $(function () {
                 diameterOut,
                 isFlat,
                 humidityOut,
-                pipe
+                pipe,
+                isVertical
             );
             $result.addClass("active");
 

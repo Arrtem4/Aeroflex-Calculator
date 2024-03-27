@@ -799,6 +799,35 @@ var AeroflexCalc = {
         }
     },
 
+    getThermalLossCoefficient_3: function (
+        temperatureIn,
+        isVertical,
+        isFlat,
+        emission
+    ) {
+        if (temperatureIn >= 20) {
+            if (isVertical || isFlat) {
+                if (emission === 5) {
+                    return 7;
+                } else {
+                    return 12;
+                }
+            } else {
+                if (emission === 5) {
+                    return 6;
+                } else {
+                    return 11;
+                }
+            }
+        } else {
+            if (emission === 5) {
+                return 5;
+            } else {
+                return 7;
+            }
+        }
+    },
+
     getThermalLossCoefficient_4: function (
         temperatureIn,
         isVertical,
@@ -1855,7 +1884,8 @@ var AeroflexCalc = {
         diameterOut,
         isFlat,
         humidityOut,
-        pipe
+        pipe,
+        isVertical
     ) {
         if (isFlat) {
             const b = +this.getThermalConductivityByMaterial(
@@ -1863,7 +1893,13 @@ var AeroflexCalc = {
                 temperatureIn,
                 temperatureOut
             ).toFixed(4);
-            const lossKoef = pipe;
+
+            const lossKoef = +this.getThermalLossCoefficient_3(
+                temperatureIn,
+                isVertical,
+                isFlat,
+                emission
+            );
 
             const a =
                 (b / lossKoef) *

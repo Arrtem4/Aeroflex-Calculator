@@ -838,12 +838,6 @@ $(function () {
             ),
             emission = parseInt($pipe.val(), 10);
 
-        console.log({
-            gasThermalConductivity,
-            gasKinematicViscosity,
-            gasThermalDiffusivity,
-        });
-
         if ($gasPipeType.val() === "rectangular") {
             if (isNaN(gasPipeHeight)) {
                 $gasPipeHeight.addClass("error");
