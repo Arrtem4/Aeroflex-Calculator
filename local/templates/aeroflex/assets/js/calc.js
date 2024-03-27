@@ -799,6 +799,47 @@ var AeroflexCalc = {
         }
     },
 
+    getThermalLossCoefficient_4: function (
+        temperatureIn,
+        isVertical,
+        isIndoor,
+        emission
+    ) {
+        if (temperatureIn >= 20) {
+            if (isVertical) {
+                if (isIndoor) {
+                    if (emission === 0) {
+                        return 7;
+                    } else {
+                        return 12;
+                    }
+                } else {
+                    return 35;
+                }
+            } else {
+                if (isIndoor) {
+                    if (emission === 0) {
+                        return 6;
+                    } else {
+                        return 11;
+                    }
+                } else {
+                    return 29;
+                }
+            }
+        } else {
+            if (isIndoor) {
+                if (emission === 0) {
+                    return 6;
+                } else {
+                    return 11;
+                }
+            } else {
+                return 29;
+            }
+        }
+    },
+
     /**
      * Returns linear coefficient of thermal resistance to external heat transfer
      *
@@ -2085,8 +2126,8 @@ var AeroflexCalc = {
 
         const diameterInProcessed = diameterIn / 1000;
 
-        const additionalLossKoef = +this.getThermalLossCoefficient(
-            false,
+        const additionalLossKoef = +this.getThermalLossCoefficient_4(
+            gasMovingTemperature,
             isVertical,
             isIndoor,
             emission

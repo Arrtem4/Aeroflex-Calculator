@@ -897,15 +897,17 @@ $(function () {
 
         AeroflexCalc.init();
 
-        $heat_coefficient.attr(
-            "placeholder",
-            AeroflexCalc.getThermalLossCoefficient(
-                false,
-                isVertical,
-                isIndoor,
-                emission
-            )
-        );
+        if (gasMovingTemperature) {
+            $heat_coefficient.attr(
+                "placeholder",
+                AeroflexCalc.getThermalLossCoefficient_4(
+                    gasMovingTemperature,
+                    isVertical,
+                    isIndoor,
+                    emission
+                )
+            );
+        }
 
         const diameterInRes =
             $gasPipeType.val() === "rectangular"
