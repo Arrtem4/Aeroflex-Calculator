@@ -784,6 +784,21 @@ var AeroflexCalc = {
         }
     },
 
+    getThermalLossCoefficient_2: function (
+        startCarrierTemperature,
+        isVertical
+    ) {
+        if (startCarrierTemperature <= 19) {
+            return 29;
+        } else {
+            if (isVertical) {
+                return 35;
+            } else {
+                return 29;
+            }
+        }
+    },
+
     /**
      * Returns linear coefficient of thermal resistance to external heat transfer
      *
@@ -1727,11 +1742,9 @@ var AeroflexCalc = {
                     stopTime
                 ) -
                     this.getFractionSecond(
-                        this.getThermalLossCoefficient(
-                            isFlat,
-                            isVertical,
-                            isIndoor,
-                            emission
+                        this.getThermalLossCoefficient_2(
+                            startCarrierTemperature,
+                            isVertical
                         ),
                         k,
                         diameterOut

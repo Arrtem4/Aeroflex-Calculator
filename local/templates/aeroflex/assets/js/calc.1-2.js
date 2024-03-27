@@ -314,16 +314,15 @@ $(function () {
         $stopTime = parseFloat($stopTime.val().replace(/,/, "."));
 
         AeroflexCalc.init();
-
-        $heat_coefficient.attr(
-            "placeholder",
-            AeroflexCalc.getThermalLossCoefficient(
-                isFlat,
-                isVertical,
-                false,
-                emission
-            )
-        );
+        if (startCarrierTemperature) {
+            $heat_coefficient.attr(
+                "placeholder",
+                AeroflexCalc.getThermalLossCoefficient_2(
+                    startCarrierTemperature,
+                    isVertical
+                )
+            );
+        }
 
         // Extended
         const heat_coefficient = parseFloat(
