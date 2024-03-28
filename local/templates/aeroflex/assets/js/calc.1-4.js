@@ -885,7 +885,7 @@ $(function () {
         };
 
         if (errorMessage()) {
-            $temperatureOut.addClass("error");
+            $temperatureOut.addClass("error").focus();
             $(".temperature_out_error").text(errorMessage());
         }
 
