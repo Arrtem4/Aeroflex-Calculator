@@ -880,15 +880,15 @@ var AeroflexCalc = {
      * @return {number}
      */
     getThermalResistanceByMaterial: function (
-        isFlat,
+        temperatureIn,
         isVertical,
         isIndoor,
         emission
     ) {
         return (
             1.0 /
-            this.getThermalLossCoefficient(
-                isFlat,
+            this.getThermalLossCoefficient_4(
+                temperatureIn,
                 isVertical,
                 isIndoor,
                 emission
@@ -1018,7 +1018,7 @@ var AeroflexCalc = {
                       emission
                   )
                 : this.getThermalResistanceByMaterial(
-                      isFlat,
+                      temperatureIn,
                       isVertical,
                       isIndoor,
                       emission
@@ -1120,7 +1120,7 @@ var AeroflexCalc = {
             tRes =
                 1.0 /
                 this.getThermalResistanceByMaterial(
-                    isFlat,
+                    temperatureIn,
                     isVertical,
                     isIndoor,
                     emission
