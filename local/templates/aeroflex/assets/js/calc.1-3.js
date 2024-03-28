@@ -57,7 +57,8 @@ $(function () {
                 .val($(this).find("option:selected").data("dh"));
             $calc
                 .find('[name="diameter_in"], [name="diameter_out"]')
-                .prop("readonly", true);
+                .prop("readonly", true)
+                .removeClass("error");
         } else {
             $calc
                 .find('[name="diameter_in"], [name="diameter_out"]')
@@ -163,8 +164,7 @@ $(function () {
             dewPointTemperature = parseFloat(
                 $dewPointTemperature.val().replace(/,/, ".")
             ),
-            pipe = parseFloat($pipe.val().replace(/,/, ".")),
-            emission = parseInt($pipe.val(), 10);
+            emission = Number($pipe.val());
 
         AeroflexCalc.init();
 
@@ -179,8 +179,6 @@ $(function () {
                 )
             );
         }
-
-        // $heat_coefficient.attr("placeholder", pipe);
 
         // Extended
         const heat_coefficient = parseFloat(
@@ -237,8 +235,6 @@ $(function () {
                 temperatureOut,
                 diameterOut,
                 isFlat,
-                humidityOut,
-                pipe,
                 isVertical
             );
             $result.addClass("active");

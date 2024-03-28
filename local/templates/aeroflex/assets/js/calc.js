@@ -880,15 +880,15 @@ var AeroflexCalc = {
      * @return {number}
      */
     getThermalResistanceByMaterial: function (
-        isFlat,
+        temperatureIn,
         isVertical,
         isIndoor,
         emission
     ) {
         return (
             1.0 /
-            this.getThermalLossCoefficient(
-                isFlat,
+            this.getThermalLossCoefficient_4(
+                temperatureIn,
                 isVertical,
                 isIndoor,
                 emission
@@ -1018,7 +1018,7 @@ var AeroflexCalc = {
                       emission
                   )
                 : this.getThermalResistanceByMaterial(
-                      isFlat,
+                      temperatureIn,
                       isVertical,
                       isIndoor,
                       emission
@@ -1120,7 +1120,7 @@ var AeroflexCalc = {
             tRes =
                 1.0 /
                 this.getThermalResistanceByMaterial(
-                    isFlat,
+                    temperatureIn,
                     isVertical,
                     isIndoor,
                     emission
@@ -1853,14 +1853,21 @@ var AeroflexCalc = {
         temperatureIn,
         temperatureOut,
         diameterOut,
-        pipe
+        isVertical,
+        isFlat
     ) {
+        const lossKoef = this.getThermalLossCoefficient_3(
+            temperatureIn,
+            isVertical,
+            isFlat,
+            emission
+        );
         const koeff = +this.getThermalConductivityByMaterial(
             material,
             temperatureIn,
             temperatureOut
         ).toFixed(4);
-        const left = (2 * koeff) / (pipe * (diameterOut / 1000));
+        const left = (2 * koeff) / (lossKoef * (diameterOut / 1000));
         const right =
             (dewPointTemperature - temperatureIn) /
             (temperatureOut - dewPointTemperature);
@@ -1883,8 +1890,6 @@ var AeroflexCalc = {
         temperatureOut,
         diameterOut,
         isFlat,
-        humidityOut,
-        pipe,
         isVertical
     ) {
         if (isFlat) {
@@ -1894,7 +1899,7 @@ var AeroflexCalc = {
                 temperatureOut
             ).toFixed(4);
 
-            const lossKoef = +this.getThermalLossCoefficient_3(
+            const lossKoef = this.getThermalLossCoefficient_3(
                 temperatureIn,
                 isVertical,
                 isFlat,
@@ -1917,7 +1922,8 @@ var AeroflexCalc = {
             temperatureIn,
             temperatureOut,
             diameterOut,
-            pipe
+            isFlat,
+            isVertical
         );
 
         const getX = () => {

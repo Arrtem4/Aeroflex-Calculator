@@ -144,15 +144,17 @@ $(function () {
 
         AeroflexCalc.init();
 
-        $heat_coefficient.attr(
-            "placeholder",
-            AeroflexCalc.getThermalLossCoefficient(
-                isFlat,
-                isVertical,
-                isIndoor,
-                emission
-            )
-        );
+        if (temperatureIn) {
+            $heat_coefficient.attr(
+                "placeholder",
+                AeroflexCalc.getThermalLossCoefficient_4(
+                    temperatureIn,
+                    isVertical,
+                    isIndoor,
+                    emission
+                )
+            );
+        }
 
         // Extended
         const heat_coefficient = parseFloat(
