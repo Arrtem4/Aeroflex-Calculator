@@ -891,7 +891,7 @@ $(function () {
 
         AeroflexCalc.init();
 
-        if (gasMovingTemperature) {
+        if (gasMovingTemperature || gasMovingTemperature === 0) {
             $heat_coefficient.attr(
                 "placeholder",
                 AeroflexCalc.getThermalLossCoefficient_4(
@@ -959,6 +959,8 @@ $(function () {
 
             $(".calc__result").addClass("active");
             $(".otvet").val(depth.toFixed(2));
+        } else {
+            $(".error").focus();
         }
     });
 });

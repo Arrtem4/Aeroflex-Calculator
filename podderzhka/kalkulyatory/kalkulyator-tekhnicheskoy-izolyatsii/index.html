@@ -2206,7 +2206,7 @@
               <div class="calc__row">
                 <div class="calc__col"><span>Температура теплоносителя, °С</span></div>
                 <div class="calc__col">
-                  <input type="number" placeholder="200" class="input _inputAttr temperature_in">
+                  <input type="number" placeholder="200" value="" class="input _inputAttr temperature_in">
                   <div class="temperature_out_error calc__col_error"></div>
                 </div>
               </div>
@@ -2214,7 +2214,7 @@
               <div class="calc__row">
                 <div class="calc__col"><span>Температура окружающего воздуха, °С</span></div>
                 <div class="calc__col">
-                  <input type="text" placeholder="-5" class="input _inputAttr temperature_out">
+                  <input type="text" value="20" readonly class="input _inputAttr temperature_out">
 
                 </div>
               </div>
@@ -2258,7 +2258,7 @@
                   <span>Коэффициент конвективной теплоотдачи от наружной поверхности, αн, Вт/м<sup>2</sup>·С</span>
                 </div>
                 <div class="calc__col">
-                  <input type="text" name="heat_coefficient" placeholder="" class="input" value="">
+                  <input type="text" readonly name="heat_coefficient" placeholder="" class="input" value="">
                 </div>
               </div>
 
@@ -2267,7 +2267,7 @@
                   <span>Нормированная плотность теплового потока</span>
                 </div>
                 <div class="calc__col">
-                  <input type="text" name="density" placeholder="" class="input" value="">
+                  <input type="text" readonly name="density" placeholder="" class="input" value="">
                 </div>
               </div>
             </div>

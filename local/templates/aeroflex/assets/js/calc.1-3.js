@@ -168,7 +168,7 @@ $(function () {
 
         AeroflexCalc.init();
 
-        if (temperatureIn) {
+        if (temperatureIn || temperatureIn === 0) {
             $heat_coefficient.attr(
                 "placeholder",
                 AeroflexCalc.getThermalLossCoefficient_3(
@@ -189,7 +189,6 @@ $(function () {
             heat_coefficient,
         });
 
-        //$density.attr('placeholder', AeroflexCalc.getSurfaceHeatFlowDensity(diameterIn, temperatureIn, isIndoor, hours, isFlat, region).toFixed(4))
         if (!isFlat) {
             if (isNaN(diameterIn)) {
                 $diameter_in.addClass("error");
@@ -245,6 +244,8 @@ $(function () {
                     ? "По вопросам - calc@aeroflex-russia.ru"
                     : depth.toFixed(2)
             );
+        } else {
+            $(".error").focus();
         }
     });
 });

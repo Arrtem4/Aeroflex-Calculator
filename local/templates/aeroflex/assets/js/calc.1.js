@@ -45,7 +45,8 @@ $(function () {
                 .val($(this).find("option:selected").data("dh"));
             $calc
                 .find('[name="diameter_in"], [name="diameter_out"]')
-                .prop("readonly", true);
+                .prop("readonly", true)
+                .removeClass("error");
         } else {
             $calc
                 .find('[name="diameter_in"], [name="diameter_out"]')
@@ -104,7 +105,7 @@ $(function () {
         );
         if (indoor === "close") {
             $temperatureOut.val(20);
-            $temperatureOut.prop("readonly", false);
+            // $temperatureOut.prop("readonly", false);
         }
     });
 
@@ -156,7 +157,7 @@ $(function () {
 
         AeroflexCalc.init();
 
-        if (temperatureIn) {
+        if ($temperatureIn.val() && diameterIn) {
             $heat_coefficient.attr(
                 "placeholder",
                 AeroflexCalc.getThermalLossCoefficient_4(
@@ -179,27 +180,39 @@ $(function () {
             density,
         });
 
-        $density.attr(
-            "placeholder",
-            AeroflexCalc.getSurfaceHeatFlowDensity(
-                diameterIn,
-                temperatureIn,
-                isIndoor,
-                hours,
-                isFlat,
-                region
-            ).toFixed(4)
-        );
+        if ((temperatureIn || temperatureIn === 0) && diameterIn) {
+            $density.attr(
+                "placeholder",
+                AeroflexCalc.getSurfaceHeatFlowDensity(
+                    diameterIn,
+                    temperatureIn,
+                    isIndoor,
+                    hours,
+                    isFlat,
+                    region
+                ).toFixed(4)
+            );
+        }
+        // $density.attr(
+        //     "placeholder",
+        //     AeroflexCalc.getSurfaceHeatFlowDensity_2(
+        //         diameterIn,
+        //         temperatureIn,
+        //         isIndoor,
+        //         hours,
+        //         isFlat
+        //     ).toFixed(4)
+        // );
 
-        if (isNaN(diameterIn)) {
+        if (isNaN(diameterIn) || diameterIn < 1) {
             $diameter_in.addClass("error");
         }
 
-        if (isNaN(diameterOut)) {
+        if (isNaN(diameterOut) || diameterOut < 2) {
             $diameter_out.addClass("error");
         }
 
-        if (isNaN(temperatureIn)) {
+        if (isNaN(temperatureIn) || !$temperatureIn.val()) {
             $temperatureIn.addClass("error");
         }
 
@@ -233,6 +246,8 @@ $(function () {
                     ? "По вопросам - calc@aeroflex-russia.ru"
                     : depth.toFixed(2)
             );
+        } else {
+            $(".error").focus();
         }
     });
 });
