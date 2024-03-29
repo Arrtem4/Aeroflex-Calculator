@@ -66,6 +66,18 @@ $(function () {
         }
     });
 
+    $(".temperature_in").on("change", function () {
+        if ($(this).val() < -200) {
+            $(this).addClass("error");
+            $(".temperature_out_error").text(
+                `Температура вещества ниже рабочего диапазона температур изделий Aeroflex`
+            );
+        } else if ($(this)) {
+            $(this).removeClass("error");
+            $(".temperature_out_error").text(``);
+        }
+    });
+
     $(window).on("calc_changes", function () {
         let $calc = $(".calc_test"),
             $region_select = $calc
@@ -128,7 +140,7 @@ $(function () {
         const material = parseInt($material.val(), 10),
             diameterIn = parseFloat($diameter_in.val().replace(/,/, ".")),
             diameterOut = parseFloat($diameter_out.val().replace(/,/, ".")),
-            temperatureIn = parseFloat($temperatureIn.val().replace(/,/, ".")),
+            temperatureIn = +$temperatureIn.val(),
             temperatureOut = parseFloat(
                 $temperatureOut.val().replace(/,/, ".")
             ),
