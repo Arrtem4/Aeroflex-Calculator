@@ -314,7 +314,7 @@ $(function () {
         $stopTime = parseFloat($stopTime.val().replace(/,/, "."));
 
         AeroflexCalc.init();
-        if (startCarrierTemperature) {
+        if (startCarrierTemperature || startCarrierTemperature === 0) {
             $heat_coefficient.attr(
                 "placeholder",
                 AeroflexCalc.getThermalLossCoefficient_2(
@@ -408,6 +408,8 @@ $(function () {
             } else {
                 $(".otvet").val(depth).css("display", "block");
             }
+        } else {
+            $(".error").focus();
         }
     });
 });

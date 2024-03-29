@@ -94,7 +94,8 @@ $(function () {
                 .val($(this).find("option:selected").data("dh"));
             $calc
                 .find('[name="diameter_in"], [name="diameter_out"]')
-                .prop("readonly", true);
+                .prop("readonly", true)
+                .removeClass("error");
         } else {
             $calc
                 .find('[name="diameter_in"], [name="diameter_out"]')
@@ -205,7 +206,6 @@ $(function () {
             $region = $calc.find('[name="region"] option:selected'),
             $position = $calc.find('[name="position"]:checked'),
             $indoor = $calc.find('[name="indoor"]:checked'),
-            // $hours = $calc.find('[name="hours"]:checked'),
             $flat = $calc.find('[name="flat"]:checked'),
             $diameter_in = $calc.find('[name="diameter_in"]'),
             $diameter_out = $calc.find('[name="diameter_out"]'),
@@ -240,7 +240,7 @@ $(function () {
                 $surfaceInsulationTemperature.val().replace(/,/, ".")
             );
         AeroflexCalc.init();
-        if (temperatureIn) {
+        if (temperatureIn || temperatureIn === 0) {
             $heat_coefficient.attr(
                 "placeholder",
                 AeroflexCalc.getThermalLossCoefficient_1(
@@ -331,6 +331,8 @@ $(function () {
                     ? depth.toFixed(2)
                     : Math.round(depth)
             );
+        } else {
+            $(".error").focus();
         }
     });
 });

@@ -45,7 +45,8 @@ $(function () {
                 .val($(this).find("option:selected").data("dh"));
             $calc
                 .find('[name="diameter_in"], [name="diameter_out"]')
-                .prop("readonly", true);
+                .prop("readonly", true)
+                .removeClass("error");
         } else {
             $calc
                 .find('[name="diameter_in"], [name="diameter_out"]')
@@ -63,6 +64,18 @@ $(function () {
         } else {
             $calc.find('[name="diameter"]').prop("disabled", false);
             $('[name="diameter"]').trigger("change");
+        }
+    });
+
+    $(".temperature_in").on("change", function () {
+        if ($(this).val() < -200) {
+            $(this).addClass("error");
+            $(".temperature_out_error").text(
+                `Температура вещества ниже рабочего диапазона температур изделий Aeroflex`
+            );
+        } else if ($(this)) {
+            $(this).removeClass("error");
+            $(".temperature_out_error").text(``);
         }
     });
 
@@ -92,7 +105,7 @@ $(function () {
         );
         if (indoor === "close") {
             $temperatureOut.val(20);
-            $temperatureOut.prop("readonly", false);
+            // $temperatureOut.prop("readonly", false);
         }
     });
 
@@ -128,7 +141,7 @@ $(function () {
         const material = parseInt($material.val(), 10),
             diameterIn = parseFloat($diameter_in.val().replace(/,/, ".")),
             diameterOut = parseFloat($diameter_out.val().replace(/,/, ".")),
-            temperatureIn = parseFloat($temperatureIn.val().replace(/,/, ".")),
+            temperatureIn = +$temperatureIn.val(),
             temperatureOut = parseFloat(
                 $temperatureOut.val().replace(/,/, ".")
             ),
@@ -144,7 +157,7 @@ $(function () {
 
         AeroflexCalc.init();
 
-        if (temperatureIn) {
+        if ($temperatureIn.val() && diameterIn) {
             $heat_coefficient.attr(
                 "placeholder",
                 AeroflexCalc.getThermalLossCoefficient_4(
@@ -167,27 +180,39 @@ $(function () {
             density,
         });
 
-        $density.attr(
-            "placeholder",
-            AeroflexCalc.getSurfaceHeatFlowDensity(
-                diameterIn,
-                temperatureIn,
-                isIndoor,
-                hours,
-                isFlat,
-                region
-            ).toFixed(4)
-        );
+        if ((temperatureIn || temperatureIn === 0) && diameterIn) {
+            $density.attr(
+                "placeholder",
+                AeroflexCalc.getSurfaceHeatFlowDensity(
+                    diameterIn,
+                    temperatureIn,
+                    isIndoor,
+                    hours,
+                    isFlat,
+                    region
+                ).toFixed(4)
+            );
+        }
+        // $density.attr(
+        //     "placeholder",
+        //     AeroflexCalc.getSurfaceHeatFlowDensity_2(
+        //         diameterIn,
+        //         temperatureIn,
+        //         isIndoor,
+        //         hours,
+        //         isFlat
+        //     ).toFixed(4)
+        // );
 
-        if (isNaN(diameterIn)) {
+        if (isNaN(diameterIn) || diameterIn < 1) {
             $diameter_in.addClass("error");
         }
 
-        if (isNaN(diameterOut)) {
+        if (isNaN(diameterOut) || diameterOut < 2) {
             $diameter_out.addClass("error");
         }
 
-        if (isNaN(temperatureIn)) {
+        if (isNaN(temperatureIn) || !$temperatureIn.val()) {
             $temperatureIn.addClass("error");
         }
 
@@ -221,6 +246,8 @@ $(function () {
                     ? "По вопросам - calc@aeroflex-russia.ru"
                     : depth.toFixed(2)
             );
+        } else {
+            $(".error").focus();
         }
     });
 });
