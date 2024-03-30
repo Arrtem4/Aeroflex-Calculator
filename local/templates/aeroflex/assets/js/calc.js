@@ -44,7 +44,16 @@ var AeroflexCalc = {
         1400,
         Infinity,
     ],
+    densityD2: [
+        15, 20, 25, 40, 50, 65, 80, 100, 125, 150, 200, 250, 300, 350, 400, 450,
+        500, 600, 700, 800, 900, 1000, 1400, 1401,
+    ],
     densityT: [20, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600],
+    densityZD: [
+        20, 25, 40, 50, 65, 80, 100, 125, 150, 200, 250, 300, 350, 400, 450,
+        500, 501,
+    ],
+    densityZT: [0, -10, -20, -40, -60, -80, -100, -120, -140, -160, -180],
 
     resistanceD: [
         32, 40, 50, 100, 125, 150, 200, 250, 300, 350, 400, 500, 600, 700, 800,
@@ -244,57 +253,60 @@ var AeroflexCalc = {
             // indoor
             [
                 // less or equal 5000
-                [6, 16, 25, 35, 46, 58, 71, 85, 99, 114, 130, 147],
-                [7, 18, 28, 40, 52, 65, 79, 93, 109, 126, 143, 161],
-                [8, 20, 31, 43, 56, 70, 85, 101, 118, 136, 154, 174],
-                [10, 23, 36, 49, 64, 80, 96, 114, 132, 152, 172, 194],
-                [11, 25, 40, 54, 70, 87, 105, 124, 144, 165, 187, 210],
-                [13, 29, 45, 62, 79, 98, 118, 139, 161, 184, 208, 233],
-                [14, 32, 49, 66, 85, 105, 126, 148, 171, 195, 221, 247],
-                [16, 35, 54, 73, 93, 115, 137, 161, 186, 212, 239, 267],
-                [18, 39, 60, 81, 103, 126, 151, 176, 203, 231, 261, 291],
-                [21, 44, 66, 89, 113, 138, 164, 192, 221, 251, 282, 315],
-                [26, 53, 80, 107, 134, 163, 194, 225, 258, 292, 328, 365],
-                [30, 62, 92, 122, 153, 185, 218, 253, 290, 327, 366, 407],
-                [34, 70, 103, 136, 170, 205, 241, 279, 319, 359, 402, 446],
-                [38, 77, 113, 149, 186, 224, 263, 304, 347, 391, 436, 483],
-                [42, 85, 123, 162, 201, 242, 284, 328, 373, 419, 467, 517],
-                [46, 92, 134, 175, 217, 260, 305, 351, 398, 448, 498, 551],
-                [51, 100, 144, 189, 233, 279, 327, 375, 426, 478, 532, 587],
-                [58, 114, 164, 214, 263, 314, 367, 420, 476, 533, 592, 652],
-                [65, 127, 182, 236, 290, 345, 402, 460, 520, 582, 645, 710],
-                [73, 141, 202, 261, 320, 379, 441, 504, 568, 635, 703, 772],
-                [81, 156, 221, 285, 349, 413, 479, 547, 616, 687, 760, 834],
-                [89, 170, 241, 309, 378, 447, 518, 590, 663, 739, 816, 896],
-                [120, 226, 318, 406, 492, 580, 668, 758, 850, 943, 1038, 1136],
-                [26, 46, 63, 78, 92, 105, 119, 132, 145, 158, 171, 190],
+                [6, 6, 16, 25, 35, 46, 58, 71, 85, 99, 114, 130, 147],
+                [7, 7, 18, 28, 40, 52, 65, 79, 93, 109, 126, 143, 161],
+                [8, 8, 20, 31, 43, 56, 70, 85, 101, 118, 136, 154, 174],
+                [10, 10, 23, 36, 49, 64, 80, 96, 114, 132, 152, 172, 194],
+                [11, 11, 25, 40, 54, 70, 87, 105, 124, 144, 165, 187, 210],
+                [13, 13, 29, 45, 62, 79, 98, 118, 139, 161, 184, 208, 233],
+                [14, 14, 32, 49, 66, 85, 105, 126, 148, 171, 195, 221, 247],
+                [16, 16, 35, 54, 73, 93, 115, 137, 161, 186, 212, 239, 267],
+                [18, 18, 39, 60, 81, 103, 126, 151, 176, 203, 231, 261, 291],
+                [21, 21, 44, 66, 89, 113, 138, 164, 192, 221, 251, 282, 315],
+                [26, 26, 53, 80, 107, 134, 163, 194, 225, 258, 292, 328, 365],
+                [30, 30, 62, 92, 122, 153, 185, 218, 253, 290, 327, 366, 407],
+                [34, 34, 70, 103, 136, 170, 205, 241, 279, 319, 359, 402, 446],
+                [38, 38, 77, 113, 149, 186, 224, 263, 304, 347, 391, 436, 483],
+                [42, 42, 85, 123, 162, 201, 242, 284, 328, 373, 419, 467, 517],
+                [46, 46, 92, 134, 175, 217, 260, 305, 351, 398, 448, 498, 551],
+                [51, 51, 100, 144, 189, 233, 279, 327, 375, 426, 478, 532, 587],
+                [58, 58, 114, 164, 214, 263, 314, 367, 420, 476, 533, 592, 652],
+                [65, 65, 127, 182, 236, 290, 345, 402, 460, 520, 582, 645, 710],
+                [73, 73, 141, 202, 261, 320, 379, 441, 504, 568, 635, 703, 772],
+                [81, 81, 156, 221, 285, 349, 413, 479, 547, 616, 687, 760, 834],
+                [89, 89, 170, 241, 309, 378, 447, 518, 590, 663, 739, 816, 896],
+                [
+                    120, 120, 226, 318, 406, 492, 580, 668, 758, 850, 943, 1038,
+                    1136,
+                ],
+                [26, 26, 46, 63, 78, 92, 105, 119, 132, 145, 158, 171, 190],
             ],
             [
                 // greater 5000
-                [6, 14, 23, 33, 43, 54, 66, 79, 93, 107, 122, 138],
-                [7, 16, 26, 37, 48, 60, 73, 87, 102, 117, 134, 151],
-                [8, 18, 28, 40, 52, 65, 79, 94, 110, 126, 144, 162],
-                [9, 21, 32, 45, 59, 73, 89, 105, 122, 141, 160, 180],
-                [10, 23, 36, 50, 64, 80, 96, 114, 133, 152, 173, 194],
-                [12, 26, 41, 56, 72, 89, 107, 127, 147, 169, 191, 214],
-                [13, 28, 44, 60, 77, 95, 114, 135, 156, 179, 202, 227],
-                [14, 31, 48, 65, 84, 103, 124, 146, 169, 193, 218, 244],
-                [16, 35, 53, 72, 92, 113, 136, 159, 184, 210, 237, 265],
-                [18, 38, 58, 79, 100, 123, 147, 172, 199, 226, 255, 285],
-                [22, 46, 70, 93, 118, 144, 172, 200, 230, 262, 294, 328],
-                [26, 53, 79, 106, 134, 162, 193, 224, 257, 291, 327, 364],
-                [29, 60, 88, 118, 148, 179, 212, 246, 281, 318, 357, 396],
-                [33, 66, 97, 129, 161, 195, 230, 267, 305, 344, 385, 428],
-                [36, 72, 106, 139, 174, 210, 247, 286, 326, 368, 411, 456],
-                [39, 78, 114, 150, 187, 225, 264, 305, 348, 392, 437, 484],
-                [43, 84, 123, 161, 200, 241, 282, 326, 370, 417, 465, 514],
-                [49, 96, 139, 181, 225, 269, 315, 363, 412, 462, 515, 569],
-                [55, 107, 153, 200, 247, 295, 344, 395, 448, 502, 558, 616],
-                [61, 118, 169, 220, 270, 322, 376, 431, 487, 546, 606, 668],
-                [67, 130, 185, 239, 294, 350, 407, 466, 527, 589, 653, 718],
-                [74, 141, 201, 259, 318, 377, 438, 501, 565, 631, 699, 768],
-                [99, 187, 263, 337, 411, 485, 561, 638, 716, 797, 880, 964],
-                [23, 41, 56, 69, 82, 94, 106, 118, 130, 141, 153, 165],
+                [6, 6, 14, 23, 33, 43, 54, 66, 79, 93, 107, 122, 138],
+                [7, 7, 16, 26, 37, 48, 60, 73, 87, 102, 117, 134, 151],
+                [8, 8, 18, 28, 40, 52, 65, 79, 94, 110, 126, 144, 162],
+                [9, 9, 21, 32, 45, 59, 73, 89, 105, 122, 141, 160, 180],
+                [10, 10, 23, 36, 50, 64, 80, 96, 114, 133, 152, 173, 194],
+                [12, 12, 26, 41, 56, 72, 89, 107, 127, 147, 169, 191, 214],
+                [13, 13, 28, 44, 60, 77, 95, 114, 135, 156, 179, 202, 227],
+                [14, 14, 31, 48, 65, 84, 103, 124, 146, 169, 193, 218, 244],
+                [16, 16, 35, 53, 72, 92, 113, 136, 159, 184, 210, 237, 265],
+                [18, 18, 38, 58, 79, 100, 123, 147, 172, 199, 226, 255, 285],
+                [22, 22, 46, 70, 93, 118, 144, 172, 200, 230, 262, 294, 328],
+                [26, 26, 53, 79, 106, 134, 162, 193, 224, 257, 291, 327, 364],
+                [29, 29, 60, 88, 118, 148, 179, 212, 246, 281, 318, 357, 396],
+                [33, 33, 66, 97, 129, 161, 195, 230, 267, 305, 344, 385, 428],
+                [36, 36, 72, 106, 139, 174, 210, 247, 286, 326, 368, 411, 456],
+                [39, 39, 78, 114, 150, 187, 225, 264, 305, 348, 392, 437, 484],
+                [43, 43, 84, 123, 161, 200, 241, 282, 326, 370, 417, 465, 514],
+                [49, 49, 96, 139, 181, 225, 269, 315, 363, 412, 462, 515, 569],
+                [55, 55, 107, 153, 200, 247, 295, 344, 395, 448, 502, 558, 616],
+                [61, 61, 118, 169, 220, 270, 322, 376, 431, 487, 546, 606, 668],
+                [67, 67, 130, 185, 239, 294, 350, 407, 466, 527, 589, 653, 718],
+                [74, 74, 141, 201, 259, 318, 377, 438, 501, 565, 631, 699, 768],
+                [99, 99, 187, 263, 337, 411, 485, 561, 638, 716, 797, 880, 964],
+                [23, 23, 41, 56, 69, 82, 94, 106, 118, 130, 141, 153, 165],
             ],
         ],
     ],
@@ -1064,13 +1076,12 @@ var AeroflexCalc = {
                       emission
                   );
 
-        let density = this.getSurfaceHeatFlowDensity(
+        let density = this.getSurfaceHeatFlowDensity_2(
             diameter,
             temperatureIn,
             isIndoor,
             hours,
-            isFlat,
-            region
+            isFlat
         );
 
         if (Number.isFinite(this.settings.density)) {
@@ -1273,7 +1284,7 @@ var AeroflexCalc = {
      * @return {number}
      */
 
-    // interpolation functions
+    // metka point
     getSurfaceHeatFlowDensity: function (
         diameter,
         temperatureIn,
@@ -1282,7 +1293,6 @@ var AeroflexCalc = {
         isFlat,
         region
     ) {
-        console.log(diameter, temperatureIn, isIndoor, hours, isFlat, region);
         const indoorDim = this.getIndoorDim(isIndoor),
             hoursDim = hours > 5000 ? 1 : 0,
             tl = this.getLowerBound(temperatureIn, this.densityT),
@@ -1356,6 +1366,187 @@ var AeroflexCalc = {
                 : isIndoor
                 ? this.densityRateZero[1]
                 : this.densityRateZero[0];
+
+        if (temperatureIn > 0) {
+            let diameter_2 = isFlat || diameter > 1400 ? 1401 : diameter;
+            let temperatureIn_2 = 0;
+            if (temperatureIn < 20) {
+                temperatureIn_2 = 20;
+            } else if (temperatureIn > 600) {
+                temperatureIn_2 = 600;
+            } else temperatureIn_2 = temperatureIn;
+            return this.getSurfaceHeatFlowDensityPlus(
+                table,
+                diameter_2,
+                temperatureIn_2
+            );
+        } else {
+            let diameter_2 = isFlat || diameter > 500 ? 501 : diameter;
+            return this.getSurfaceHeatFlowDensityMinus(
+                table,
+                diameter_2,
+                temperatureIn
+            );
+        }
+    },
+
+    methodInterpolation: function (table, diameter, temperatureIn, col, row) {
+        if (col < 0 && row < 0) {
+            return this.getInterpolationDouble_2(
+                table,
+                diameter,
+                temperatureIn
+            );
+        } else if (col < 0 && row >= 0) {
+            return this.getInterpolationTemperature_2(
+                table,
+                row,
+                temperatureIn
+            );
+        } else if (col >= 0 && row < 0) {
+            return this.getInterpolationDiameter_2(
+                table,
+                col,
+                diameter,
+                temperatureIn
+            );
+        } else {
+            return table[row][col];
+        }
+    },
+
+    getSurfaceHeatFlowDensityPlus: function (table, diameter, temperatureIn) {
+        let col = this.densityT.indexOf(temperatureIn);
+        let row = this.densityD2.indexOf(diameter);
+        return this.methodInterpolation(
+            table,
+            diameter,
+            temperatureIn,
+            col,
+            row
+        );
+    },
+    getSurfaceHeatFlowDensityMinus: function (table, diameter, temperatureIn) {
+        let col = this.densityZT.indexOf(temperatureIn);
+        let row = this.densityZD.indexOf(diameter);
+        return this.methodInterpolation(
+            table,
+            diameter,
+            temperatureIn,
+            col,
+            row
+        );
+    },
+    getMinMaxNeighborsValuesAndDifferentDiameter: function (arr, num) {
+        let min = null;
+        let max = null;
+        let minIndex = null;
+        let maxIndex = null;
+        if (num < 15) {
+            minIndex = 0;
+            min = arr[0] === 15 ? 15 : 20;
+            maxIndex = 1;
+            max = arr[0] === 15 ? 20 : 25;
+        } else {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < num) {
+                    min = arr[i];
+                    minIndex = i;
+                } else if (arr[i] > num) {
+                    max = arr[i];
+                    maxIndex = i;
+                    break;
+                }
+            }
+        }
+        let diffMin = num - min;
+        let diffAll = max - min;
+        return [minIndex, maxIndex, diffAll, diffMin];
+    },
+
+    getMinMaxNeighborsValuesAndDifferentTemperature: function (arr, num) {
+        let min = null;
+        let max = null;
+        let minIndex = null;
+        let maxIndex = null;
+        if (arr[0] === 20) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < num) {
+                    min = arr[i];
+                    minIndex = i;
+                } else if (arr[i] > num) {
+                    max = arr[i];
+                    maxIndex = i;
+                    break;
+                }
+            }
+        } else {
+            if (num < -180) {
+                minIndex = 9;
+                min = -160;
+                maxIndex = 10;
+                max = -180;
+            } else {
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] > num) {
+                        min = arr[i];
+                        minIndex = i;
+                    } else if (arr[i] < num) {
+                        max = arr[i];
+                        maxIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+        let diffMin = num - min;
+        let diffAll = max - min;
+        return [minIndex, maxIndex, diffAll, diffMin];
+    },
+
+    getInterpolationDiameter_2: function (table, col, diameter, temperatureIn) {
+        let neighbors = this.getMinMaxNeighborsValuesAndDifferentDiameter(
+            temperatureIn > 0 ? this.densityD2 : this.densityZD,
+            diameter
+        );
+        let minValue = table[neighbors[0]][col];
+        let maxValue = table[neighbors[1]][col];
+        let valuesDiff = maxValue - minValue;
+        return minValue + (neighbors[3] * valuesDiff) / neighbors[2];
+    },
+
+    getInterpolationTemperature_2: function (table, row, temperatureIn) {
+        let neighbors = this.getMinMaxNeighborsValuesAndDifferentTemperature(
+            temperatureIn > 0 ? this.densityT : this.densityZT,
+            temperatureIn
+        );
+        let minValue = table[row][neighbors[0]];
+        let maxValue = table[row][neighbors[1]];
+        let valuesDiff = maxValue - minValue;
+        return minValue + (neighbors[3] * valuesDiff) / neighbors[2];
+    },
+
+    getInterpolationDouble_2: function (table, diameter, temperatureIn) {
+        let neighborsDiameter =
+            this.getMinMaxNeighborsValuesAndDifferentDiameter(
+                temperatureIn > 0 ? this.densityD2 : this.densityZD,
+                diameter
+            );
+        let interpolationTop = this.getInterpolationTemperature_2(
+            table,
+            neighborsDiameter[0],
+            temperatureIn
+        );
+        let interpolationBottom = this.getInterpolationTemperature_2(
+            table,
+            neighborsDiameter[1],
+            temperatureIn
+        );
+        return (
+            interpolationTop +
+            (neighborsDiameter[3] * (interpolationBottom - interpolationTop)) /
+                neighborsDiameter[2]
+        );
     },
 
     /**
@@ -2407,7 +2598,7 @@ var AeroflexCalc = {
                 temperatureInitial
             );
         } else if (col >= 0 && row < 0) {
-            return this.getInterpolationDeameter(valuesArr, col, innerDeameter);
+            return this.getInterpolationDiameter(valuesArr, col, innerDeameter);
         } else {
             return valuesArr[row][col];
         }
@@ -2441,7 +2632,7 @@ var AeroflexCalc = {
         return [minIndex, maxIndex, diffAll, diffMin];
     },
 
-    getInterpolationDeameter: function (values, col, innerDeameter) {
+    getInterpolationDiameter: function (values, col, innerDeameter) {
         let neighbors = this.getMinMaxNeighborsValuesAndDifferent(
             this.resistanceD,
             innerDeameter
