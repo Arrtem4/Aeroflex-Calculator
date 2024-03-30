@@ -180,29 +180,31 @@ $(function () {
             density,
         });
 
-        if ((temperatureIn || temperatureIn === 0) && diameterIn) {
+        // if ((temperatureIn || temperatureIn === 0) && diameterIn) {
+        //     $density.attr(
+        //         "placeholder",
+        //         AeroflexCalc.getSurfaceHeatFlowDensity(
+        //             diameterIn,
+        //             temperatureIn,
+        //             isIndoor,
+        //             hours,
+        //             isFlat,
+        //             region
+        //         ).toFixed(4)
+        //     );
+        // }
+        if ($temperatureIn.val() && diameterIn) {
             $density.attr(
                 "placeholder",
-                AeroflexCalc.getSurfaceHeatFlowDensity(
+                AeroflexCalc.getSurfaceHeatFlowDensity_2(
                     diameterIn,
                     temperatureIn,
                     isIndoor,
                     hours,
-                    isFlat,
-                    region
+                    isFlat
                 ).toFixed(4)
             );
         }
-        // $density.attr(
-        //     "placeholder",
-        //     AeroflexCalc.getSurfaceHeatFlowDensity_2(
-        //         diameterIn,
-        //         temperatureIn,
-        //         isIndoor,
-        //         hours,
-        //         isFlat
-        //     ).toFixed(4)
-        // );
 
         if (isNaN(diameterIn) || diameterIn < 1) {
             $diameter_in.addClass("error");
@@ -241,11 +243,7 @@ $(function () {
             $result.addClass("active");
 
             $(".calc__result").addClass("active");
-            $(".otvet").val(
-                temperatureIn < 0
-                    ? "По вопросам - calc@aeroflex-russia.ru"
-                    : depth.toFixed(2)
-            );
+            $(".otvet").val(depth.toFixed(2));
         } else {
             $(".error").focus();
         }
