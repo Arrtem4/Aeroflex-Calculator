@@ -1087,14 +1087,27 @@ var AeroflexCalc = {
         if (Number.isFinite(this.settings.density)) {
             density = this.settings.density;
         }
-
+        console.log(
+            thermalConductivity,
+            loss,
+            temperatureIn,
+            temperatureOut,
+            density,
+            thermalResistance
+        );
+        // return (
+        //     Math.max(
+        //         0,
+        //         thermalConductivity *
+        //             ((loss * (temperatureIn - temperatureOut)) / density -
+        //                 thermalResistance)
+        //     ) * 1000
+        // );
         return (
-            Math.max(
-                0,
-                thermalConductivity *
-                    ((loss * (temperatureIn - temperatureOut)) / density -
-                        thermalResistance)
-            ) * 1000
+            thermalConductivity *
+            ((loss * (temperatureIn - temperatureOut)) / density -
+                thermalResistance) *
+            1000
         );
     },
 
