@@ -1459,23 +1459,44 @@ var AeroflexCalc = {
         let max = null;
         let minIndex = null;
         let maxIndex = null;
-        if (num < 15) {
-            minIndex = 0;
-            min = arr[0] === 15 ? 15 : 20;
-            maxIndex = 1;
-            max = arr[0] === 15 ? 20 : 25;
+        if (arr[0] === 15) {
+            if (num < 15) {
+                minIndex = 0;
+                min = 15;
+                maxIndex = 1;
+                max = 20;
+            } else {
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] < num) {
+                        min = arr[i];
+                        minIndex = i;
+                    } else if (arr[i] > num) {
+                        max = arr[i];
+                        maxIndex = i;
+                        break;
+                    }
+                }
+            }
         } else {
-            for (let i = 0; i < arr.length; i++) {
-                if (arr[i] < num) {
-                    min = arr[i];
-                    minIndex = i;
-                } else if (arr[i] > num) {
-                    max = arr[i];
-                    maxIndex = i;
-                    break;
+            if (num < 20) {
+                minIndex = 0;
+                min = 20;
+                maxIndex = 1;
+                max = 25;
+            } else {
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] < num) {
+                        min = arr[i];
+                        minIndex = i;
+                    } else if (arr[i] > num) {
+                        max = arr[i];
+                        maxIndex = i;
+                        break;
+                    }
                 }
             }
         }
+
         let diffMin = num - min;
         let diffAll = max - min;
         return [minIndex, maxIndex, diffAll, diffMin];

@@ -18,13 +18,22 @@ $(function () {
         $("#diameter_custom").prop("disabled", false);
         $("#diameter_custom option").prop("disabled", false);
     }
+    $(window).on("load", function () {
+        $(window).trigger("calc_changes");
+    });
 
     $(".calc_test input, .calc_test select").on("change", function () {
         $(this).removeClass("error");
-        // $(window).trigger("calc_changes");
         $(".calc__result").removeClass("active");
+        $(window).trigger("calc_changes");
     });
-    let indoorState = "close";
+
+    $(`[name="region"], [name="indoor"], [name="hours"]`).on(
+        "change",
+        function () {
+            $(window).trigger("calc_changes");
+        }
+    );
 
     $('[name="diameter_type"]').on("change", function () {
         $("#diameter option").prop("disabled", true);
@@ -81,100 +90,40 @@ $(function () {
         }
     });
 
-    $('[name="region"]').on("change", function () {
-        if (indoorState === "open") {
-            let $calc = $(".calc_test"),
-                $region = $calc.find('[name="region"] option:selected'),
-                hours = $calc.find('input[name="hours"]:checked').val();
+    $(window).on("calc_changes", function () {
+        let $calc = $(".calc_test"),
+            $region_select = $calc
+                .find('[name="region"]')
+                .closest(".calc__select"),
+            $region = $calc.find('[name="region"] option:selected'),
+            indoor = $calc.find('input[name="indoor"]:checked').val(),
+            $temperatureOut = $calc.find(".temperature_out"),
+            hours = $calc.find('input[name="hours"]:checked').val();
 
-            $(".temperature_out").val(
-                parseFloat(
-                    hours === "heat"
-                        ? $region.data("heat").replace(/,/, ".")
-                        : $region.data("temperature").replace(/,/, ".")
-                )
-            );
+        if (isNaN(parseFloat($region.data("temperature")))) {
+            $region_select.addClass("error");
+        } else {
+            $region_select.removeClass("error");
         }
-    });
 
-    $('input[name="hours"]').on("change", function () {
-        if (indoorState === "open") {
-            let $calc = $(".calc_test"),
-                $region = $calc.find('[name="region"] option:selected'),
-                hours = $calc.find('input[name="hours"]:checked').val();
-
-            $(".temperature_out").val(
-                parseFloat(
-                    hours === "heat"
-                        ? $region.data("heat").replace(/,/, ".")
-                        : $region.data("temperature").replace(/,/, ".")
-                )
-            );
-        }
-    });
-
-    $('[name="indoor"]').on("change", function () {
-        if ($(this).val() === "open") {
-            indoorState = "open";
-            let $calc = $(".calc_test"),
-                $region = $calc.find('[name="region"] option:selected'),
-                hours = $calc.find('input[name="hours"]:checked').val();
-            $(".temperature_out")
+        if (indoor === "open") {
+            let numHeat = "" + $region.data("heat");
+            let numTemp = "" + $region.data("temperature");
+            $temperatureOut
                 .prop("readonly", true)
                 .val(
-                    parseFloat(
-                        hours === "heat"
-                            ? $region.data("heat").replace(/,/, ".")
-                            : $region.data("temperature").replace(/,/, ".")
-                    )
+                    hours === "heat"
+                        ? +numHeat.replace(/,/, ".")
+                        : +numTemp.replace(/,/, ".")
                 );
         }
-        if ($(this).val() === "close") {
-            indoorState = "close";
-            $(".temperature_out").prop("readonly", false).val(20);
+        if (indoor === "close") {
+            $temperatureOut.val(20).prop("readonly", false);
         }
-        if ($(this).val() === "tunnel") {
-            indoorState = "tunnel";
-            $(".temperature_out").prop("readonly", false).val(40);
+        if (indoor === "tunnel") {
+            $temperatureOut.val(40).prop("readonly", false);
         }
     });
-
-    // $(window).on("calc_changes", function () {
-    //     let $calc = $(".calc_test"),
-    //         $region_select = $calc
-    //             .find('[name="region"]')
-    //             .closest(".calc__select"),
-    //         $region = $calc.find('[name="region"] option:selected'),
-    //         indoor = $calc.find('input[name="indoor"]:checked').val(),
-    //         $temperatureOut = $calc.find(".temperature_out"),
-    //         hours = $calc.find('input[name="hours"]:checked').val();
-
-    //     $calc.find(".calc__result").removeClass("active");
-
-    //     if (isNaN(parseFloat($region.data("temperature")))) {
-    //         $region_select.addClass("error");
-    //     } else {
-    //         $region_select.removeClass("error");
-    //     }
-
-    //     $temperatureOut.prop("readonly", true);
-    //     let rty = parseFloat(
-    //         hours === "heat"
-    //             ? $region.data("heat").replace(/,/, ".")
-    //             : $region.data("temperature").replace(/,/, ".")
-    //     );
-
-    //     console.log(rty);
-    //     // $temperatureOut.val(
-    //     //     hours === "heat"
-    //     //         ? $region.data("heat")
-    //     //         : $region.data("temperature")
-    //     // );
-    //     if (indoor === "close") {
-    //         $temperatureOut.val(20);
-    //         // $temperatureOut.prop("readonly", false);
-    //     }
-    // });
 
     $(".calc_test ._result").on("click", function () {
         let $calc = $(this).closest(".calc_test"),
@@ -195,23 +144,14 @@ $(function () {
             $density = $calc.find('[name="density"]');
 
         $approx.closest(".calc__row").addClass("hidden");
-
         $heat_coefficient.attr("placeholder", "");
         $density.attr("placeholder", "");
-
-        // if (isNaN(parseFloat($region.data("heat")))) {
-        //     $region.closest(".calc__select").addClass("error");
-        //     return;
-        // }
 
         // Main
         const material = parseInt($material.val(), 10),
             diameterIn = parseFloat($diameter_in.val().replace(/,/, ".")),
             diameterOut = parseFloat($diameter_out.val().replace(/,/, ".")),
             temperatureIn = +$temperatureIn.val(),
-            // temperatureOut = parseFloat(
-            //     $temperatureOut.val().replace(/,/, ".")
-            // ),
             temperatureOut = +$temperatureOut.val(),
             isIndoor = $indoor.val() === "close" || $indoor.val() === "tunnel",
             isFlat = $flat.val() === "flat",
