@@ -759,6 +759,13 @@ var AeroflexCalc = {
     isSurfaced: function (isFlat, diameter) {
         return isFlat || diameter >= 2000;
     },
+    isSurfaced_2: function (isFlat, diameter, temperatureIn) {
+        if (temperatureIn > 0) {
+            return isFlat || diameter > 1400;
+        } else {
+            return isFlat || diameter > 500;
+        }
+    },
 
     /**
      * Returns thermal resistance to heat transfer coefficient
@@ -1061,7 +1068,11 @@ var AeroflexCalc = {
                 temperatureIn,
                 temperatureOut
             ),
-            thermalResistance = !this.isSurfaced(isFlat, diameter)
+            thermalResistance = !this.isSurfaced_2(
+                isFlat,
+                diameter,
+                temperatureIn
+            )
                 ? this.getThermalResistance(
                       diameter,
                       temperatureIn,
@@ -1585,7 +1596,7 @@ var AeroflexCalc = {
         hours,
         emission
     ) {
-        return this.isSurfaced(isFlat, diameterIn)
+        return this.isSurfaced_2(isFlat, diameterIn, temperatureIn)
             ? this.getFlatHeatFlowDepth(
                   material,
                   diameterIn,
