@@ -227,7 +227,9 @@ $(function () {
             emission,
             isFlat,
             isVertical,
-            hours
+            hours,
+            diameterIn,
+            diameterOut
         );
 
         AeroflexCalc.init();
