@@ -1052,7 +1052,6 @@ var AeroflexCalc = {
         isIndoor,
         isFlat,
         isVertical,
-        region,
         hours,
         emission
     ) {
@@ -1083,18 +1082,12 @@ var AeroflexCalc = {
             hours,
             isFlat
         );
-
-        if (Number.isFinite(this.settings.density)) {
-            density = this.settings.density;
+        if (temperatureIn <= 0) {
+            density = 0 - density;
         }
-        console.log(
-            thermalConductivity,
-            loss,
-            temperatureIn,
-            temperatureOut,
-            density,
-            thermalResistance
-        );
+        // if (Number.isFinite(this.settings.density)) {
+        //     density = this.settings.density;
+        // }
         // return (
         //     Math.max(
         //         0,

@@ -179,20 +179,6 @@ $(function () {
             heat_coefficient,
             density,
         });
-
-        // if ((temperatureIn || temperatureIn === 0) && diameterIn) {
-        //     $density.attr(
-        //         "placeholder",
-        //         AeroflexCalc.getSurfaceHeatFlowDensity(
-        //             diameterIn,
-        //             temperatureIn,
-        //             isIndoor,
-        //             hours,
-        //             isFlat,
-        //             region
-        //         ).toFixed(4)
-        //     );
-        // }
         if ($temperatureIn.val() && diameterIn) {
             $density.attr(
                 "placeholder",
@@ -214,7 +200,7 @@ $(function () {
             $diameter_out.addClass("error");
         }
 
-        if (isNaN(temperatureIn) || !$temperatureIn.val()) {
+        if (!$temperatureIn.val()) {
             $temperatureIn.addClass("error");
         }
 
@@ -235,7 +221,6 @@ $(function () {
                 isIndoor,
                 isFlat,
                 isVertical,
-                region,
                 hours,
                 emission
             );
