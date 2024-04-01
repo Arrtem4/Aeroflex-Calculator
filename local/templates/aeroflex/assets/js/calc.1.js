@@ -21,8 +21,10 @@ $(function () {
 
     $(".calc_test input, .calc_test select").on("change", function () {
         $(this).removeClass("error");
-        $(window).trigger("calc_changes");
+        // $(window).trigger("calc_changes");
+        $(".calc__result").removeClass("active");
     });
+    let indoorState = "close";
 
     $('[name="diameter_type"]').on("change", function () {
         $("#diameter option").prop("disabled", true);
@@ -79,35 +81,100 @@ $(function () {
         }
     });
 
-    $(window).on("calc_changes", function () {
-        let $calc = $(".calc_test"),
-            $region_select = $calc
-                .find('[name="region"]')
-                .closest(".calc__select"),
-            $region = $calc.find('[name="region"] option:selected'),
-            indoor = $calc.find('input[name="indoor"]:checked').val(),
-            $temperatureOut = $calc.find(".temperature_out"),
-            hours = $calc.find('input[name="hours"]:checked').val();
+    $('[name="region"]').on("change", function () {
+        if (indoorState === "open") {
+            let $calc = $(".calc_test"),
+                $region = $calc.find('[name="region"] option:selected'),
+                hours = $calc.find('input[name="hours"]:checked').val();
 
-        $calc.find(".calc__result").removeClass("active");
-
-        if (isNaN(parseFloat($region.data("temperature")))) {
-            $region_select.addClass("error");
-        } else {
-            $region_select.removeClass("error");
-        }
-
-        $temperatureOut.prop("readonly", true);
-        $temperatureOut.val(
-            hours === "heat"
-                ? $region.data("heat")
-                : $region.data("temperature")
-        );
-        if (indoor === "close") {
-            $temperatureOut.val(20);
-            // $temperatureOut.prop("readonly", false);
+            $(".temperature_out").val(
+                parseFloat(
+                    hours === "heat"
+                        ? $region.data("heat").replace(/,/, ".")
+                        : $region.data("temperature").replace(/,/, ".")
+                )
+            );
         }
     });
+
+    $('input[name="hours"]').on("change", function () {
+        if (indoorState === "open") {
+            let $calc = $(".calc_test"),
+                $region = $calc.find('[name="region"] option:selected'),
+                hours = $calc.find('input[name="hours"]:checked').val();
+
+            $(".temperature_out").val(
+                parseFloat(
+                    hours === "heat"
+                        ? $region.data("heat").replace(/,/, ".")
+                        : $region.data("temperature").replace(/,/, ".")
+                )
+            );
+        }
+    });
+
+    $('[name="indoor"]').on("change", function () {
+        if ($(this).val() === "open") {
+            indoorState = "open";
+            let $calc = $(".calc_test"),
+                $region = $calc.find('[name="region"] option:selected'),
+                hours = $calc.find('input[name="hours"]:checked').val();
+            $(".temperature_out")
+                .prop("readonly", true)
+                .val(
+                    parseFloat(
+                        hours === "heat"
+                            ? $region.data("heat").replace(/,/, ".")
+                            : $region.data("temperature").replace(/,/, ".")
+                    )
+                );
+        }
+        if ($(this).val() === "close") {
+            indoorState = "close";
+            $(".temperature_out").prop("readonly", false).val(20);
+        }
+        if ($(this).val() === "tunnel") {
+            indoorState = "tunnel";
+            $(".temperature_out").prop("readonly", false).val(40);
+        }
+    });
+
+    // $(window).on("calc_changes", function () {
+    //     let $calc = $(".calc_test"),
+    //         $region_select = $calc
+    //             .find('[name="region"]')
+    //             .closest(".calc__select"),
+    //         $region = $calc.find('[name="region"] option:selected'),
+    //         indoor = $calc.find('input[name="indoor"]:checked').val(),
+    //         $temperatureOut = $calc.find(".temperature_out"),
+    //         hours = $calc.find('input[name="hours"]:checked').val();
+
+    //     $calc.find(".calc__result").removeClass("active");
+
+    //     if (isNaN(parseFloat($region.data("temperature")))) {
+    //         $region_select.addClass("error");
+    //     } else {
+    //         $region_select.removeClass("error");
+    //     }
+
+    //     $temperatureOut.prop("readonly", true);
+    //     let rty = parseFloat(
+    //         hours === "heat"
+    //             ? $region.data("heat").replace(/,/, ".")
+    //             : $region.data("temperature").replace(/,/, ".")
+    //     );
+
+    //     console.log(rty);
+    //     // $temperatureOut.val(
+    //     //     hours === "heat"
+    //     //         ? $region.data("heat")
+    //     //         : $region.data("temperature")
+    //     // );
+    //     if (indoor === "close") {
+    //         $temperatureOut.val(20);
+    //         // $temperatureOut.prop("readonly", false);
+    //     }
+    // });
 
     $(".calc_test ._result").on("click", function () {
         let $calc = $(this).closest(".calc_test"),
@@ -132,28 +199,36 @@ $(function () {
         $heat_coefficient.attr("placeholder", "");
         $density.attr("placeholder", "");
 
-        if (isNaN(parseFloat($region.data("heat")))) {
-            $region.closest(".calc__select").addClass("error");
-            return;
-        }
+        // if (isNaN(parseFloat($region.data("heat")))) {
+        //     $region.closest(".calc__select").addClass("error");
+        //     return;
+        // }
 
         // Main
         const material = parseInt($material.val(), 10),
             diameterIn = parseFloat($diameter_in.val().replace(/,/, ".")),
             diameterOut = parseFloat($diameter_out.val().replace(/,/, ".")),
             temperatureIn = +$temperatureIn.val(),
-            temperatureOut = parseFloat(
-                $temperatureOut.val().replace(/,/, ".")
-            ),
-            isIndoor = $indoor.val() === "close",
+            // temperatureOut = parseFloat(
+            //     $temperatureOut.val().replace(/,/, ".")
+            // ),
+            temperatureOut = +$temperatureOut.val(),
+            isIndoor = $indoor.val() === "close" || $indoor.val() === "tunnel",
             isFlat = $flat.val() === "flat",
             isVertical = $position.val() === "vertical",
-            region = $region.data("type"),
             hours =
                 $hours.val() === "heat"
                     ? parseFloat($region.data("heat_days")) * 24
                     : parseFloat($hours.val()),
             emission = parseInt($pipe.val(), 10);
+        console.log(
+            temperatureOut,
+            isIndoor,
+            emission,
+            isFlat,
+            isVertical,
+            hours
+        );
 
         AeroflexCalc.init();
 
@@ -179,20 +254,6 @@ $(function () {
             heat_coefficient,
             density,
         });
-
-        // if ((temperatureIn || temperatureIn === 0) && diameterIn) {
-        //     $density.attr(
-        //         "placeholder",
-        //         AeroflexCalc.getSurfaceHeatFlowDensity(
-        //             diameterIn,
-        //             temperatureIn,
-        //             isIndoor,
-        //             hours,
-        //             isFlat,
-        //             region
-        //         ).toFixed(4)
-        //     );
-        // }
         if ($temperatureIn.val() && diameterIn) {
             $density.attr(
                 "placeholder",
@@ -214,7 +275,7 @@ $(function () {
             $diameter_out.addClass("error");
         }
 
-        if (isNaN(temperatureIn) || !$temperatureIn.val()) {
+        if (!$temperatureIn.val()) {
             $temperatureIn.addClass("error");
         }
 
@@ -235,7 +296,6 @@ $(function () {
                 isIndoor,
                 isFlat,
                 isVertical,
-                region,
                 hours,
                 emission
             );
