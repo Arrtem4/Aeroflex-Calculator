@@ -25,15 +25,12 @@ $(function () {
     $(".calc_test input, .calc_test select").on("change", function () {
         $(this).removeClass("error");
         $(".calc__result").removeClass("active");
-        $(window).trigger("calc_changes");
+        // $(window).trigger("calc_changes");
     });
 
-    $(`[name="region"], [name="indoor"], [name="hours"]`).on(
-        "change",
-        function () {
-            $(window).trigger("calc_changes");
-        }
-    );
+    $(`[name="region"], [name="indoor"]`).on("change", function () {
+        $(window).trigger("calc_changes");
+    });
 
     $('[name="diameter_type"]').on("change", function () {
         $("#diameter option").prop("disabled", true);
@@ -97,8 +94,7 @@ $(function () {
                 .closest(".calc__select"),
             $region = $calc.find('[name="region"] option:selected'),
             indoor = $calc.find('input[name="indoor"]:checked').val(),
-            $temperatureOut = $calc.find(".temperature_out"),
-            hours = $calc.find('input[name="hours"]:checked').val();
+            $temperatureOut = $calc.find(".temperature_out");
 
         if (isNaN(parseFloat($region.data("temperature")))) {
             $region_select.addClass("error");
@@ -107,15 +103,10 @@ $(function () {
         }
 
         if (indoor === "open") {
-            let numHeat = "" + $region.data("heat");
             let numTemp = "" + $region.data("temperature");
             $temperatureOut
                 .prop("readonly", true)
-                .val(
-                    hours === "heat"
-                        ? +numHeat.replace(/,/, ".")
-                        : +numTemp.replace(/,/, ".")
-                );
+                .val(+numTemp.replace(/,/, "."));
         }
         if (indoor === "close") {
             $temperatureOut.val(20).prop("readonly", false);
@@ -156,11 +147,12 @@ $(function () {
             isIndoor = $indoor.val() === "close" || $indoor.val() === "tunnel",
             isFlat = $flat.val() === "flat",
             isVertical = $position.val() === "vertical",
+            emission = parseInt($pipe.val(), 10),
             hours =
                 $hours.val() === "heat"
-                    ? parseFloat($region.data("heat_days")) * 24
-                    : parseFloat($hours.val()),
-            emission = parseInt($pipe.val(), 10);
+                    ? +$region.data("heat_days") * 24
+                    : +$hours.val();
+
         console.log(
             temperatureOut,
             isIndoor,
@@ -174,40 +166,17 @@ $(function () {
 
         AeroflexCalc.init();
 
-        if ($temperatureIn.val() && diameterIn) {
-            $heat_coefficient.attr(
-                "placeholder",
-                AeroflexCalc.getThermalLossCoefficient_4(
-                    temperatureIn,
-                    isVertical,
-                    isIndoor,
-                    emission
-                )
-            );
-        }
-
         // Extended
-        const heat_coefficient = parseFloat(
-                $heat_coefficient.val().replace(/,/, ".")
-            ),
-            density = parseFloat($density.val().replace(/,/, "."));
+        // const heat_coefficient = parseFloat(
+        //         $heat_coefficient.val().replace(/,/, ".")
 
-        AeroflexCalc.init({
-            heat_coefficient,
-            density,
-        });
-        if ($temperatureIn.val() && diameterIn) {
-            $density.attr(
-                "placeholder",
-                AeroflexCalc.getSurfaceHeatFlowDensity_2(
-                    diameterIn,
-                    temperatureIn,
-                    isIndoor,
-                    hours,
-                    isFlat
-                ).toFixed(4)
-            );
-        }
+        //     ),
+        //     density = parseFloat($density.val().replace(/,/, "."));
+        //     console.log($heat_coefficient.val(),$density.val())
+        // AeroflexCalc.init({
+        //     heat_coefficient,
+        //     density,
+        // });
 
         if (isNaN(diameterIn) || diameterIn < 1) {
             $diameter_in.addClass("error");
@@ -229,6 +198,25 @@ $(function () {
             !$calc.find(".error").length &&
             typeof AeroflexCalc !== "undefined"
         ) {
+            $heat_coefficient.attr(
+                "placeholder",
+                AeroflexCalc.getThermalLossCoefficient_4(
+                    temperatureIn,
+                    isVertical,
+                    isIndoor,
+                    emission
+                )
+            );
+            $density.attr(
+                "placeholder",
+                AeroflexCalc.getSurfaceHeatFlowDensity_2(
+                    diameterIn,
+                    temperatureIn,
+                    isIndoor,
+                    hours,
+                    isFlat
+                ).toFixed(4)
+            );
             let depth = AeroflexCalc.getSurfaceHeatFlowDepth(
                 material,
                 diameterIn,
