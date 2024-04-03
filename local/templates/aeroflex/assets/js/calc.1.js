@@ -215,7 +215,7 @@ $(function () {
                     isIndoor,
                     hours,
                     isFlat
-                ).toFixed(4)
+                )
             );
             let depth = AeroflexCalc.getSurfaceHeatFlowDepth(
                 material,
