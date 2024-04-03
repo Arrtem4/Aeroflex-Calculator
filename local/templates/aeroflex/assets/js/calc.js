@@ -1118,7 +1118,14 @@ var AeroflexCalc = {
         //                 thermalResistance)
         //     ) * 1000
         // );
-        console.log(thermalConductivity,loss,temperatureIn,temperatureOut,density,thermalResistance)
+        console.log(
+            thermalConductivity,
+            loss,
+            temperatureIn,
+            temperatureOut,
+            density,
+            thermalResistance
+        );
         return (
             thermalConductivity *
             ((loss * (temperatureIn - temperatureOut)) / density -
