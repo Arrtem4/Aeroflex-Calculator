@@ -153,17 +153,6 @@ $(function () {
                     ? +$region.data("heat_days") * 24
                     : +$hours.val();
 
-        console.log(
-            temperatureOut,
-            isIndoor,
-            emission,
-            isFlat,
-            isVertical,
-            hours,
-            diameterIn,
-            diameterOut
-        );
-
         AeroflexCalc.init();
 
         // Extended
@@ -172,7 +161,6 @@ $(function () {
 
         //     ),
         //     density = parseFloat($density.val().replace(/,/, "."));
-        //     console.log($heat_coefficient.val(),$density.val())
         // AeroflexCalc.init({
         //     heat_coefficient,
         //     density,
