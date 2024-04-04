@@ -1062,6 +1062,8 @@ var AeroflexCalc = {
         hours,
         emission
     ) {
+        let a = isIndoor ? "indoor" : "close";
+        let b = diameter / 1000;
         const loss = this.getAdditionalLossFactor(diameter),
             thermalConductivity = this.getThermalConductivityByMaterial(
                 material,
@@ -1073,30 +1075,13 @@ var AeroflexCalc = {
                 diameter,
                 temperatureIn
             )
-                ? this.getThermalResistance(
-                      diameter,
-                      temperatureIn,
-                      isIndoor,
-                      emission
-                  )
+                ? this.RHLMethodDetermination(a, emission, temperatureIn, b)
                 : this.getThermalResistanceByMaterial(
                       temperatureIn,
                       isVertical,
                       isIndoor,
                       emission
                   );
-
-        console.log(
-            material,
-            diameter,
-            temperatureIn,
-            temperatureOut,
-            isIndoor,
-            isFlat,
-            isVertical,
-            hours,
-            emission
-        );
         let density = this.getSurfaceHeatFlowDensity_2(
             diameter,
             temperatureIn,
@@ -1118,14 +1103,7 @@ var AeroflexCalc = {
         //                 thermalResistance)
         //     ) * 1000
         // );
-        console.log(
-            thermalConductivity,
-            loss,
-            temperatureIn,
-            temperatureOut,
-            density,
-            thermalResistance
-        );
+
         return (
             thermalConductivity *
             ((loss * (temperatureIn - temperatureOut)) / density -
