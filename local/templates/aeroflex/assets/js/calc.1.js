@@ -67,11 +67,22 @@ $(function () {
 
         if ($(this).val() === "flat") {
             $calc.find('[name="diameter"]').prop("disabled", true);
-            $calc.find('[name="diameter_in"]').prop("readonly", true);
-            $calc.find('[name="diameter_out"]').prop("readonly", true);
+            $calc
+                .find('[name="diameter_in"]')
+                .prop("readonly", true)
+                .prop("disabled", true)
+                .removeClass("error");
+            $calc
+                .find('[name="diameter_out"]')
+                .prop("readonly", true)
+                .prop("disabled", true)
+                .removeClass("error");
         } else {
             $calc.find('[name="diameter"]').prop("disabled", false);
             $('[name="diameter"]').trigger("change");
+            $calc.find('[name="diameter_in"]').prop("disabled", false);
+
+            $calc.find('[name="diameter_out"]').prop("disabled", false);
         }
     });
 
@@ -166,11 +177,11 @@ $(function () {
         //     density,
         // });
 
-        if (isNaN(diameterIn) || diameterIn < 1) {
+        if ((isNaN(diameterIn) || diameterIn < 1) && !isFlat) {
             $diameter_in.addClass("error");
         }
 
-        if (isNaN(diameterOut) || diameterOut < 2) {
+        if ((isNaN(diameterOut) || diameterOut < 2) && !isFlat) {
             $diameter_out.addClass("error");
         }
 
