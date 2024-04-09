@@ -891,10 +891,11 @@ var AeroflexCalc = {
         temperatureIn,
         isVertical,
         isIndoor,
-        emission
+        emission,
+        isFlat = false
     ) {
         if (temperatureIn >= 20) {
-            if (isVertical) {
+            if (isVertical || isFlat) {
                 if (isIndoor) {
                     if (emission === 0) {
                         return 7;
@@ -942,7 +943,8 @@ var AeroflexCalc = {
         temperatureIn,
         isVertical,
         isIndoor,
-        emission
+        emission,
+        isFlat
     ) {
         return (
             1.0 /
@@ -950,7 +952,8 @@ var AeroflexCalc = {
                 temperatureIn,
                 isVertical,
                 isIndoor,
-                emission
+                emission,
+                isFlat
             )
         );
     },
@@ -1080,7 +1083,8 @@ var AeroflexCalc = {
                       temperatureIn,
                       isVertical,
                       isIndoor,
-                      emission
+                      emission,
+                      isFlat
                   );
         let density = this.getSurfaceHeatFlowDensity_2(
             diameter,

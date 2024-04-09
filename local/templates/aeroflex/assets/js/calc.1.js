@@ -192,7 +192,8 @@ $(function () {
                     temperatureIn,
                     isVertical,
                     isIndoor,
-                    emission
+                    emission,
+                    isFlat
                 )
             );
             $density.attr(
