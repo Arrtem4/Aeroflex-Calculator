@@ -25,7 +25,6 @@ $(function () {
     $(".calc_test input, .calc_test select").on("change", function () {
         $(this).removeClass("error");
         $(".calc__result").removeClass("active");
-        // $(window).trigger("calc_changes");
     });
 
     $(`[name="region"], [name="indoor"]`).on("change", function () {
@@ -45,7 +44,6 @@ $(function () {
 
     $('[name="diameter"]').on("change", function () {
         const $calc = $(".calc");
-
         if ($(this).val()) {
             $calc.find('[name="diameter_in"]').val($(this).val());
             $calc
@@ -64,7 +62,6 @@ $(function () {
 
     $('[name="flat"]').on("change", function () {
         const $calc = $(".calc");
-
         if ($(this).val() === "flat") {
             $calc.find('[name="diameter"]').prop("disabled", true);
             $calc
@@ -149,7 +146,6 @@ $(function () {
         $heat_coefficient.attr("placeholder", "");
         $density.attr("placeholder", "");
 
-        // Main
         const material = parseInt($material.val(), 10),
             diameterIn = parseFloat($diameter_in.val().replace(/,/, ".")),
             diameterOut = parseFloat($diameter_out.val().replace(/,/, ".")),
@@ -166,33 +162,18 @@ $(function () {
 
         AeroflexCalc.init();
 
-        // Extended
-        // const heat_coefficient = parseFloat(
-        //         $heat_coefficient.val().replace(/,/, ".")
-
-        //     ),
-        //     density = parseFloat($density.val().replace(/,/, "."));
-        // AeroflexCalc.init({
-        //     heat_coefficient,
-        //     density,
-        // });
-
         if ((isNaN(diameterIn) || diameterIn < 1) && !isFlat) {
             $diameter_in.addClass("error");
         }
-
         if ((isNaN(diameterOut) || diameterOut < 2) && !isFlat) {
             $diameter_out.addClass("error");
         }
-
         if (!$temperatureIn.val()) {
             $temperatureIn.addClass("error");
         }
-
         if (isNaN(temperatureOut)) {
             $temperatureOut.addClass("error");
         }
-
         if (
             !$calc.find(".error").length &&
             typeof AeroflexCalc !== "undefined"
