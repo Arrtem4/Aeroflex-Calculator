@@ -760,7 +760,8 @@ var AeroflexCalc = {
         return isFlat || diameter >= 2000;
     },
     isSurfaced_2: function (isFlat, diameter, temperatureIn) {
-        if (temperatureIn > 0) {
+        if (temperatureIn >= 20) {
+            // правки new 10.04 temperatureIn > 0
             return isFlat || diameter > 1400;
         } else {
             return isFlat || diameter > 500;
@@ -950,7 +951,7 @@ var AeroflexCalc = {
             1.0 /
             this.getThermalLossCoefficient_4(
                 temperatureIn,
-                isVertical,
+                false,
                 isIndoor,
                 emission,
                 isFlat

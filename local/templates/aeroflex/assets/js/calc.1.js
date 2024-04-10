@@ -18,6 +18,8 @@ $(function () {
         $("#diameter_custom").prop("disabled", false);
         $("#diameter_custom option").prop("disabled", false);
     }
+    let flat = 0;
+
     $(window).on("load", function () {
         $(window).trigger("calc_changes");
     });
@@ -62,24 +64,45 @@ $(function () {
 
     $('[name="flat"]').on("change", function () {
         const $calc = $(".calc");
-        if ($(this).val() === "flat") {
-            $calc.find('[name="diameter"]').prop("disabled", true);
-            $calc
-                .find('[name="diameter_in"]')
-                .prop("readonly", true)
-                .prop("disabled", true)
-                .removeClass("error");
-            $calc
-                .find('[name="diameter_out"]')
-                .prop("readonly", true)
-                .prop("disabled", true)
-                .removeClass("error");
-        } else {
-            $calc.find('[name="diameter"]').prop("disabled", false);
+        if ($(this).val() === "1") {
+            flat = 1;
             $('[name="diameter"]').trigger("change");
-            $calc.find('[name="diameter_in"]').prop("disabled", false);
-
-            $calc.find('[name="diameter_out"]').prop("disabled", false);
+            $calc
+                .find(
+                    '[name="diameter"], [name="diameter_in"], [name="diameter_out"]'
+                )
+                .removeClass("error");
+            $calc.find(".for-flat-hidden").css("display", "flex");
+        }
+        if ($(this).val() === "2") {
+            flat = 2;
+            $calc
+                .find(
+                    '[name="diameter"], [name="diameter_in"], [name="diameter_out"]'
+                )
+                .removeClass("error");
+            $calc.find(".for-flat-hidden").css("display", "none");
+            $('[name="diameter"]').trigger("change");
+            // $calc
+            //     .find('[name="diameter_in"]')
+            //     .prop("readonly", true)
+            //     .prop("disabled", true)
+            //     .removeClass("error");
+            // $calc
+            //     .find('[name="diameter_out"]')
+            //     .prop("readonly", true)
+            //     .prop("disabled", true)
+            //     .removeClass("error");
+        }
+        if ($(this).val() === "3") {
+            flat = 3;
+            $('[name="diameter"]').trigger("change");
+            $calc
+                .find(
+                    '[name="diameter"], [name="diameter_in"], [name="diameter_out"]'
+                )
+                .removeClass("error");
+            $calc.find(".for-flat-hidden").css("display", "flex");
         }
     });
 
@@ -127,10 +150,8 @@ $(function () {
     $(".calc_test ._result").on("click", function () {
         let $calc = $(this).closest(".calc_test"),
             $region = $calc.find('[name="region"] option:selected'),
-            $position = $calc.find('[name="position"]:checked'),
             $indoor = $calc.find('[name="indoor"]:checked'),
             $hours = $calc.find('[name="hours"]:checked'),
-            $flat = $calc.find('[name="flat"]:checked'),
             $diameter_in = $calc.find('[name="diameter_in"]'),
             $diameter_out = $calc.find('[name="diameter_out"]'),
             $temperatureIn = $calc.find(".temperature_in"),
@@ -152,8 +173,7 @@ $(function () {
             temperatureIn = +$temperatureIn.val(),
             temperatureOut = +$temperatureOut.val(),
             isIndoor = $indoor.val() === "close" || $indoor.val() === "tunnel",
-            isFlat = $flat.val() === "flat",
-            isVertical = $position.val() === "vertical",
+            isFlat = flat === 2,
             emission = parseInt($pipe.val(), 10),
             hours =
                 $hours.val() === "heat"
@@ -182,7 +202,6 @@ $(function () {
                 "placeholder",
                 AeroflexCalc.getThermalLossCoefficient_4(
                     temperatureIn,
-                    isVertical,
                     isIndoor,
                     emission,
                     isFlat
@@ -206,7 +225,6 @@ $(function () {
                 temperatureOut,
                 isIndoor,
                 isFlat,
-                isVertical,
                 hours,
                 emission
             );

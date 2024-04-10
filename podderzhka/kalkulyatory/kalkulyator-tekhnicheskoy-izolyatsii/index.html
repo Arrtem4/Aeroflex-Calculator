@@ -1772,20 +1772,6 @@
               </div>
 
               <div class="calc__row">
-                <div class="calc__col"><span>Размещение</span></div>
-                <div class="calc__col">
-                  <div class="radioButton">
-                    <input type="radio" id="position_1" checked="checked" name="position" value="horizontal" required>
-                    <label for="position_1"><span>Горизонтальное</span></label>
-                  </div>
-                  <div class="radioButton">
-                    <input type="radio" id="position_2" name="position" value="vertical">
-                    <label for="position_2"><span>Вертикальное</span></label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="calc__row">
                 <div class="calc__col"><span>Расположение изолируемого объекта</span></div>
                 <div class="calc__col">
                   <div class="radioButton">
@@ -1804,38 +1790,24 @@
               </div>
 
               <div class="calc__row">
-                <div class="calc__col"><span>Режим работы</span></div>
-                <div class="calc__col">
-                  <div class="radioButton">
-                    <input type="radio" id="hours_heat" checked="checked" name="hours" value="heat">
-                    <label for="hours_heat"><span>В отопительный период</span></label>
-                  </div>
-                  <div class="radioButton">
-                    <input type="radio" id="hours_not_more_5000" checked="checked" name="hours" value="1000">
-                    <label for="hours_not_more_5000"><span>5000 часов и менее</span></label>
-                  </div>
-                  <div class="radioButton">
-                    <input type="radio" id="hours_more_5000" name="hours" value="10000">
-                    <label for="hours_more_5000"><span>Более 5000 часов</span></label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="calc__row">
                 <div class="calc__col"><span>Изолируемая поверхность</span></div>
                 <div class="calc__col">
                   <div class="radioButton">
-                    <input type="radio" id="flat_true" checked="checked" name="flat" value="flat">
-                    <label for="flat_true"><span>Плоская</span></label>
+                    <input type="radio" id="flat_1" checked="checked" name="flat" value="1">
+                    <label for="flat_1"><span>Технологические трубопроводы</span></label>
                   </div>
                   <div class="radioButton">
-                    <input type="radio" id="flat_false" checked="checked" name="flat" value="round">
-                    <label for="flat_false"><span>Криволинейная</span></label>
+                    <input type="radio" id="flat_2" name="flat" value="2">
+                    <label for="flat_2"><span>Оборудование, плоская стенка</span></label>
+                  </div>
+                  <div class="radioButton">
+                    <input type="radio" id="flat_3" name="flat" value="3">
+                    <label for="flat_3"><span>Тепловые сети</span></label>
                   </div>
                 </div>
               </div>
 
-              <div class="calc__row">
+              <div class="calc__row for-flat-hidden">
                 <div class="calc__col"><span>Тип и размеры трубопровода, мм</span></div>
                 <div class="calc__col">
                   <div class="calc__radio">
@@ -2142,13 +2114,31 @@
               </div>
 
               <div class="calc__row">
+                <div class="calc__col"><span>Режим работы</span></div>
+                <div class="calc__col">
+                  <div class="radioButton">
+                    <input type="radio" id="hours_heat" checked="checked" name="hours" value="heat">
+                    <label for="hours_heat"><span>В отопительный период</span></label>
+                  </div>
+                  <div class="radioButton">
+                    <input type="radio" id="hours_not_more_5000" checked="checked" name="hours" value="1000">
+                    <label for="hours_not_more_5000"><span>5000 часов и менее</span></label>
+                  </div>
+                  <div class="radioButton">
+                    <input type="radio" id="hours_more_5000" name="hours" value="10000">
+                    <label for="hours_more_5000"><span>Более 5000 часов</span></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row for-flat-hidden">
                 <div class="calc__col"><span>Внутренний диаметр трубопровода, мм</span></div>
                 <div class="calc__col">
                   <input type="text" name="diameter_in" placeholder="50" class="input _inputAttr">
                 </div>
               </div>
 
-              <div class="calc__row">
+              <div class="calc__row for-flat-hidden">
                 <div class="calc__col"><span>Внешний диаметр трубопровода, мм</span></div>
                 <div class="calc__col">
                   <input type="text" name="diameter_out" placeholder="60" class="input _inputAttr">
