@@ -969,7 +969,7 @@ var AeroflexCalc = {
             1.0 /
             this.getThermalLossCoefficient_4(
                 temperatureIn,
-                false,
+                true,
                 isIndoor,
                 emission,
                 isFlat
