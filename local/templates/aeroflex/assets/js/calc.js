@@ -760,7 +760,8 @@ var AeroflexCalc = {
         return isFlat || diameter >= 2000;
     },
     isSurfaced_2: function (isFlat, diameter, temperatureIn) {
-        if (temperatureIn > 0) {
+        if (temperatureIn >= 20) {
+            // правки new 10.04 temperatureIn > 0
             return isFlat || diameter > 1400;
         } else {
             return isFlat || diameter > 500;
@@ -950,7 +951,7 @@ var AeroflexCalc = {
             1.0 /
             this.getThermalLossCoefficient_4(
                 temperatureIn,
-                isVertical,
+                false,
                 isIndoor,
                 emission,
                 isFlat
@@ -1096,17 +1097,6 @@ var AeroflexCalc = {
         if (temperatureIn <= 0) {
             density = 0 - density;
         }
-        // if (Number.isFinite(this.settings.density)) {
-        //     density = this.settings.density;
-        // }
-        // return (
-        //     Math.max(
-        //         0,
-        //         thermalConductivity *
-        //             ((loss * (temperatureIn - temperatureOut)) / density -
-        //                 thermalResistance)
-        //     ) * 1000
-        // );
 
         return (
             thermalConductivity *
@@ -1790,14 +1780,6 @@ var AeroflexCalc = {
                 ).toFixed(4)
             ) *
             (temperatureIn - surfaceInsulationTemperature);
-        // const bottomArg =
-        //     this.getThermalLossCoefficient(
-        //         isFlat,
-        //         isVertical,
-        //         isIndoor,
-        //         emission
-        //     ) *
-        //     (surfaceInsulationTemperature - temperatureOut);
         const bottomArg =
             this.getThermalLossCoefficient_1(
                 temperatureIn,
@@ -1828,13 +1810,6 @@ var AeroflexCalc = {
             (surfaceInsulationTemperature - temperatureOut) /
             1000;
         let k = Number(density.toFixed(3));
-
-        // const thermalLossCoefficient = this.getThermalLossCoefficient(
-        //     isFlat,
-        //     isVertical,
-        //     isIndoor,
-        //     emission
-        // );
         const thermalLossCoefficient = this.getThermalLossCoefficient_1(
             temperatureIn,
             isVertical,
@@ -1842,7 +1817,6 @@ var AeroflexCalc = {
             isIndoor,
             emission
         );
-
         while (true) {
             const LnDiameter = Math.log(
                 (diameterOut / 1000 + 2 * k) / (diameterOut / 1000)
