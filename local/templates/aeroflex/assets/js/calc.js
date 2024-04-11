@@ -1062,7 +1062,6 @@ var AeroflexCalc = {
         temperatureOut,
         isIndoor,
         isFlat,
-        isVertical,
         hours,
         emission
     ) {
@@ -1087,6 +1086,7 @@ var AeroflexCalc = {
                       emission,
                       isFlat
                   );
+        console.log(!this.isSurfaced_2(isFlat, diameter, temperatureIn));
         let density = this.getSurfaceHeatFlowDensity_2(
             diameter,
             temperatureIn,
@@ -1257,8 +1257,6 @@ var AeroflexCalc = {
         temperatureOut,
         isIndoor,
         isFlat,
-        isVertical,
-        region,
         hours,
         emission
     ) {
@@ -1269,8 +1267,6 @@ var AeroflexCalc = {
                 temperatureOut,
                 isIndoor,
                 isFlat,
-                isVertical,
-                region,
                 hours,
                 emission
             ),
@@ -1603,8 +1599,6 @@ var AeroflexCalc = {
         temperatureOut,
         isIndoor,
         isFlat,
-        isVertical,
-        region,
         hours,
         emission
     ) {
@@ -1616,8 +1610,6 @@ var AeroflexCalc = {
                   temperatureOut,
                   isIndoor,
                   isFlat,
-                  isVertical,
-                  region,
                   hours,
                   emission
               )
@@ -1629,8 +1621,6 @@ var AeroflexCalc = {
                   temperatureOut,
                   isIndoor,
                   isFlat,
-                  isVertical,
-                  region,
                   hours,
                   emission
               );
