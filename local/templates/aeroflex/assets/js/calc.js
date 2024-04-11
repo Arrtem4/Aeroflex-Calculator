@@ -951,6 +951,24 @@ var AeroflexCalc = {
             1.0 /
             this.getThermalLossCoefficient_4(
                 temperatureIn,
+                isVertical,
+                isIndoor,
+                emission,
+                isFlat
+            )
+        );
+    },
+
+    getThermalResistanceByMaterial_2: function (
+        temperatureIn,
+        isIndoor,
+        emission,
+        isFlat
+    ) {
+        return (
+            1.0 /
+            this.getThermalLossCoefficient_4(
+                temperatureIn,
                 false,
                 isIndoor,
                 emission,
@@ -1079,9 +1097,8 @@ var AeroflexCalc = {
                 temperatureIn
             )
                 ? this.RHLMethodDetermination(a, emission, temperatureIn, b)
-                : this.getThermalResistanceByMaterial(
+                : this.getThermalResistanceByMaterial_2(
                       temperatureIn,
-                      isVertical,
                       isIndoor,
                       emission,
                       isFlat
