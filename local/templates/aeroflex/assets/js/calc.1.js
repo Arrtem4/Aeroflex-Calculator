@@ -222,6 +222,7 @@ $(function () {
                 "placeholder",
                 AeroflexCalc.getThermalLossCoefficient_4(
                     temperatureIn,
+                    true,
                     isIndoor,
                     emission,
                     isFlat
