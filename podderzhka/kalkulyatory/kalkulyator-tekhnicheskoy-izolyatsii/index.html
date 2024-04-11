@@ -2113,20 +2113,30 @@
                 </div>
               </div>
 
-              <div class="calc__row">
+              <div class="calc__row mode-1">
                 <div class="calc__col"><span>Режим работы</span></div>
                 <div class="calc__col">
                   <div class="radioButton">
-                    <input type="radio" id="hours_heat" checked="checked" name="hours" value="heat">
-                    <label for="hours_heat"><span>В отопительный период</span></label>
-                  </div>
-                  <div class="radioButton">
                     <input type="radio" id="hours_not_more_5000" checked="checked" name="hours" value="1000">
-                    <label for="hours_not_more_5000"><span>5000 часов и менее</span></label>
+                    <label for="hours_not_more_5000"><span>Менее 5000 часов</span></label>
                   </div>
                   <div class="radioButton">
                     <input type="radio" id="hours_more_5000" name="hours" value="10000">
                     <label for="hours_more_5000"><span>Более 5000 часов</span></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc__row mode-2">
+                <div class="calc__col"><span>Режим работы</span></div>
+                <div class="calc__col">
+                  <div class="radioButton">
+                    <input type="radio" id="heat-hours" checked="checked" name="hours-heat" value="heat">
+                    <label for="heat-hours"><span>В отопительный период</span></label>
+                  </div>
+                  <div class="radioButton">
+                    <input type="radio" id="heat-everyday" name="hours-heat" value="10000">
+                    <label for="heat-everyday"><span>Круглогодично</span></label>
                   </div>
                 </div>
               </div>

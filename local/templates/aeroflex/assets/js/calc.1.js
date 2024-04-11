@@ -22,6 +22,10 @@ $(function () {
 
     $(window).on("load", function () {
         $(window).trigger("calc_changes");
+        if (flat !== 2) {
+            const $calc = $(".calc");
+            $calc.find(".mode-2").css("display", "none");
+        }
     });
 
     $(".calc_test input, .calc_test select").on("change", function () {
@@ -73,6 +77,8 @@ $(function () {
                 )
                 .removeClass("error");
             $calc.find(".for-flat-hidden").css("display", "flex");
+            $calc.find(".mode-2").css("display", "none");
+            $calc.find(".mode-1").css("display", "flex");
         }
         if ($(this).val() === "2") {
             flat = 2;
@@ -82,17 +88,9 @@ $(function () {
                 )
                 .removeClass("error");
             $calc.find(".for-flat-hidden").css("display", "none");
+            $calc.find(".mode-1").css("display", "flex");
+            $calc.find(".mode-2").css("display", "none");
             $('[name="diameter"]').trigger("change");
-            // $calc
-            //     .find('[name="diameter_in"]')
-            //     .prop("readonly", true)
-            //     .prop("disabled", true)
-            //     .removeClass("error");
-            // $calc
-            //     .find('[name="diameter_out"]')
-            //     .prop("readonly", true)
-            //     .prop("disabled", true)
-            //     .removeClass("error");
         }
         if ($(this).val() === "3") {
             flat = 3;
@@ -103,6 +101,8 @@ $(function () {
                 )
                 .removeClass("error");
             $calc.find(".for-flat-hidden").css("display", "flex");
+            $calc.find(".mode-2").css("display", "flex");
+            $calc.find(".mode-1").css("display", "none");
         }
     });
 
@@ -152,6 +152,7 @@ $(function () {
             $region = $calc.find('[name="region"] option:selected'),
             $indoor = $calc.find('[name="indoor"]:checked'),
             $hours = $calc.find('[name="hours"]:checked'),
+            $hoursHeat = $calc.find('[name="hours-heat"]:checked'),
             $diameter_in = $calc.find('[name="diameter_in"]'),
             $diameter_out = $calc.find('[name="diameter_out"]'),
             $temperatureIn = $calc.find(".temperature_in"),
@@ -176,8 +177,10 @@ $(function () {
             isFlat = flat === 2,
             emission = parseInt($pipe.val(), 10),
             hours =
-                $hours.val() === "heat"
-                    ? +$region.data("heat_days") * 24
+                flat === 3
+                    ? $hoursHeat.val() === "heat"
+                        ? +$region.data("heat_days") * 24
+                        : +$hoursHeat.val()
                     : +$hours.val();
 
         AeroflexCalc.init();
@@ -216,6 +219,17 @@ $(function () {
                     hours,
                     isFlat
                 )
+            );
+            console.log(
+                material,
+                diameterIn,
+                diameterOut,
+                temperatureIn,
+                temperatureOut,
+                isIndoor,
+                isFlat,
+                hours,
+                emission
             );
             let depth = AeroflexCalc.getSurfaceHeatFlowDepth(
                 material,
