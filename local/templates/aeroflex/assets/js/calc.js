@@ -1103,7 +1103,6 @@ var AeroflexCalc = {
                       emission,
                       isFlat
                   );
-        console.log(!this.isSurfaced_2(isFlat, diameter, temperatureIn));
         let density = this.getSurfaceHeatFlowDensity_2(
             diameter,
             temperatureIn,
