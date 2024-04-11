@@ -19,6 +19,11 @@ $(function () {
         $("#diameter_custom option").prop("disabled", false);
     }
 
+    $(window).on("load", function () {
+        const $calc = $(".calc");
+        $calc.find(".temperature_out").val(20);
+    });
+
     $(".calc_test input, .calc_test select").on("change", function () {
         $(this).removeClass("error");
         $(window).trigger("calc_changes");
@@ -83,6 +88,11 @@ $(function () {
             $calc.find('[name="dew-point-temperature"]').val("");
         }
     });
+    $(".temperature_in").on("change", function () {
+        const $calc = $(".calc");
+        $calc.find(".temperature_out").removeClass("error");
+        $(".temperature_out_error").text("");
+    });
 
     $(".temperature_out").on("change", function () {
         const $calc = $(".calc");
@@ -95,6 +105,7 @@ $(function () {
         const temperatureOut = parseFloat(
             $temperatureOut.val().replace(/,/, ".")
         );
+        $(this).removeClass;
 
         if ($(this).val() && $humidityOut.val()) {
             $calc
@@ -226,6 +237,7 @@ $(function () {
             !$calc.find(".error").length &&
             typeof AeroflexCalc !== "undefined"
         ) {
+            console.log(temperatureOut);
             let depth = AeroflexCalc.getInsulationWidthForCondensate(
                 material,
                 dewPointTemperature,
