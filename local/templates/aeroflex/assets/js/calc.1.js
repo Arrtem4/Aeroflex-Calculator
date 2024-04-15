@@ -218,16 +218,16 @@ $(function () {
             !$calc.find(".error").length &&
             typeof AeroflexCalc !== "undefined"
         ) {
-            $heat_coefficient.attr(
-                "placeholder",
-                AeroflexCalc.getThermalLossCoefficient_4(
-                    temperatureIn,
-                    true,
-                    isIndoor,
-                    emission,
-                    isFlat
-                )
-            );
+            // $heat_coefficient.attr(
+            //     "placeholder",
+            //     AeroflexCalc.getThermalLossCoefficient_4(
+            //         temperatureIn,
+            //         true,
+            //         isIndoor,
+            //         emission,
+            //         isFlat
+            //     )
+            // );
             $density.attr(
                 "placeholder",
                 AeroflexCalc.getSurfaceHeatFlowDensity_2(
@@ -237,17 +237,6 @@ $(function () {
                     hours,
                     isFlat
                 )
-            );
-            console.log(
-                material,
-                diameterIn,
-                diameterOut,
-                temperatureIn,
-                temperatureOut,
-                isIndoor,
-                isFlat,
-                hours,
-                emission
             );
             let depth = AeroflexCalc.getSurfaceHeatFlowDepth(
                 material,
