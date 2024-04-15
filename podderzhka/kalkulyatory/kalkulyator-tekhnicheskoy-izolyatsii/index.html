@@ -1794,21 +1794,33 @@
 
               <div class="calc__row">
                 <div class="calc__col"><span>Изолируемая поверхность</span></div>
-                <div class="calc__col">
+                <div class="calc__col" style="gap: 10px; ">
                   <div class="radioButton">
                     <input type="radio" id="flat_1" checked="checked" name="flat" value="1">
-                    <label for="flat_1"><span>Технологические трубопроводы</span></label>
+                    <label class="width-for-flat-style" for="flat_1"><span>Технологические трубопроводы</span></label>
                   </div>
                   <div class="radioButton">
                     <input type="radio" id="flat_2" name="flat" value="2">
-                    <label for="flat_2"><span>Оборудование, плоская стенка</span></label>
+                    <label class="width-for-flat-style" for="flat_2"><span>Оборудование, плоская стенка</span></label>
                   </div>
                   <div class="radioButton">
                     <input type="radio" id="flat_3" name="flat" value="3">
-                    <label for="flat_3"><span>Тепловые сети</span></label>
+                    <label class="width-for-flat-style" for="flat_3"><span>Тепловые сети</span></label>
                   </div>
                 </div>
               </div>
+
+              <style>
+                .width-for-flat-style {
+                  width: 182px !important;
+                }
+
+                @media screen and (max-width: 767px) {
+                  .width-for-flat-style {
+                    width: 160px !important;
+                  }
+                }
+              </style>
 
               <div class="calc__row for-flat-hidden">
                 <div class="calc__col"><span>Тип и размеры трубопровода, мм</span></div>
@@ -2116,6 +2128,20 @@
                 </div>
               </div>
 
+              <div class="calc__row for-flat-hidden">
+                <div class="calc__col"><span>Внутренний диаметр трубопровода, мм</span></div>
+                <div class="calc__col">
+                  <input type="text" name="diameter_in" placeholder="50" class="input _inputAttr">
+                </div>
+              </div>
+
+              <div class="calc__row for-flat-hidden">
+                <div class="calc__col"><span>Внешний диаметр трубопровода, мм</span></div>
+                <div class="calc__col">
+                  <input type="text" name="diameter_out" placeholder="60" class="input _inputAttr">
+                </div>
+              </div>
+
               <div class="calc__row mode-1">
                 <div class="calc__col"><span>Режим работы</span></div>
                 <div class="calc__col">
@@ -2141,20 +2167,6 @@
                     <input type="radio" id="heat-everyday" name="hours-heat" value="10000">
                     <label for="heat-everyday"><span>Круглогодично</span></label>
                   </div>
-                </div>
-              </div>
-
-              <div class="calc__row for-flat-hidden">
-                <div class="calc__col"><span>Внутренний диаметр трубопровода, мм</span></div>
-                <div class="calc__col">
-                  <input type="text" name="diameter_in" placeholder="50" class="input _inputAttr">
-                </div>
-              </div>
-
-              <div class="calc__row for-flat-hidden">
-                <div class="calc__col"><span>Внешний диаметр трубопровода, мм</span></div>
-                <div class="calc__col">
-                  <input type="text" name="diameter_out" placeholder="60" class="input _inputAttr">
                 </div>
               </div>
 
@@ -2208,14 +2220,14 @@
                 </div>
               </div>
 
-              <div class="calc__row">
+              <!-- <div class="calc__row">
                 <div class="calc__col">
                   <span>Коэффициент конвективной теплоотдачи от наружной поверхности, αн, Вт/м<sup>2</sup>·С</span>
                 </div>
                 <div class="calc__col">
                   <input type="text" readonly name="heat_coefficient" placeholder="" class="input" value="">
                 </div>
-              </div>
+              </div> -->
 
               <div class="calc__row">
                 <div class="calc__col">
